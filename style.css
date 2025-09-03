@@ -1,0 +1,30 @@
+/*
+Theme Name: byt3lab Wordpress Theme
+Theme URI: https://127.0.0.1/blog
+Author: byt3lab
+Description: Mon premier thème WordPress
+Version: 1.0
+*/
+
+
+/* Styles de base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    color: #333;
+}
+
+header, footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
