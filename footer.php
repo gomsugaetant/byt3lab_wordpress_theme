@@ -1,7 +1,7 @@
 </main>
 
 <footer>
-    <p>&copy; <?php echo date('Y'); ?> - Mon Thème Perso</p>
+    <p>&copy; <?php echo date('Y'); ?> - byt3lab    </p>
 </footer>
 
 <?php wp_footer(); ?>
