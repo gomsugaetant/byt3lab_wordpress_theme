@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
-<p class="font-beyonders">front-page</p>
-
+<main>
+    <h1>Front Page of byt3lab_wordpress_theme</h1>
+</main>
 <?php get_footer(); ?>

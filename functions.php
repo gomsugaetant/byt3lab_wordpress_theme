@@ -1,44 +1,101 @@
 <?php
-function byt3lab_supports(){
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('menus');
-    add_theme_support('widgets');
-    add_theme_support('custom-logo');
-    add_theme_support('custom-background');
-    add_theme_support('custom-header');
-    add_theme_support('custom-header');
+// byt3lab_wordpress_theme Functions
 
-    register_nav_menus(array(
-        'menu-principal' => 'Menu Principal',
-        'menu-footer' => 'Menu Footer'
-    ));
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-function byt3lab_register_assets() {
-    wp_register_style('byt3lab-main-style', get_stylesheet_directory_uri() . '/assets/css/global.css');
-    wp_register_script('byt3lab-main-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0', true);
-    wp_enqueue_style('byt3lab-main-style');
-    wp_enqueue_script('byt3lab-main-script');
-}
+// Enqueue theme base style
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style('byt3lab_wordpress_theme-style', get_stylesheet_uri(), [], '1.0.0');
+});
 
+// BYT3LAB Builder — enqueue page-specific assets from page JSON config
+add_action('wp_enqueue_scripts', function () {
+    global $post;
 
-function byt3lab_menu_admin() {
-    function page_admin_byt3lab() {
-        echo '<h1>Page Byt3lab</h1>';
+    // Detect slug for both front page and regular pages
+    $slug = '';
+    if (is_front_page()) {
+        $slug = 'home';
+    } elseif (!empty($post->post_name)) {
+        $slug = $post->post_name;
     }
-    
-    add_menu_page(
-        'Byt3lab',      // Titre de la page
-        'Byt3lab',                  // Texte du menu
-        'manage_options',           // Permission nécessaire
-        'byt3lab',          // Slug unique
-        'page_admin_byt3lab',             // Fonction qui affiche la page
-        'dashicons-groups',         // Icône
-        25                          // Position dans le menu
-    );
-}
 
-add_action('admin_menu', 'byt3lab_menu_admin');
-add_action('after_setup_theme', 'byt3lab_supports');
-add_action('wp_enqueue_scripts', 'byt3lab_register_assets');
+    if (empty($slug)) {
+        return;
+    }
+
+    $jsonPath = get_stylesheet_directory() . '/pages/page-' . $slug . '.json';
+    if (!file_exists($jsonPath)) {
+        return;
+    }
+
+    $cfg = json_decode(file_get_contents($jsonPath), true);
+    if (!is_array($cfg)) {
+        return;
+    }
+
+    // CSS — support both 'css_files' and 'css' keys
+    $cssList = [];
+    if (!empty($cfg['css_files']) && is_array($cfg['css_files'])) {
+        $cssList = $cfg['css_files'];
+    } elseif (!empty($cfg['css']) && is_array($cfg['css'])) {
+        $cssList = $cfg['css'];
+    }
+
+    foreach ($cssList as $i => $asset) {
+        $asset = ltrim($asset, '/');
+        $src = (preg_match('#^https?://#i', $asset) || strpos($asset, '//') === 0)
+            ? $asset
+            : get_stylesheet_directory_uri() . '/' . $asset;
+        $handle = 'byt3lab_wordpress_theme-page-css-' . $slug . '-' . $i;
+        wp_enqueue_style($handle, $src, ['byt3lab_wordpress_theme-style'], null);
+    }
+
+    // JS — support both 'js_files' and 'js' keys
+    $jsList = [];
+    if (!empty($cfg['js_files']) && is_array($cfg['js_files'])) {
+        $jsList = $cfg['js_files'];
+    } elseif (!empty($cfg['js']) && is_array($cfg['js'])) {
+        $jsList = $cfg['js'];
+    }
+
+    foreach ($jsList as $i => $asset) {
+        $asset = ltrim($asset, '/');
+        $src = (preg_match('#^https?://#i', $asset) || strpos($asset, '//') === 0)
+            ? $asset
+            : get_stylesheet_directory_uri() . '/' . $asset;
+        $handle = 'byt3lab_wordpress_theme-page-js-' . $slug . '-' . $i;
+        wp_enqueue_script($handle, $src, [], null, true);
+    }
+
+    // Component assets — enqueue CSS and JS for each component declared on this page
+    if (!empty($cfg['components']) && is_array($cfg['components'])) {
+        foreach ($cfg['components'] as $ci => $comp) {
+            $compSlug = sanitize_file_name($comp);
+            $compDir  = get_stylesheet_directory() . '/components/' . $compSlug;
+
+            $compCss = $compDir . '/' . $compSlug . '.css';
+            if (file_exists($compCss)) {
+                wp_enqueue_style(
+                    'byt3lab_wordpress_theme-comp-' . $compSlug,
+                    get_stylesheet_directory_uri() . '/components/' . $compSlug . '/' . $compSlug . '.css',
+                    ['byt3lab_wordpress_theme-style'],
+                    null
+                );
+            }
+
+            $compJs = $compDir . '/' . $compSlug . '.js';
+            if (file_exists($compJs)) {
+                wp_enqueue_script(
+                    'byt3lab_wordpress_theme-comp-js-' . $compSlug,
+                    get_stylesheet_directory_uri() . '/components/' . $compSlug . '/' . $compSlug . '.js',
+                    [],
+                    null,
+                    true
+                );
+            }
+        }
+    }
+}, 20);

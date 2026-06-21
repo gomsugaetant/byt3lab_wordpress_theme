@@ -1,0 +1,16 @@
+{
+    "name": "byt3lab_wordpress_theme",
+    "version": "1.0.0",
+    "author": "byt3lab",
+    "pages": [],
+    "components": [],
+    "assets": {
+        "css": [],
+        "js": []
+    },
+    "special_pages": {
+        "front_page": "",
+        "not_found": "",
+        "posts_page": ""
+    }
+}
