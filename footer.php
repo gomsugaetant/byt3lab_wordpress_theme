@@ -1,8 +1,6 @@
 </main>
 
-<footer>
-    <p>&copy; <?php echo date('Y'); ?> - byt3lab    </p>
-</footer>
+<?php get_template_part("templates/footer") ?>
 
 <?php wp_footer(); ?>
 </body>
