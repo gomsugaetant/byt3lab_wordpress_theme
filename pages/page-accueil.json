@@ -1,0 +1,11 @@
+{
+    "title": "accueil",
+    "slug": "accueil",
+    "description": "accueil",
+    "css_files": [],
+    "js_files": [],
+    "components": [
+        "header",
+        "footer"
+    ]
+}

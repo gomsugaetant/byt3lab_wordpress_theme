@@ -2,14 +2,30 @@
     "name": "byt3lab_wordpress_theme",
     "version": "1.0.0",
     "author": "byt3lab",
-    "pages": [],
-    "components": [],
+    "pages": [
+        {
+            "title": "accueil",
+            "filename": "pages\/page-accueil.php"
+        }
+    ],
+    "components": [
+        {
+            "name": "header",
+            "slug": "header",
+            "type": "section"
+        },
+        {
+            "name": "footer",
+            "slug": "footer",
+            "type": "section"
+        }
+    ],
     "assets": {
         "css": [],
         "js": []
     },
     "special_pages": {
-        "front_page": "",
+        "front_page": "accueil",
         "not_found": "",
         "posts_page": ""
     }
