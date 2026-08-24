@@ -1,1 +1,1 @@
-console.log('Component header loaded');
+console.log('Component Header loaded');

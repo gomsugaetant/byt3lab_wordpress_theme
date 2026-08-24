@@ -16,8 +16,23 @@ add_action('wp_enqueue_scripts', function () {
 
     // Detect slug for both front page and regular pages
     $slug = '';
-    if (is_front_page()) {
-        $slug = 'home';
+    if (is_front_page() || is_home()) {
+        $configPath = get_stylesheet_directory() . '/config.json';
+        if (file_exists($configPath)) {
+            $globalCfg = json_decode(file_get_contents($configPath), true);
+            if (!empty($globalCfg['special_pages']['front_page'])) {
+                $slug = $globalCfg['special_pages']['front_page'];
+            }
+        }
+        
+        // Final fallback for front page if config is missing or empty
+        if (empty($slug)) {
+            $slug = 'home';
+        }
+    } elseif (is_single()) {
+        $slug = 'blog';
+    } elseif (is_404()) {
+        $slug = 'notfound';
     } elseif (!empty($post->post_name)) {
         $slug = $post->post_name;
     }

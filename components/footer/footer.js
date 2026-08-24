@@ -1,1 +1,1 @@
-console.log('Component footer loaded');
+console.log('Component Footer loaded');

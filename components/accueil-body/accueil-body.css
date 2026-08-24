@@ -1,0 +1,67 @@
+/* Hero Carousel styling & smooth transitions */
+#heroCarousel .carousel-item {
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    will-change: transform;
+}
+
+#heroCarousel .carousel-indicators [data-bs-target] {
+    width: 36px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #0284c7;
+    opacity: 0.3;
+    transition: opacity 0.4s ease, width 0.4s ease;
+    border: none;
+}
+
+#heroCarousel .carousel-indicators .active {
+    opacity: 1;
+    width: 54px;
+    background-color: #0284c7;
+}
+
+/* Hero Carousel Navigation Controls */
+#heroCarousel .carousel-control-prev,
+#heroCarousel .carousel-control-next {
+    opacity: 0.9 !important;
+    width: 70px !important;
+    z-index: 10 !important;
+}
+
+.hero-carousel-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #0284c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.18) !important;
+}
+
+#heroCarousel .carousel-control-prev:hover .hero-carousel-btn,
+#heroCarousel .carousel-control-next:hover .hero-carousel-btn {
+    background-color: #0284c7 !important;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35) !important;
+}
+
+#heroCarousel .carousel-control-prev:hover .hero-carousel-btn svg,
+#heroCarousel .carousel-control-next:hover .hero-carousel-btn svg {
+    stroke: #ffffff !important;
+}
+
+@media (max-width: 767.98px) {
+
+    #heroCarousel .carousel-control-prev,
+    #heroCarousel .carousel-control-next {
+        width: 45px !important;
+    }
+
+    .hero-carousel-btn {
+        width: 38px;
+        height: 38px;
+    }
+}

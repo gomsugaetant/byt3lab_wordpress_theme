@@ -1,3 +1,109 @@
-.component-header {
-    /* styles here */
+/* Header navigation overrides - Dark Sticky Header */
+
+.c-navbar {
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    background-color: rgba(11, 15, 25, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
 }
+
+.c-navbar .container {
+    max-width: 1400px;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .c-navbar__menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 4px !important;
+    }
+}
+
+.c-navbar__link {
+    font-size: 13.5px !important;
+    font-weight: 600;
+    color: #e2e8f0 !important;
+    text-decoration: none;
+    padding: 6px 10px !important;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.c-navbar__link:hover {
+    color: #38bdf8 !important;
+    background-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.c-navbar__logo-link {
+    font-size: 19px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffffff !important;
+}
+
+.c-navbar__logo-link span {
+    color: #38bdf8 !important;
+}
+
+.c-navbar__burger {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 6px;
+}
+
+/* For smaller screens, compress padding and size even more */
+@media (min-width: 992px) and (max-width: 1250px) {
+    .c-navbar__menu {
+        gap: 2px !important;
+    }
+    
+    .c-navbar__link {
+        font-size: 12px !important;
+        padding: 4px 6px !important;
+    }
+    .c-navbar__btn {
+        padding: 6px 12px !important;
+        font-size: 12.5px !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .c-navbar {
+        position: sticky !important;
+    }
+    .c-navbar__menu {
+        background-color: #0b0f19;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        padding: 12px !important;
+    }
+}
+
+.a-button--primary {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.a-button--primary:hover {
+    background-color: #0369a1 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+
+

@@ -1,11 +1,18 @@
 {
     "title": "accueil",
     "slug": "accueil",
-    "description": "accueil",
-    "css_files": [],
-    "js_files": [],
+    "description": "",
+    "css_files": [
+        "assets\/css\/bootstrap.min_.css",
+        "assets\/css\/global.css"
+    ],
+    "js_files": [
+        "assets\/js\/bootstrap.min_.js",
+        "assets\/js\/main.js"
+    ],
     "components": [
         "header",
+        "accueil-body",
         "footer"
     ]
 }
