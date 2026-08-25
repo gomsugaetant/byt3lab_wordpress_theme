@@ -88,28 +88,34 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                     </div>
                 </div>
 
-                <!-- Service 5: Marketing Digital -->
+                <!-- Service 5: Marketing & Création de Contenu (ngrafix) -->
                 <div class="col-md-6 col-lg-4">
                     <div class="p-5 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="p-3 rounded-3" style="background: rgba(168, 85, 247, 0.1); color: #9333ea;">
+                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <span class="badge px-3 py-1 rounded-pill font-monospace" style="background: rgba(168, 85, 247, 0.1); color: #9333ea; border: 1px solid rgba(168, 85, 247, 0.2);">ngrafix</span>
                         </div>
-                        <h3 class="h4 fw-bold mb-3" style="color: #0f172a;">Marketing Digital</h3>
+                        <h3 class="h4 fw-bold mb-3" style="color: #0f172a;">Marketing & Création de Contenu</h3>
                         <p class="small mb-0" style="color: #475569;">
-                            Stratégie globale de visibilité en ligne, acquisition ciblée de prospects, référencement naturel et payant (SEO/SEA) et gestion de campagnes publicitaires à fort retour sur investissement.
+                            Stratégie globale de visibilité en ligne, acquisition de prospects, création de contenus captivants et campagnes publicitaires ciblées gérées par notre branche <strong>ngrafix</strong>.
                         </p>
                     </div>
                 </div>
 
-                <!-- Service 6: Art & Design -->
+                <!-- Service 6: UI/UX, Graphisme, Édition Vidéo & Modélisation 2D/3D (ngrafix) -->
                 <div class="col-md-6 col-lg-4">
                     <div class="p-5 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="p-3 rounded-3" style="background: rgba(168, 85, 247, 0.1); color: #9333ea;">
+                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                            </div>
+                            <span class="badge px-3 py-1 rounded-pill font-monospace" style="background: rgba(168, 85, 247, 0.1); color: #9333ea; border: 1px solid rgba(168, 85, 247, 0.2);">ngrafix</span>
                         </div>
-                        <h3 class="h4 fw-bold mb-3" style="color: #0f172a;">Art & Design</h3>
+                        <h3 class="h4 fw-bold mb-3" style="color: #0f172a;">UI/UX, Webdesign, Vidéo & 3D</h3>
                         <p class="small mb-0" style="color: #475569;">
-                            Création d'identités de marque percutantes, conception d'interfaces utilisateur (UI/UX) modernes, intuitives et adaptées pour maximiser l'engagement de vos clients.
+                            UI/UX & webdesign, graphisme & infographie, édition et montage vidéo, modélisation et animation 2D/3D sur-mesure pour sublimer vos projets via <strong>ngrafix</strong>.
                         </p>
                     </div>
                 </div>

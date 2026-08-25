@@ -1,7 +1,7 @@
 {
-    "title": "contact",
-    "slug": "contact",
-    "description": "contact",
+    "title": "autodidakt",
+    "slug": "autodidakt",
+    "description": "plateforme de formation en ligne orient\u00e9 sur la pratique",
     "css_files": [
         "assets\/css\/bootstrap.min_.css",
         "assets\/css\/global.css"
@@ -12,7 +12,7 @@
     ],
     "components": [
         "header",
-        "conact-body",
+        "autodidakt-body",
         "footer"
     ]
 }

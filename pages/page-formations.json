@@ -1,7 +1,7 @@
 {
     "title": "formations",
     "slug": "formations",
-    "description": "formations",
+    "description": "Plateforme de formation Autodidakt",
     "css_files": [
         "assets\/css\/bootstrap.min_.css",
         "assets\/css\/global.css"
@@ -12,7 +12,7 @@
     ],
     "components": [
         "header",
-        "formations-body",
+        "autodidakt-body",
         "footer"
     ]
 }

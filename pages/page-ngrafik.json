@@ -1,7 +1,7 @@
 {
-    "title": "pricing",
-    "slug": "pricing",
-    "description": "pricing",
+    "title": "ngrafix",
+    "slug": "ngrafik",
+    "description": "services de marketing, cr\u00e9ation de contenu, audio, vid\u00e9o, graphisme, infographie",
     "css_files": [
         "assets\/css\/bootstrap.min_.css",
         "assets\/css\/global.css"
@@ -11,8 +11,8 @@
         "assets\/js\/main.js"
     ],
     "components": [
-        "header",
-        "pricing-body",
-        "footer"
+        "footer",
+        "ngrafik-body",
+        "header"
     ]
 }

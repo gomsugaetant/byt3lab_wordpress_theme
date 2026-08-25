@@ -145,63 +145,85 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
 
 
 
-    <!-- The 3 Pillars of our Vision & Impact -->
+    <!-- Our Branches & Excellence Hubs (ngrafix, Autodidakt, Byt3lab Tech) -->
     <section class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
         <div class="container py-5 text-start">
             <div class="row mb-5 text-center">
                 <div class="col-12">
-                    <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Notre Engagement</span>
-                    <h2 class="f-nasalization h1 fw-bold" style="color: #0f172a;">Nos 3 Piliers d'Accompagnement</h2>
-                    <p class="mx-auto mt-2" style="max-width: 600px; color: #64748b;">
-                        Comment nous soutenons le développement numérique à travers nos produits et notre expertise.
+                    <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Écosystème Byt3lab</span>
+                    <h2 class="f-nasalization h1 fw-bold" style="color: #0f172a;">Nos Branches & Filiales d'Excellence</h2>
+                    <p class="mx-auto mt-2" style="max-width: 700px; color: #64748b;">
+                        Un groupe multidisciplinaire structuré en filiales spécialisées pour répondre à l'ensemble de vos besoins créatifs, de formation et technologiques.
                     </p>
                 </div>
             </div>
 
-            <div class="row g-4">
-                <!-- Pillar 1 -->
+            <div class="row g-4 justify-content-center">
+                <!-- Branch 1: ngrafix -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="p-5 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="p-2 rounded-3" style="background: rgba(168, 85, 247, 0.1); color: #9333ea;">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                </div>
+                                <span class="badge px-3 py-2 rounded-pill font-monospace" style="background: rgba(168, 85, 247, 0.1); color: #9333ea; border: 1px solid rgba(168, 85, 247, 0.2);">MEDIA & CREATIVE</span>
+                            </div>
+                            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/ngrafix.jpg'); ?>" alt="Ngrafix Media & Creative" class="img-fluid rounded-3 mb-3 shadow-sm" style="max-height: 160px; width: 100%; object-fit: cover;" />
+                            <h3 class="f-nasalization h3 fw-bold mb-2" style="color: #0f172a;">ngrafix</h3>
+                            <p class="small mb-4" style="color: #475569;">
+                                Pôle spécialisé en <strong>Marketing Digital</strong>, <strong>UI/UX & Webdesign</strong>, <strong>Graphisme & Infographie</strong>, <strong>Création de Contenu</strong>, <strong>Vidéo</strong> et <strong>Modélisation 2D/3D</strong>.
+                            </p>
                         </div>
-                        <h3 class="h4 fw-bold mb-3" style="color: #0f172a;">1. Progiciels Adaptés</h3>
-                        <p class="small mb-0" style="color: #475569;">
-                            Nous concevons des outils de gestion (Melodi ERP, SUKU) modulaires, sécurisés et hébergés pour simplifier et structurer les processus quotidiens de nos partenaires.
-                        </p>
+                        <a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="btn btn-outline-primary w-100 py-2 fw-bold mt-auto" style="border-color: #9333ea; color: #9333ea;">Découvrir ngrafix</a>
                     </div>
                 </div>
 
-                <!-- Pillar 2 -->
+                <!-- Branch 2: Autodidakt -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="p-5 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="p-2 rounded-3" style="background: rgba(16, 185, 129, 0.1); color: #059669;">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                                </div>
+                                <span class="badge px-3 py-2 rounded-pill font-monospace" style="background: rgba(16, 185, 129, 0.1); color: #059669; border: 1px solid rgba(16, 185, 129, 0.2);">ACADÉMIE PRATIQUE</span>
+                            </div>
+                            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/autodidakt.jpg'); ?>" alt="Autodidakt Académie" class="img-fluid rounded-3 mb-3 shadow-sm" style="max-height: 160px; width: 100%; object-fit: cover;" />
+                            <h3 class="f-nasalization h3 fw-bold mb-2" style="color: #0f172a;">Autodidakt</h3>
+                            <p class="small mb-4" style="color: #475569;">
+                                Pôle académie axé 100% sur la pratique : <strong>Développement Personnel</strong>, <strong>Finance & Investissement</strong>, <strong>Business & Entrepreneuriat</strong>.
+                            </p>
                         </div>
-                        <h3 class="h4 fw-bold mb-3" style="color: #0f172a;">2. Formation & Mentorat</h3>
-                        <p class="small mb-0" style="color: #475569;">
-                            Notre académie accompagne les étudiants et professionnels sur des cursus 100% pratiques pour développer les compétences nécessaires aux exigences du marché de l'emploi.
-                        </p>
+                        <a href="<?php echo esc_url(home_url('/autodidakt/')); ?>" class="btn btn-outline-success w-100 py-2 fw-bold mt-auto" style="border-color: #059669; color: #059669;">Explorer Autodidakt</a>
                     </div>
                 </div>
 
-                <!-- Pillar 3 -->
+                <!-- Branch 3: Byt3lab Tech -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="p-5 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="p-2 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                </div>
+                                <span class="badge px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2);">SOFTWARE & CLOUD</span>
+                            </div>
+                            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/byt3lab1.jpg'); ?>" alt="Byt3lab Tech Software & Cloud" class="img-fluid rounded-3 mb-3 shadow-sm" style="max-height: 160px; width: 100%; object-fit: cover;" />
+                            <h3 class="f-nasalization h3 fw-bold mb-2" style="color: #0f172a;">Byt3lab Tech</h3>
+                            <p class="small mb-4" style="color: #475569;">
+                                Pôle ingénierie logicielle : <strong>Progiciels (Melodi ERP, SUKU)</strong>, <strong>Développement Web & Mobile</strong>, <strong>Cybersécurité & Cloud</strong>.
+                            </p>
                         </div>
-                        <h3 class="h4 fw-bold mb-3" style="color: #0f172a;">3. Sécurité & Fiabilité IT</h3>
-                        <p class="small mb-0" style="color: #475569;">
-                            Nous auditons et configurons vos réseaux et serveurs cloud pour assurer la sécurité de vos données applicatives et garantir la continuité de vos services.
-                        </p>
+                        <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="btn btn-outline-primary w-100 py-2 fw-bold mt-auto" style="border-color: #0284c7; color: #0284c7;">Découvrir Byt3lab Tech</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Key Metrics & Counter Section -->
+    <?php if (false): ?>
+    <!-- Key Metrics & Counter Section (Hidden) -->
     <section class="py-5" style="background: #ffffff;">
         <div class="container py-4 text-center">
             <div class="row g-4 justify-content-center">
@@ -232,6 +254,7 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <!-- Flagship Products/Solutions Spotlight -->
     <section class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
@@ -333,7 +356,8 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <?php if (false): ?>
+    <!-- Testimonials Section (Hidden) -->
     <section class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0;">
         <div class="container py-5 text-start">
             <div class="row mb-5 text-center">
@@ -381,7 +405,7 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
         </div>
     </section>
 
-    <!-- Partners/Logos Section -->
+    <!-- Partners/Logos Section (Hidden) -->
     <section class="py-5" style="background: #ffffff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
         <div class="container py-4 text-center">
             <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-3" style="color: #0284c7;">Nos Partenaires & Écosystème</span>
@@ -404,6 +428,7 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
             </div>
         </div>
     </section>
+    <?php endif; ?>
     
     <!-- Global CTA to join the technological movement -->
     <section class="py-5 text-center position-relative" style="background: radial-gradient(circle at bottom, rgba(2, 132, 199, 0.08), transparent 70%), #f8fafc;">

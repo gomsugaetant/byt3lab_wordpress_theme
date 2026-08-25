@@ -8,16 +8,8 @@
             "filename": "pages\/page-accueil.php"
         },
         {
-            "title": "contact",
-            "filename": "pages\/page-contact.php"
-        },
-        {
             "title": "services",
             "filename": "pages\/page-services.php"
-        },
-        {
-            "title": "formations",
-            "filename": "pages\/page-formations.php"
         },
         {
             "title": "blog",
@@ -40,8 +32,16 @@
             "filename": "pages\/page-solutions.php"
         },
         {
-            "title": "pricing",
-            "filename": "pages\/page-pricing.php"
+            "title": "melodi",
+            "filename": "pages\/page-melodi.php"
+        },
+        {
+            "title": "autodidakt",
+            "filename": "pages\/page-autodidakt.php"
+        },
+        {
+            "title": "ngrafix",
+            "filename": "pages\/page-ngrafik.php"
         }
     ],
     "components": [
@@ -114,6 +114,21 @@
             "name": "pricing body",
             "slug": "pricing-body",
             "type": "element"
+        },
+        {
+            "name": "melodi-body",
+            "slug": "melodi-body",
+            "type": "element"
+        },
+        {
+            "name": "ngrafik-body",
+            "slug": "ngrafik-body",
+            "type": "element"
+        },
+        {
+            "name": "autodidakt-body",
+            "slug": "autodidakt-body",
+            "type": "section"
         }
     ],
     "assets": {

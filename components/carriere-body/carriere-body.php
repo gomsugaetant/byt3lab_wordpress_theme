@@ -48,7 +48,8 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="p-4 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03);">
+                    <div class="p-4 rounded-4 overflow-hidden" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03);">
+                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/byt3lab1.jpg'); ?>" alt="Équipe Byt3lab Tech" class="img-fluid rounded-3 mb-4 shadow-sm" style="max-height: 220px; width: 100%; object-fit: cover;" />
                         <h3 class="fw-bold mb-3 font-monospace h5" style="color: #0284c7;">>_ les_avantages</h3>
                         <ul class="list-unstyled mb-0" style="color: #475569;">
                             <li class="mb-3 d-flex align-items-start gap-2">
@@ -70,94 +71,23 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
         </div>
     </section>
 
-    <!-- Open Positions -->
-    <section class="py-5" style="background: #ffffff;">
-        <div class="container py-5 text-start">
-            <h2 class="f-nasalization h2 fw-bold text-center mb-5" style="color: #0f172a;">Postes Ouverts</h2>
-            <div class="row g-4 justify-content-center">
-
-                <!-- Job 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <div>
-                            <span class="badge bg-info mb-2 text-dark">DÉVELOPPEMENT</span>
-                            <h3 class="h4 fw-bold" style="color: #0f172a;">Développeur Full-Stack Senior</h3>
-                            <p class="small mb-3" style="color: #64748b;">Douala / Yaoundé, Cameroun (Hybride)</p>
-                            <p class="small" style="color: #475569;">Participer au développement et à l'évolution de Melodi ERP et SUKU. Maîtrise de PHP/Laravel, React, Postgres et Docker exigée.</p>
-                        </div>
-                        <a href="#apply-form" class="btn btn-outline-primary w-100 mt-4 py-2 fw-bold" style="color: #0284c7; border-color: #0284c7;">Postuler</a>
-                    </div>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <div>
-                            <span class="badge bg-warning mb-2 text-dark">INFRASTRUCTURE</span>
-                            <h3 class="h4 fw-bold" style="color: #0f172a;">Ingénieur Cloud / DevOps</h3>
-                            <p class="small mb-3" style="color: #64748b;">Yaoundé, Cameroun (Hybride)</p>
-                            <p class="small" style="color: #475569;">Administrer nos infrastructures cloud distribuées. Automatiser nos pipelines de déploiement et monitorer la sécurité de nos plateformes.</p>
-                        </div>
-                        <a href="#apply-form" class="btn btn-outline-primary w-100 mt-4 py-2 fw-bold" style="color: #0284c7; border-color: #0284c7;">Postuler</a>
-                    </div>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <div>
-                            <span class="badge bg-success mb-2 text-white">EDUCATION</span>
-                            <h3 class="h4 fw-bold" style="color: #0f172a;">Formateur Tech & Mentor</h3>
-                            <p class="small mb-3" style="color: #64748b;">Douala, Cameroun (Présentiel)</p>
-                            <p class="small" style="color: #475569;">Animer nos cursus de développement et d'administration système. Accompagner et mentorer nos apprenants sur des projets de groupe.</p>
-                        </div>
-                        <a href="#apply-form" class="btn btn-outline-primary w-100 mt-4 py-2 fw-bold" style="color: #0284c7; border-color: #0284c7;">Postuler</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Application Form -->
-    <section class="py-5" id="apply-form" style="background: #f8fafc; border-top: 1px solid #e2e8f0;">
-        <div class="container py-5">
-            <div class="row justify-content-center text-start">
-                <div class="col-lg-8">
-                    <div class="p-5 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03);">
-                        <h2 class="f-nasalization h2 text-center fw-bold mb-4" style="color: #0f172a;">Candidature Spontanée / Postuler</h2>
-                        <form class="row g-4" enctype="multipart/form-data" method="POST">
-                            <div class="col-md-6">
-                                <label for="name" class="form-label" style="color: #475569;">Nom Complet</label>
-                                <input type="text" class="form-control bg-white text-dark border-secondary" id="name" required style="border-color: #cbd5e1 !important;" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label" style="color: #475569;">Adresse Email</label>
-                                <input type="email" class="form-control bg-white text-dark border-secondary" id="email" required style="border-color: #cbd5e1 !important;" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="role" class="form-label" style="color: #475569;">Poste Cible</label>
-                                <select class="form-select bg-white text-dark border-secondary" id="role" style="border-color: #cbd5e1 !important;">
-                                    <option value="spontaneous">Candidature Spontanée</option>
-                                    <option value="fullstack">Développeur Full-Stack Senior</option>
-                                    <option value="devops">Ingénieur Cloud / DevOps</option>
-                                    <option value="trainer">Formateur Tech</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="cv" class="form-label" style="color: #475569;">Curriculum Vitae (PDF)</label>
-                                <input type="file" class="form-control bg-white text-dark border-secondary" id="cv" required style="border-color: #cbd5e1 !important;" />
-                            </div>
-                            <div class="col-12">
-                                <label for="message" class="form-label" style="color: #475569;">Message de Motivation</label>
-                                <textarea class="form-control bg-white text-dark border-secondary" id="message" rows="4" style="border-color: #cbd5e1 !important;"></textarea>
-                            </div>
-                            <div class="col-12 text-center mt-4">
-                                <button type="submit" class="a-button a-button--primary btn btn-lg px-5 py-3 fw-bold text-uppercase">Soumettre ma candidature</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+    <!-- Social Media & LinkedIn Follow Banner for Future Openings -->
+    <section class="py-5 text-center position-relative" style="background: radial-gradient(circle at center, rgba(2, 132, 199, 0.08), transparent 70%), #ffffff; border-top: 1px solid #e2e8f0;">
+        <div class="container py-4">
+            <span class="badge mb-3 px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2);">📢 RESTEZ INFORMÉS & CONNECTÉS</span>
+            <h2 class="f-nasalization h1 fw-bold mb-3" style="color: #0f172a;">Suivez Nos Opportunités & Recrutements</h2>
+            <p class="mx-auto mb-4 fs-5" style="max-width: 750px; color: #475569;">
+                Nous publions régulièrement nos nouveaux postes ouverts, appels à projets et offres de stage sur nos réseaux professionnels. Suivez notre page <strong>LinkedIn</strong> et nos médias sociaux pour ne manquer aucune opportunité !
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="https://www.linkedin.com/company/byt3lab" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg py-3 px-5 fw-bold d-inline-flex align-items-center gap-2" style="background-color: #0a66c2; border: none; border-radius: 8px;">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    Suivre Byt3lab sur LinkedIn
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61571483432231" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-lg py-3 px-5 fw-bold d-inline-flex align-items-center gap-2" style="border-radius: 8px; border-color: #1877F2; color: #1877F2;">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Suivre sur Facebook
+                </a>
             </div>
         </div>
     </section>

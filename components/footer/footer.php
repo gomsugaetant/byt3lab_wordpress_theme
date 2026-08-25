@@ -38,14 +38,12 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                 </div>
 
                 <div class="c-footer__col col-lg-3 col-md-3 col-sm-6 mb-4 mb-lg-0">
-                    <h3 class="c-footer__title">Nos Services</h3>
+                    <h3 class="c-footer__title">Nos Branches</h3>
                     <ul class="m-footer-links p-0 m-0">
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Ingénierie Logicielle</a></li>
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Réseaux & Cybersécurité</a></li>
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">DevOps & Cloud</a></li>
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Robotique & I.A.</a></li>
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Marketing Digital</a></li>
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Art & Design</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Byt3lab (Software & Cloud)</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="m-footer-links__link">ngrafix (Marketing, Design)</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/autodidakt/')); ?>" class="m-footer-links__link">Autodidakt (Académie Pratique)</a></li>
+                        <li class="m-footer-links__item"><a href="https://melodi.byt3lab.com" target="_blank" rel="noopener" class="m-footer-links__link">Melodi (ERP modulaire et scalable)</a></li>
                     </ul>
                 </div>
 

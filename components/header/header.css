@@ -1,15 +1,46 @@
-/* Header navigation overrides - Dark Sticky Header */
+/* Header navigation overrides - Dark Floating Sticky Header */
+
+.component-header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+/* Adjust top position when WordPress Admin Bar is visible */
+body.admin-bar .component-header,
+body.admin-bar .c-navbar {
+    top: 32px !important;
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar .component-header,
+    body.admin-bar .c-navbar {
+        top: 46px !important;
+    }
+}
 
 .c-navbar {
-    padding: 12px 0;
-    transition: all 0.3s ease;
-    background-color: rgba(11, 15, 25, 0.95) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    padding: 14px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: rgba(11, 15, 25, 0.92) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: sticky !important;
     top: 0;
     z-index: 1000;
+    width: 100%;
+}
+
+/* Floating elevated state on scroll */
+.c-navbar.c-navbar--scrolled,
+.c-navbar.is-scrolled,
+.component-header.is-scrolled .c-navbar {
+    padding: 9px 0 !important;
+    background-color: rgba(11, 15, 25, 0.97) !important;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 4px 12px -2px rgba(56, 189, 248, 0.15);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.25);
 }
 
 .c-navbar .container {
@@ -79,9 +110,6 @@
 }
 
 @media (max-width: 991.98px) {
-    .c-navbar {
-        position: sticky !important;
-    }
     .c-navbar__menu {
         background-color: #0b0f19;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -104,6 +132,100 @@
     color: #ffffff !important;
     transform: translateY(-1px);
 }
+
+/* Services Mega Popup Dropdown on Hover */
+.c-navbar__item--has-dropdown {
+    position: relative;
+    padding-bottom: 10px; /* Bridge gap between navbar link and popup */
+    margin-bottom: -10px;
+}
+
+/* Invisible Bridge preventing premature closure when moving mouse down */
+.c-navbar__mega-popup::before {
+    content: '';
+    position: absolute;
+    top: -24px;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    display: block;
+}
+
+.c-navbar__mega-popup {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: #0b0f19 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 2px solid #0284c7;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.25s ease;
+    transition-delay: 0.1s; /* Small delay when closing to prevent fast disappearance */
+    z-index: 1050;
+    min-width: 680px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(2, 132, 199, 0.2);
+}
+
+.c-navbar__item--has-dropdown:hover .c-navbar__mega-popup,
+.c-navbar__mega-popup:hover,
+.c-navbar__item--has-dropdown.is-open .c-navbar__mega-popup {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+    transition-delay: 0s;
+}
+
+/* Caret Icon animation on hover */
+.c-navbar__item--has-dropdown:hover .dropdown-caret-icon,
+.c-navbar__item--has-dropdown.is-open .dropdown-caret-icon {
+    transform: rotate(180deg);
+    color: #38bdf8 !important;
+}
+
+.dropdown-service-link {
+    color: #94a3b8 !important;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.dropdown-service-link:hover {
+    color: #38bdf8 !important;
+    transform: translateX(4px);
+}
+
+.hover-purple:hover { color: #c084fc !important; }
+.hover-green:hover { color: #34d399 !important; }
+.hover-blue:hover { color: #38bdf8 !important; }
+
+@media (max-width: 991.98px) {
+    .c-navbar__mega-popup {
+        position: static;
+        transform: none !important;
+        min-width: 100% !important;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        box-shadow: none;
+        background: rgba(15, 23, 42, 0.8) !important;
+        border: none;
+        padding: 12px 0 !important;
+        margin-top: 8px;
+    }
+    .c-navbar__mega-popup .row {
+        min-width: 100% !important;
+    }
+    .c-navbar__mega-popup .col-4 {
+        width: 100% !important;
+        margin-bottom: 12px;
+    }
+}
+
 
 
 
