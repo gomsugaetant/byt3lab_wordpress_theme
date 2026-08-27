@@ -36,10 +36,6 @@
             "filename": "pages\/page-melodi.php"
         },
         {
-            "title": "autodidakt",
-            "filename": "pages\/page-autodidakt.php"
-        },
-        {
             "title": "ngrafix",
             "filename": "pages\/page-ngrafik.php"
         }
@@ -91,11 +87,6 @@
             "type": "element"
         },
         {
-            "name": "formations body",
-            "slug": "formations-body",
-            "type": "element"
-        },
-        {
             "name": "blog body",
             "slug": "blog-body",
             "type": "element"
@@ -124,11 +115,6 @@
             "name": "ngrafik-body",
             "slug": "ngrafik-body",
             "type": "element"
-        },
-        {
-            "name": "autodidakt-body",
-            "slug": "autodidakt-body",
-            "type": "section"
         }
     ],
     "assets": {

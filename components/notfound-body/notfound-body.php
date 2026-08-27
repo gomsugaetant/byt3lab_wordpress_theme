@@ -30,16 +30,8 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
             <h1 class="f-nasalization h2 fw-bold mb-4" style="color: #0f172a;">Erreur système : page introuvable</h1>
             
             <p class="fs-5 mb-5" style="color: #475569;">
-                Désolé, la page que vous recherchez n'existe pas ou a été déplacée. Vous pouvez utiliser le moteur de recherche ci-dessous ou retourner à l'accueil.
+                Désolé, la page que vous recherchez n'existe pas ou a été déplacée. Vous pouvez retourner directement à l'accueil.
             </p>
-
-            <!-- Search form -->
-            <div class="mb-5">
-                <form role="search" method="get" class="search-form d-flex gap-2 mx-auto" action="<?php echo esc_url(home_url('/')); ?>" style="max-width: 450px;">
-                    <input type="search" class="form-control bg-white text-dark border-secondary py-3 px-4" placeholder="Rechercher sur le site..." value="<?php echo get_search_query(); ?>" name="s" required style="border-color: #cbd5e1 !important; border-radius: 8px;" />
-                    <button type="submit" class="a-button a-button--primary btn px-4 py-3 fw-bold text-uppercase" style="border-radius: 8px;">Rechercher</button>
-                </form>
-            </div>
 
             <!-- Home button -->
             <a href="<?php echo esc_url(home_url('/')); ?>" class="a-button a-button--primary btn btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">

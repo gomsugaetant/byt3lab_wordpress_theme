@@ -42,7 +42,6 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                     <ul class="m-footer-links p-0 m-0">
                         <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Byt3lab (Software & Cloud)</a></li>
                         <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="m-footer-links__link">ngrafix (Marketing, Design)</a></li>
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/autodidakt/')); ?>" class="m-footer-links__link">Autodidakt (Académie Pratique)</a></li>
                         <li class="m-footer-links__item"><a href="https://melodi.byt3lab.com" target="_blank" rel="noopener" class="m-footer-links__link">Melodi (ERP modulaire et scalable)</a></li>
                     </ul>
                 </div>

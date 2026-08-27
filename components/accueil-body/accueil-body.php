@@ -92,11 +92,11 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                                 Ingénierie Sur-Mesure, <span style="color: #0284c7; background: linear-gradient(to right, #0284c7, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cybersécurité & Cloud</span>
                             </h1>
                             <p class="lead mb-5 fs-4 mx-auto" style="max-width: 800px; color: #475569;">
-                                Développement web/mobile, audits de vulnérabilité, automatisation DevOps CI/CD et formations professionnelles 100% pratiques pour vos équipes.
+                                Développement web/mobile, audits de vulnérabilité, automatisation DevOps CI/CD et accompagnement technique sur-mesure pour vos équipes.
                             </p>
                             <div class="d-flex gap-3 justify-content-center flex-wrap">
                                 <a href="<?php echo esc_url(home_url('/services/')); ?>" class="a-button a-button--primary btn btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">Voir tous nos Services</a>
-                                <a href="<?php echo esc_url(home_url('/formations/')); ?>" class="btn btn-outline-primary btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px; border-color: #0284c7; color: #0284c7;">Nos Cursus de Formation</a>
+                                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-outline-primary btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px; border-color: #0284c7; color: #0284c7;">Demander un Devis</a>
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
 
 
 
-    <!-- Our Branches & Excellence Hubs (ngrafix, Autodidakt, Byt3lab Tech) -->
+    <!-- Our Branches & Excellence Hubs (ngrafix, Byt3lab Tech) -->
     <section class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
         <div class="container py-5 text-start">
             <div class="row mb-5 text-center">
@@ -153,14 +153,14 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                     <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Écosystème Byt3lab</span>
                     <h2 class="f-nasalization h1 fw-bold" style="color: #0f172a;">Nos Branches & Filiales d'Excellence</h2>
                     <p class="mx-auto mt-2" style="max-width: 700px; color: #64748b;">
-                        Un groupe multidisciplinaire structuré en filiales spécialisées pour répondre à l'ensemble de vos besoins créatifs, de formation et technologiques.
+                        Un groupe multidisciplinaire structuré en filiales spécialisées pour répondre à l'ensemble de vos besoins créatifs et technologiques.
                     </p>
                 </div>
             </div>
 
             <div class="row g-4 justify-content-center">
                 <!-- Branch 1: ngrafix -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
                         <div>
                             <div class="d-flex align-items-center justify-content-between mb-3">
@@ -179,28 +179,8 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                     </div>
                 </div>
 
-                <!-- Branch 2: Autodidakt -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div>
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <div class="p-2 rounded-3" style="background: rgba(16, 185, 129, 0.1); color: #059669;">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-                                </div>
-                                <span class="badge px-3 py-2 rounded-pill font-monospace" style="background: rgba(16, 185, 129, 0.1); color: #059669; border: 1px solid rgba(16, 185, 129, 0.2);">ACADÉMIE PRATIQUE</span>
-                            </div>
-                            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/autodidakt.jpg'); ?>" alt="Autodidakt Académie" class="img-fluid rounded-3 mb-3 shadow-sm" style="max-height: 160px; width: 100%; object-fit: cover;" />
-                            <h3 class="f-nasalization h3 fw-bold mb-2" style="color: #0f172a;">Autodidakt</h3>
-                            <p class="small mb-4" style="color: #475569;">
-                                Pôle académie axé 100% sur la pratique : <strong>Développement Personnel</strong>, <strong>Finance & Investissement</strong>, <strong>Business & Entrepreneuriat</strong>.
-                            </p>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/autodidakt/')); ?>" class="btn btn-outline-success w-100 py-2 fw-bold mt-auto" style="border-color: #059669; color: #059669;">Explorer Autodidakt</a>
-                    </div>
-                </div>
-
-                <!-- Branch 3: Byt3lab Tech -->
-                <div class="col-lg-4 col-md-6">
+                <!-- Branch 2: Byt3lab Tech -->
+                <div class="col-lg-6 col-md-6">
                     <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
                         <div>
                             <div class="d-flex align-items-center justify-content-between mb-3">
@@ -336,8 +316,8 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="p-4 h-100 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <h3 class="fw-bold h5 mb-3 font-monospace" style="color: #0284c7 !important;">[F] Formation Professionnelle</h3>
-                        <p class="small mb-0" style="color: #475569;">Cursus intensifs 100% pratiques sur le développement moderne, DevOps et la cybersécurité en ligne et en présentiel.</p>
+                        <h3 class="fw-bold h5 mb-3 font-monospace" style="color: #0284c7 !important;">[F] Frameworks & Intégration</h3>
+                        <p class="small mb-0" style="color: #475569;">Intégration d'outils digitaux et progiciels métiers adaptés aux besoins spécifiques de votre entreprise.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">

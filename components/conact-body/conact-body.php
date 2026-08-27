@@ -27,7 +27,7 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
             <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Prendre Contact</span>
             <h1 class="f-nasalization display-4 fw-bold mb-3" style="color: #0f172a;">Contactez Byt3lab</h1>
             <p class="lead mx-auto" style="max-width: 700px; color: #475569;">
-                Vous avez un projet d'ingénierie, de formation ou souhaitez planifier une démonstration ? Nos experts sont à votre disposition.
+                Vous avez un projet d'ingénierie, de logiciel ou souhaitez planifier une démonstration ? Nos experts sont à votre disposition.
             </p>
         </div>
     </section>
