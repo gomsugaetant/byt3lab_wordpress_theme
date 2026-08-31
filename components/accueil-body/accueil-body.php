@@ -172,7 +172,7 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                             <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/ngrafix.jpg'); ?>" alt="Ngrafix Media & Creative" class="img-fluid rounded-3 mb-3 shadow-sm" style="max-height: 160px; width: 100%; object-fit: cover;" />
                             <h3 class="f-nasalization h3 fw-bold mb-2" style="color: #0f172a;">ngrafix</h3>
                             <p class="small mb-4" style="color: #475569;">
-                                Pôle spécialisé en <strong>Marketing Digital</strong>, <strong>UI/UX & Webdesign</strong>, <strong>Graphisme & Infographie</strong>, <strong>Création de Contenu</strong>, <strong>Vidéo</strong> et <strong>Modélisation 2D/3D</strong>.
+                                Pôle spécialisé en <strong>Marketing Digital</strong>, <strong>UI/UX & Webdesign</strong>, <strong>Graphisme & Infographie</strong>, <strong>Création de Contenu</strong> et <strong>Montage Vidéo</strong>.
                             </p>
                         </div>
                         <a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="btn btn-outline-primary w-100 py-2 fw-bold mt-auto" style="border-color: #9333ea; color: #9333ea;">Découvrir ngrafix</a>

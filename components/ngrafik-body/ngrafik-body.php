@@ -191,23 +191,7 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                     </div>
                 </div>
 
-                <!-- Service 6: Modélisation 2D / 3D -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-4 border d-flex flex-column justify-content-between" style="background: #f8fafc; border-color: #e2e8f0 !important; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div>
-                            <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(147, 51, 234, 0.1); color: #9333ea;">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                            </div>
-                            <h3 class="h5 fw-bold mb-3" style="color: #0f172a;">Modélisation & Animation 2D / 3D</h3>
-                            <p class="small mb-0" style="color: #475569;">
-                                Conception 3D photoréaliste de produits, animations 2D/3D de logos, modélisation d'espaces et animations motion design d'impact.
-                            </p>
-                        </div>
-                        <div class="pt-4 mt-3 border-top border-200">
-                            <span class="badge bg-purple-subtle text-purple small" style="background: rgba(147, 51, 234, 0.1); color: #9333ea;">3D PRODUCT & MOTION DESIGN</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>

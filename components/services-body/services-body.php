@@ -197,12 +197,12 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                             </div>
                             <h3 class="h3 fw-bold mb-3" style="color: #0f172a;">Ngrafix — Media & Design Studio</h3>
                             <p class="mb-4" style="color: #475569; font-size: 15px;">
-                                Agence créative spécialisée en branding, UI/UX webdesign, création de contenu vidéo captivant, stratégie de marketing digital et modélisation 2D/3D.
+                                Agence créative spécialisée en branding, UI/UX webdesign, création de contenu vidéo captivant et stratégie de marketing digital.
                             </p>
                             <ul class="list-unstyled d-flex flex-column gap-2 mb-4 text-secondary small">
                                 <li>🎨 <strong>Branding & Identité Visuelle :</strong> Logotypes, charte graphique & print</li>
                                 <li>💻 <strong>UI/UX & Webdesign :</strong> Prototypes Figma & design système</li>
-                                <li>🎬 <strong>Vidéo & 3D :</strong> Montage premium & modélisation 2D/3D</li>
+                                <li>🎬 <strong>Vidéo :</strong> Montage premium & création de contenus</li>
                             </ul>
                         </div>
                         <a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="btn w-100 font-monospace py-3 fw-bold text-uppercase rounded-3" style="background: #9333ea; color: #ffffff; transition: all 0.2s ease;">

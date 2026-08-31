@@ -104,7 +104,6 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                                     <li><a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="dropdown-service-link text-decoration-none">Design Graphique & Print</a></li>
                                     <li><a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="dropdown-service-link text-decoration-none">Création de Contenu</a></li>
                                     <li><a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="dropdown-service-link text-decoration-none">Montage Vidéo</a></li>
-                                    <li><a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="dropdown-service-link text-decoration-none">Modélisation 2D/3D</a></li>
                                 </ul>
                             </div>
 
