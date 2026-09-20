@@ -53,6 +53,16 @@ body {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+/* Eye comfort typography rules for long texts and paragraphs */
+p, .lead, article p, .entry-content p, .service-content p, .solution-content p, .job-description p {
+    color: #334155;
+    line-height: 1.75;
+}
+
+.text-secondary {
+    color: #334155 !important;
+}
+
 /* Overrides for Bootstrap dark helpers if remaining */
 .bg-dark {
     background-color: #ffffff !important;
@@ -68,9 +78,14 @@ body {
 
 a {
     color: var(--primary-blue);
+    text-decoration: none;
     transition: color 0.2s ease;
 }
 
 a:hover {
     color: var(--primary-blue-hover);
+}
+
+a p, a .text-secondary, a .text-muted {
+    color: #334155;
 }

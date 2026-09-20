@@ -27,22 +27,28 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                 <div class="c-footer__col col-lg-5 col-md-6 col-sm-12 mb-4 mb-lg-0">
                     <div class="c-footer__logo d-flex align-items-center gap-2 mb-3">
                         <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/media/byt3lab_sng.png'); ?>" alt="Byt3lab" style="height: 40px; width: auto;" />
-                        <span class="c-footer__logo-text f-nasalization" style="font-weight:bold; font-size:24px; color:#38bdf8;">Byt3lab</span>
+                        <span class="c-footer__logo-text f-nasalization " style="font-weight:bold; font-size:24px;">Byt3lab</span>
                     </div>
-                    <p class="c-footer__text">
-                        Nous sommes une jeune entreprise ambitieuse dont le but est de révolutionner l'Afrique en créant des richesses propres au continent grâce à l'informatique et à la technologie.
-                    </p>
+                    <div>
+                        <small class="font-monospace" style="color: #94a3b8;">Software Engineering &amp; Communication Agency</small>
+                    </div>
                     <p class="c-footer__text">
                         Notre mission : développer des produits technologiques simples, intuitifs et sécurisés pour accompagner les entreprises et les institutions dans leur croissance.
                     </p>
                 </div>
 
                 <div class="c-footer__col col-lg-3 col-md-3 col-sm-6 mb-4 mb-lg-0">
-                    <h3 class="c-footer__title">Nos Branches</h3>
+                    <h3 class="c-footer__title">Actions Rapides</h3>
                     <ul class="m-footer-links p-0 m-0">
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Byt3lab (Software & Cloud)</a></li>
-                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="m-footer-links__link">ngrafix (Marketing, Design)</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/a-propos/')); ?>" class="m-footer-links__link">Qui nous sommes</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/equipe/')); ?>" class="m-footer-links__link">Notre Équipe</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="m-footer-links__link">Nos Solutions</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/services/')); ?>" class="m-footer-links__link">Nos Services</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/realisations/')); ?>" class="m-footer-links__link">Nos Réalisations</a></li>
+                        <li class="m-footer-links__item"><a href="https://www.facebook.com/profile.php?id=61571483432231" target="_blank" rel="noopener" class="m-footer-links__link" style="color: #c084fc;">🎨 Ngrafix (Design &amp; Communication)</a></li>
                         <li class="m-footer-links__item"><a href="https://melodi.byt3lab.com" target="_blank" rel="noopener" class="m-footer-links__link">Melodi (ERP modulaire et scalable)</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/carriere/')); ?>" class="m-footer-links__link" style="color: #38bdf8;">💼 Carrières &amp; Recrutement</a></li>
+                        <li class="m-footer-links__item"><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="m-footer-links__link">Nous Contacter</a></li>
                     </ul>
                 </div>
 
@@ -70,7 +76,10 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                 <div class="m-social-block col-md-6 col-sm-12 mb-4 mb-md-0">
                     <h4 class="m-social-block__title mb-2">Suivez-nous</h4>
                     <div class="m-social-block__list d-flex gap-2">
-                        <a href="https://facebook.com/byt3lab" class="a-social-link" aria-label="Facebook" target="_blank" rel="noopener">
+                        <a href="https://facebook.com/byt3lab" class="a-social-link" aria-label="Facebook BYT3LAB" title="Facebook BYT3LAB" target="_blank" rel="noopener">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61571483432231" class="a-social-link" aria-label="Facebook Ngrafix Studio" title="Facebook NGRAFIX (Design &amp; Communication)" target="_blank" rel="noopener" style="border-color: rgba(147, 51, 234, 0.4); color: #c084fc;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                         </a>
                         <a href="https://linkedin.com/company/byt3lab" class="a-social-link" aria-label="LinkedIn" target="_blank" rel="noopener">

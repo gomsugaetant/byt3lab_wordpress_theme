@@ -5,9 +5,23 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Enqueue theme base style
+// Load BYT3LAB Theme Content Administration & Post Types
+require_once get_template_directory() . '/inc/post-types.php';
+require_once get_template_directory() . '/inc/meta-boxes.php';
+require_once get_template_directory() . '/inc/admin-page.php';
+require_once get_template_directory() . '/inc/contact-handler.php';
+
+// Theme support (Featured Images / Thumbnails & Title Tag)
+add_action('after_setup_theme', function () {
+    add_theme_support('post-thumbnails');
+    add_theme_support('title-tag');
+});
+
+// Enqueue theme base style & premium enhancements
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('byt3lab_wordpress_theme-style', get_stylesheet_uri(), [], '1.0.0');
+    wp_enqueue_style('byt3lab-premium-theme', get_stylesheet_directory_uri() . '/assets/css/premium-theme.css', ['byt3lab_wordpress_theme-style'], '1.0.0');
+    wp_enqueue_script('byt3lab-tooltips-init', get_stylesheet_directory_uri() . '/assets/js/tooltips-init.js', [], '1.0.0', true);
 });
 
 // BYT3LAB Builder — enqueue page-specific assets from page JSON config

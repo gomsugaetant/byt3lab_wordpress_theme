@@ -36,8 +36,12 @@
             "filename": "pages\/page-melodi.php"
         },
         {
-            "title": "ngrafix",
-            "filename": "pages\/page-ngrafik.php"
+            "title": "a-propos",
+            "filename": "pages\/page-a-propos.php"
+        },
+        {
+            "title": "equipe",
+            "filename": "pages\/page-equipe.php"
         }
     ],
     "components": [
@@ -112,8 +116,13 @@
             "type": "element"
         },
         {
-            "name": "ngrafik-body",
-            "slug": "ngrafik-body",
+            "name": "apropos body",
+            "slug": "apropos-body",
+            "type": "element"
+        },
+        {
+            "name": "equipe body",
+            "slug": "equipe-body",
             "type": "element"
         }
     ],

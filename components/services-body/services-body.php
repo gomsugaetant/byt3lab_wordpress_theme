@@ -35,63 +35,119 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
     <!-- Services Details Section - Software & Cloud -->
     <section class="py-5" style="background: #f8fafc;">
         <div class="container py-5">
-            <div class="text-center mb-5">
-                <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Software & Cloud</span>
-                <h2 class="f-nasalization h2 fw-bold" style="color: #0f172a;">Nos Domaines d'Ingénierie</h2>
+            <?php
+            $services_query = new WP_Query([
+                'post_type'      => 'byt3lab_service',
+                'posts_per_page' => -1,
+                'orderby'        => ['menu_order' => 'ASC', 'date' => 'ASC'],
+            ]);
+
+            $available_branches = [];
+            if ($services_query->have_posts()) {
+                foreach ($services_query->posts as $p) {
+                    $b = get_post_meta($p->ID, '_byt3lab_service_branch', true);
+                    if (empty($b)) {
+                        $terms = wp_get_post_terms($p->ID, 'byt3lab_service_branch');
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                            $b = $terms[0]->name;
+                        }
+                    }
+                    if (!empty($b)) {
+                        $available_branches[trim($b)] = trim($b);
+                    }
+                }
+            }
+
+            if (empty($available_branches)) {
+                $available_branches = [
+                    'Byt3lab Tech'        => 'Byt3lab Tech',
+                    'Ngrafix Studio'      => 'Ngrafix Studio',
+                    'Conseil & Stratégie' => 'Conseil & Stratégie',
+                ];
+            } else {
+                if (!isset($available_branches['Byt3lab Tech'])) $available_branches['Byt3lab Tech'] = 'Byt3lab Tech';
+                if (!isset($available_branches['Ngrafix Studio']) && !isset($available_branches['Ngrafix'])) $available_branches['Ngrafix Studio'] = 'Ngrafix Studio';
+            }
+            ?>
+
+            <!-- Interactive Department / Branch Filters -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-5">
+                <div>
+                    <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-1" style="color: #0284c7; font-size: 12px;">CATALOGUE DE SERVICES</span>
+                    <h2 class="f-nasalization h2 fw-bold mb-0" style="color: #0f172a;">Explorez par Pôle &amp; Filiale</h2>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="d-flex flex-wrap gap-2 service-filter-group">
+                    <button type="button" class="service-filter-btn active" data-filter="all">Tous les Services</button>
+                    <?php foreach ($available_branches as $branch_key => $branch_label) : ?>
+                        <button type="button" class="service-filter-btn" data-filter="<?php echo esc_attr(strtolower(trim($branch_key))); ?>">
+                            <?php echo esc_html($branch_label); ?>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
             </div>
+
+            <?php if ($services_query->have_posts()) : ?>
             <div class="row g-4 text-start justify-content-center">
-                <!-- Service 1: Ingénierie Logicielle -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="p-4 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                        </div>
-                        <h3 class="h5 fw-bold mb-3" style="color: #0f172a;">Ingénierie Logicielle</h3>
-                        <p class="small mb-0" style="color: #475569;">
-                            Conception et développement de sites web modernes, de progiciels modulaires (Melodi ERP, SUKU), d'applications mobiles (Flutter, iOS, Android) et de plateformes SaaS sur-mesure.
-                        </p>
-                    </div>
-                </div>
+                <?php while ($services_query->have_posts()) : $services_query->the_post();
+                    $icon       = get_post_meta(get_the_ID(), '_byt3lab_service_icon', true) ?: '💻';
+                    $branch     = get_post_meta(get_the_ID(), '_byt3lab_service_branch', true);
+                    $short_desc = get_post_meta(get_the_ID(), '_byt3lab_service_short_desc', true) ?: get_the_excerpt();
+                    $img_url    = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : get_post_meta(get_the_ID(), '_byt3lab_service_image', true);
+                    if (empty($branch)) {
+                        $terms = wp_get_post_terms(get_the_ID(), 'byt3lab_service_branch');
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                            $branch = $terms[0]->name;
+                        } else {
+                            $branch = 'Byt3lab Tech';
+                        }
+                    }
+                ?>
+                <div class="col-md-6 col-lg-4 col-xl-3 service-item-col" data-branch="<?php echo esc_attr(strtolower(trim($branch))); ?>" style="transition: all 0.3s ease;">
+                    <div class="card card-premium h-100 rounded-4 overflow-hidden d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='none'">
+                        <div>
+                            <!-- Service Image Banner -->
+                            <div class="position-relative overflow-hidden" style="height: 190px; background: #0f172a;">
+                                <?php if (!empty($img_url)) : ?>
+                                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>" class="w-100 h-100 object-fit-cover" style="transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='none'" />
+                                <?php else : ?>
+                                    <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="background: radial-gradient(circle at center, rgba(2, 132, 199, 0.25), #0f172a);">
+                                        <span style="font-size: 48px;"><?php echo esc_html($icon); ?></span>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <div class="position-absolute top-0 start-0 m-3">
+                                    <span class="badge px-3 py-2 rounded-pill font-monospace shadow-sm" style="background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #38bdf8; font-size: 11px; border: 1px solid rgba(56, 189, 248, 0.35);">
+                                        <?php echo esc_html($branch); ?>
+                                    </span>
+                                </div>
+                            </div>
 
-                <!-- Service 2: Réseaux & Cybersécurité -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="p-4 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            <!-- Content -->
+                            <div class="p-4">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span style="font-size: 20px;"><?php echo esc_html($icon); ?></span>
+                                    <h3 class="h5 fw-bold mb-0" style="color: #0f172a;">
+                                        <a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark hover-blue"><?php the_title(); ?></a>
+                                    </h3>
+                                </div>
+                                <p class="small mb-3" style="color: #334155; line-height: 1.6;">
+                                    <?php echo esc_html($short_desc); ?>
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="h5 fw-bold mb-3" style="color: #0f172a;">Réseaux & Cybersécurité</h3>
-                        <p class="small mb-0" style="color: #475569;">
-                            Audits de sécurité, tests d'intrusion, isolation réseau avancée, chiffrement de données sensibles et mise en place d'infrastructures résilientes face aux cybermenaces.
-                        </p>
-                    </div>
-                </div>
 
-                <!-- Service 3: DevOps & Cloud -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="p-4 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        <div class="p-4 pt-0">
+                            <a href="<?php the_permalink(); ?>" class="btn btn-sm btn-outline-primary w-100 font-monospace py-2 fw-semibold" style="font-size: 12px; border-radius: 8px; border-color: rgba(2, 132, 199, 0.4); color: #0284c7;">
+                                Découvrir le service &rarr;
+                            </a>
                         </div>
-                        <h3 class="h5 fw-bold mb-3" style="color: #0f172a;">DevOps & Cloud</h3>
-                        <p class="small mb-0" style="color: #475569;">
-                            Conception d'architectures Cloud haute disponibilité, conteneurisation (Docker, Kubernetes), pipelines d'intégration continue (CI/CD) et hébergement scalable.
-                        </p>
                     </div>
                 </div>
-
-                <!-- Service 4: Robotique & I.A. -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="p-4 h-100 rounded-4" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
-                        </div>
-                        <h3 class="h5 fw-bold mb-3" style="color: #0f172a;">Robotique & I.A.</h3>
-                        <p class="small mb-0" style="color: #475569;">
-                            Automatisation intelligente, intégration de modèles de machine learning pour l'analyse prédictive et développement de solutions embarquées & IoT pour l'industrie.
-                        </p>
-                    </div>
-                </div>
+                <?php endwhile; wp_reset_postdata(); ?>
             </div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -169,45 +225,6 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                             </div>
                             <div class="col-md-5"></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dedicated Section for Other Branches: Ngrafix -->
-    <section class="py-5" style="background: #f1f5f9; border-top: 1px solid #e2e8f0;">
-        <div class="container py-5 text-center">
-            <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Nos Filiales Spécialisées</span>
-            <h2 class="f-nasalization h1 fw-bold mb-4" style="color: #0f172a;">Découvrez l'Écosystème Byt3lab</h2>
-            <p class="lead mx-auto mb-5" style="max-width: 680px; color: #475569;">
-                En complément de notre pôle Software & Cloud, découvrez notre filiale dédiée à la création média, au design et au marketing digital.
-            </p>
-
-            <div class="row g-4 justify-content-center text-start">
-                <!-- Branch Card: Ngrafix -->
-                <div class="col-md-8 col-lg-7">
-                    <div class="p-5 h-100 rounded-4 position-relative d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid rgba(147, 51, 234, 0.2); box-shadow: 0 10px 30px -5px rgba(147, 51, 234, 0.08);">
-                        <div>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="p-3 rounded-3" style="background: rgba(147, 51, 234, 0.1); color: #9333ea;">
-                                    <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
-                                </div>
-                                <span class="badge px-3 py-2 rounded-pill font-monospace fs-6" style="background: rgba(147, 51, 234, 0.1); color: #9333ea; border: 1px solid rgba(147, 51, 234, 0.3);">ngrafix</span>
-                            </div>
-                            <h3 class="h3 fw-bold mb-3" style="color: #0f172a;">Ngrafix — Media & Design Studio</h3>
-                            <p class="mb-4" style="color: #475569; font-size: 15px;">
-                                Agence créative spécialisée en branding, UI/UX webdesign, création de contenu vidéo captivant et stratégie de marketing digital.
-                            </p>
-                            <ul class="list-unstyled d-flex flex-column gap-2 mb-4 text-secondary small">
-                                <li>🎨 <strong>Branding & Identité Visuelle :</strong> Logotypes, charte graphique & print</li>
-                                <li>💻 <strong>UI/UX & Webdesign :</strong> Prototypes Figma & design système</li>
-                                <li>🎬 <strong>Vidéo :</strong> Montage premium & création de contenus</li>
-                            </ul>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="btn w-100 font-monospace py-3 fw-bold text-uppercase rounded-3" style="background: #9333ea; color: #ffffff; transition: all 0.2s ease;">
-                            Explorer l'Univers Ngrafix &rarr;
-                        </a>
                     </div>
                 </div>
             </div>

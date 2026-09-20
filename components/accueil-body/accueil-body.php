@@ -21,403 +21,201 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
 <div class="component-accueil-body bg-white text-dark">
     <!-- BYT3LAB-CONTENT-START -->
     
-    <!-- Hero section with Carousel presenting Mission, Solutions, Services, Contact -->
-    <section id="heroCarousel" class="carousel slide position-relative overflow-hidden py-4" data-bs-ride="carousel" data-bs-interval="5000" style="min-height: 85vh; background: radial-gradient(circle at top right, rgba(2, 132, 199, 0.08), transparent 60%), #ffffff;">
+    <!-- 1. Hero Section: High-Tech Engineering & Cockpit Showcase -->
+    <section class="hero-tech-bg position-relative overflow-hidden py-5">
+        <div class="hero-grid-pattern"></div>
+        
+        <div class="container py-5 position-relative" style="z-index: 2;">
+            <div class="row align-items-center justify-content-center text-center mb-5">
+                <div class="col-lg-10 col-xl-9">
+                    <h1 class="f-nasalization display-3 fw-bold mb-4" style="color: #0f172a; line-height: 1.15;">
+                        Bâtir la <span style="background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Première Puissance</span> Technologique &amp; Souveraine
+                    </h1>
 
-        <!-- Glowing background grid -->
-        <div class="position-absolute w-100 h-100 top-0 start-0 opacity-10" style="background-image: radial-gradient(rgba(2, 132, 199, 0.15) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none;"></div>
-
-        <!-- Carousel Indicators -->
-        <div class="carousel-indicators mb-4" style="z-index: 5;">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1: Mission"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2: Solutions"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3: Services"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4: Contact"></button>
-        </div>
-
-        <div class="carousel-inner h-100 d-flex align-items-center py-4">
-            
-            <!-- Slide 1: Mission -->
-            <div class="carousel-item active py-4 position-relative">
-                <div class="hero-bg-overlay" style="background-image: linear-gradient(135deg, rgba(255,255,255,0.91) 0%, rgba(248,250,252,0.84) 100%), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600');"></div>
-                <div class="container position-relative" style="z-index: 2;">
-                    <div class="row align-items-center justify-content-center text-center">
-                        <div class="col-lg-10">
-                            <span class="badge mb-3 px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2);">🚀 NOTRE MISSION & VISION</span>
-                            <h1 class="f-nasalization display-3 fw-bold mb-4 lh-sm" style="color: #0f172a;">
-                                Bâtir la <span style="color: #0284c7; background: linear-gradient(to right, #0284c7, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Première Puissance</span> Technologique Africaine
-                            </h1>
-                            <p class="lead mb-5 fs-4 mx-auto" style="max-width: 850px; color: #475569;">
-                                Notre mission : développer des produits technologiques simples, intuitifs et sécurisés pour accompagner les entreprises et les institutions dans leur croissance.
-                            </p>
-                            <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="a-button a-button--primary btn btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">Découvrir nos Progiciels</a>
-                                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-outline-primary btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px; border-color: #0284c7; color: #0284c7;">Collaborer avec nous</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 2: Solutions -->
-            <div class="carousel-item py-4 position-relative">
-                <div class="hero-bg-overlay" style="background-image: linear-gradient(135deg, rgba(255,255,255,0.91) 0%, rgba(248,250,252,0.84) 100%), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600');"></div>
-                <div class="container position-relative" style="z-index: 2;">
-                    <div class="row align-items-center justify-content-center text-center">
-                        <div class="col-lg-10">
-                            <span class="badge mb-3 px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2);">💡 NOS SOLUTIONS LOGICIELLES</span>
-                            <h1 class="f-nasalization display-3 fw-bold mb-4 lh-sm" style="color: #0f172a;">
-                                Des Progiciels Métiers <span style="color: #0284c7; background: linear-gradient(to right, #0284c7, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Innovants & Scalables</span>
-                            </h1>
-                            <p class="lead mb-5 fs-4 mx-auto" style="max-width: 800px; color: #475569;">
-                                <strong>Melodi ERP</strong> est un progiciel de gestion d'entreprise modulaire et auto-hébergé intégrant des modules métiers puissants : gestion de commerce, gestion d'établissement scolaire (SUKU), comptabilité et logistique.
-                            </p>
-                            <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="a-button a-button--primary btn btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">Explorer nos Progiciels</a>
-                                <a href="https://melodi.byt3lab.com" target="_blank" rel="noopener" class="btn btn-outline-primary btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px; border-color: #0284c7; color: #0284c7;">Accéder à Melodi ERP</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3: Services -->
-            <div class="carousel-item py-4 position-relative">
-                <div class="hero-bg-overlay" style="background-image: linear-gradient(135deg, rgba(255,255,255,0.91) 0%, rgba(248,250,252,0.84) 100%), url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1600');"></div>
-                <div class="container position-relative" style="z-index: 2;">
-                    <div class="row align-items-center justify-content-center text-center">
-                        <div class="col-lg-10">
-                            <span class="badge mb-3 px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2);">⚙️ NOS SERVICES & EXPERTISE</span>
-                            <h1 class="f-nasalization display-3 fw-bold mb-4 lh-sm" style="color: #0f172a;">
-                                Ingénierie Sur-Mesure, <span style="color: #0284c7; background: linear-gradient(to right, #0284c7, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cybersécurité & Cloud</span>
-                            </h1>
-                            <p class="lead mb-5 fs-4 mx-auto" style="max-width: 800px; color: #475569;">
-                                Développement web/mobile, audits de vulnérabilité, automatisation DevOps CI/CD et accompagnement technique sur-mesure pour vos équipes.
-                            </p>
-                            <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                <a href="<?php echo esc_url(home_url('/services/')); ?>" class="a-button a-button--primary btn btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">Voir tous nos Services</a>
-                                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-outline-primary btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px; border-color: #0284c7; color: #0284c7;">Demander un Devis</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: Contact -->
-            <div class="carousel-item py-4 position-relative">
-                <div class="hero-bg-overlay" style="background-image: linear-gradient(135deg, rgba(255,255,255,0.91) 0%, rgba(248,250,252,0.84) 100%), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600');"></div>
-                <div class="container position-relative" style="z-index: 2;">
-                    <div class="row align-items-center justify-content-center text-center">
-                        <div class="col-lg-10">
-                            <span class="badge mb-3 px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2);">📞 PRENDRE CONTACT</span>
-                            <h1 class="f-nasalization display-3 fw-bold mb-4 lh-sm" style="color: #0f172a;">
-                                Prêt à Digitaliser <span style="color: #0284c7; background: linear-gradient(to right, #0284c7, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Vos Projets ?</span>
-                            </h1>
-                            <p class="lead mb-5 fs-4 mx-auto" style="max-width: 800px; color: #475569;">
-                                Nos équipes d'ingénieurs et de consultants sont à votre disposition pour analyser vos besoins et concevoir vos futurs outils technologiques.
-                            </p>
-                            <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="a-button a-button--primary btn btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">Nous Contacter</a>
-                                <a href="https://wa.me/237696879475" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">WhatsApp Direct</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <!-- Carousel Navigation Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <div class="hero-carousel-btn shadow">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            </div>
-            <span class="visually-hidden">Précédent</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <div class="hero-carousel-btn shadow">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-            </div>
-            <span class="visually-hidden">Suivant</span>
-        </button>
-    </section>
-
-
-
-    <!-- Our Branches & Excellence Hubs (ngrafix, Byt3lab Tech) -->
-    <section class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
-        <div class="container py-5 text-start">
-            <div class="row mb-5 text-center">
-                <div class="col-12">
-                    <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Écosystème Byt3lab</span>
-                    <h2 class="f-nasalization h1 fw-bold" style="color: #0f172a;">Nos Branches & Filiales d'Excellence</h2>
-                    <p class="mx-auto mt-2" style="max-width: 700px; color: #64748b;">
-                        Un groupe multidisciplinaire structuré en filiales spécialisées pour répondre à l'ensemble de vos besoins créatifs et technologiques.
+                    <p class="lead mb-4 mx-auto" style="max-width: 820px; color: #475569; font-size: 18px; line-height: 1.7;">
+                        BYT3LAB conçoit des architectures logicielles de haute précision, des progiciels métiers modulaires et des infrastructures cloud sécurisées pour propulser l'autonomie numérique des organisations africaines.
                     </p>
-                </div>
-            </div>
 
-            <div class="row g-4 justify-content-center">
-                <!-- Branch 1: ngrafix -->
-                <div class="col-lg-6 col-md-6">
-                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div>
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <div class="p-2 rounded-3" style="background: rgba(168, 85, 247, 0.1); color: #9333ea;">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                </div>
-                                <span class="badge px-3 py-2 rounded-pill font-monospace" style="background: rgba(168, 85, 247, 0.1); color: #9333ea; border: 1px solid rgba(168, 85, 247, 0.2);">MEDIA & CREATIVE</span>
-                            </div>
-                            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/ngrafix.jpg'); ?>" alt="Ngrafix Media & Creative" class="img-fluid rounded-3 mb-3 shadow-sm" style="max-height: 160px; width: 100%; object-fit: cover;" />
-                            <h3 class="f-nasalization h3 fw-bold mb-2" style="color: #0f172a;">ngrafix</h3>
-                            <p class="small mb-4" style="color: #475569;">
-                                Pôle spécialisé en <strong>Marketing Digital</strong>, <strong>UI/UX & Webdesign</strong>, <strong>Graphisme & Infographie</strong>, <strong>Création de Contenu</strong> et <strong>Montage Vidéo</strong>.
-                            </p>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="btn btn-outline-primary w-100 py-2 fw-bold mt-auto" style="border-color: #9333ea; color: #9333ea;">Découvrir ngrafix</a>
+                    <!-- Well-proportioned Call to Actions -->
+                    <div class="d-flex gap-3 justify-content-center flex-wrap mb-5">
+                        <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="btn btn-primary font-monospace py-2 px-4 fw-semibold d-inline-flex align-items-center gap-2" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 14px;">
+                            <span>Explorer nos Solutions</span>
+                            <span>&rarr;</span>
+                        </a>
+                        <a href="<?php echo esc_url(home_url('/services/')); ?>" class="btn btn-outline-secondary font-monospace py-2 px-4 fw-semibold" style="border-radius: 8px; font-size: 14px;">
+                            Nos Services
+                        </a>
+                        <a href="https://wa.me/237696879475" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success font-monospace py-2 px-3 fw-semibold d-inline-flex align-items-center gap-2" style="border-radius: 8px; font-size: 14px;">
+                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.23.9 2.43 1.03 2.6.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+                            <span>WhatsApp Direct</span>
+                        </a>
                     </div>
-                </div>
 
-                <!-- Branch 2: Byt3lab Tech -->
-                <div class="col-lg-6 col-md-6">
-                    <div class="p-4 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-                        <div>
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <div class="p-2 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                                </div>
-                                <span class="badge px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2);">SOFTWARE & CLOUD</span>
-                            </div>
-                            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/byt3lab1.jpg'); ?>" alt="Byt3lab Tech Software & Cloud" class="img-fluid rounded-3 mb-3 shadow-sm" style="max-height: 160px; width: 100%; object-fit: cover;" />
-                            <h3 class="f-nasalization h3 fw-bold mb-2" style="color: #0f172a;">Byt3lab Tech</h3>
-                            <p class="small mb-4" style="color: #475569;">
-                                Pôle ingénierie logicielle : <strong>Progiciels (Melodi ERP, SUKU)</strong>, <strong>Développement Web & Mobile</strong>, <strong>Cybersécurité & Cloud</strong>.
-                            </p>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="btn btn-outline-primary w-100 py-2 fw-bold mt-auto" style="border-color: #0284c7; color: #0284c7;">Découvrir Byt3lab Tech</a>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <?php if (false): ?>
-    <!-- Key Metrics & Counter Section (Hidden) -->
-    <section class="py-5" style="background: #ffffff;">
-        <div class="container py-4 text-center">
-            <div class="row g-4 justify-content-center">
-                <div class="col-6 col-md-3">
-                    <div class="p-4 rounded-4 h-100 border" style="background: #f8fafc; border-color: #e2e8f0 !important;">
-                        <span class="f-nasalization display-5 fw-bold d-block mb-1" style="color: #0284c7;">99+</span>
-                        <span class="small text-uppercase font-monospace" style="color: #64748b;">Applications Déployées</span>
+    <!-- 1.5 Dual Pillars: Software Engineering & Communication Agency -->
+    <section class="py-5" style="background: #ffffff; border-bottom: 1px solid #e2e8f0;">
+        <div class="container py-4 text-start">
+            
+            <div class="text-center mb-5 mx-auto" style="max-width: 800px;">
+                <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7; font-size: 12px;">DEUX PÔLES SYNERGIQUES</span>
+                <h2 class="f-nasalization h2 fw-bold mb-3" style="color: #0f172a;">
+                    L'Excellence du Code &amp; la Puissance de l'Image
+                </h2>
+                <p class="mb-0" style="color: #334155; line-height: 1.7;">
+                    BYT3LAB structure son savoir-faire autour de deux branches complémentaires pour donner à votre organisation les moyens de ses ambitions numériques et de son rayonnement.
+                </p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Pôle 1: Byt3lab Tech -->
+                <div class="col-lg-6">
+                    <div class="p-4 p-md-5 rounded-4 h-100 border d-flex flex-column" style="background: #f8fafc; border-color: #e2e8f0 !important; border-top: 4px solid #0284c7 !important;">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="badge font-monospace px-3 py-1 rounded-pill" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; font-size: 11px;">
+                                PÔLE 1 • SOFTWARE ENGINEERING
+                            </span>
+                            <span style="font-size: 22px;">💻</span>
+                        </div>
+                        <h3 class="f-nasalization h3 fw-bold mb-3" style="color: #0f172a;">Byt3lab</h3>
+                        <p class="mb-4" style="color: #334155; line-height: 1.7; font-size: 15px;">
+                            Ingénierie logicielle avancée et progiciels de gestion intégrés conçus pour l'indépendance opérationnelle de votre entreprise.
+                        </p>
+                        <ul class="list-unstyled d-flex flex-column gap-2 small font-monospace mb-4" style="color: #334155;">
+                            <li><span class="text-primary fw-bold">✓</span> Développement SaaS, Plateformes Web &amp; Applications Mobiles</li>
+                            <li><span class="text-primary fw-bold">✓</span> Infrastructures Cloud Souveraines, DevOps &amp; Cybersécurité</li>
+                        </ul>
+                        <div class="mt-auto pt-3 border-top d-flex gap-2 flex-wrap">
+                            <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="btn btn-sm btn-primary font-monospace px-3 py-2 fw-semibold" style="background: #0284c7; border: none; border-radius: 6px; font-size: 13px;">
+                                Découvrir nos Solutions &rarr;
+                            </a>
+                            <a href="<?php echo esc_url(home_url('/services/')); ?>" class="btn btn-sm btn-outline-secondary font-monospace px-3 py-2 fw-semibold" style="border-radius: 6px; font-size: 13px;">
+                                Services Ingénierie
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="p-4 rounded-4 h-100 border" style="background: #f8fafc; border-color: #e2e8f0 !important;">
-                        <span class="f-nasalization display-5 fw-bold d-block mb-1" style="color: #0284c7;">25+</span>
-                        <span class="small text-uppercase font-monospace" style="color: #64748b;">Projets Récents</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="p-4 rounded-4 h-100 border" style="background: #f8fafc; border-color: #e2e8f0 !important;">
-                        <span class="f-nasalization display-5 fw-bold d-block mb-1" style="color: #0284c7;">1M+</span>
-                        <span class="small text-uppercase font-monospace" style="color: #64748b;">Lignes de Code</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="p-4 rounded-4 h-100 border" style="background: #f8fafc; border-color: #e2e8f0 !important;">
-                        <span class="f-nasalization display-5 fw-bold d-block mb-1" style="color: #0284c7;">100%</span>
-                        <span class="small text-uppercase font-monospace" style="color: #64748b;">Souveraineté Cible</span>
+
+                <!-- Pôle 2: Ngrafix Studio -->
+                <div class="col-lg-6">
+                    <div class="p-4 p-md-5 rounded-4 h-100 border d-flex flex-column" style="background: #f8fafc; border-color: #e2e8f0 !important; border-top: 4px solid #9333ea !important;">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="badge font-monospace px-3 py-1 rounded-pill" style="background: rgba(147, 51, 234, 0.1); color: #9333ea; font-size: 11px;">
+                                PÔLE 2 • COMMUNICATION AGENCY
+                            </span>
+                            <span style="font-size: 22px;">🎨</span>
+                        </div>
+                        <h3 class="f-nasalization h3 fw-bold mb-3" style="color: #0f172a;">Ngrafix</h3>
+                        <p class="mb-4" style="color: #334155; line-height: 1.7; font-size: 15px;">
+                            Notre agence de communication et de création visuelle dédiée à aider les organisations à mieux communiquer, convaincre et impacter.
+                        </p>
+                        <ul class="list-unstyled d-flex flex-column gap-2 small font-monospace mb-4" style="color: #334155;">
+                            <li><span style="color: #9333ea; font-weight: bold;">✓</span> Maîtrise de l'Identité Visuelle : Logos, Chartes 360° &amp; Branding</li>
+                            <li><span style="color: #9333ea; font-weight: bold;">✓</span> Stratégie Marketing, Positionnement &amp; Plans de Communication</li>
+                            <li><span style="color: #9333ea; font-weight: bold;">✓</span> Réalisation de Visuels : Réseaux sociaux, Print, Plaquettes &amp; UI/UX</li>
+                        </ul>
+                        <div class="mt-auto pt-3 border-top d-flex gap-2 flex-wrap">
+                            <a href="<?php echo esc_url(home_url('/a-propos/#pole-communication')); ?>" class="btn btn-sm btn-primary font-monospace px-3 py-2 fw-semibold" style="background: #9333ea; border: none; border-radius: 6px; font-size: 13px;">
+                                Découvrir le Pôle NGRAFIX &rarr;
+                            </a>
+                            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-sm btn-outline-secondary font-monospace px-3 py-2 fw-semibold" style="border-radius: 6px; font-size: 13px;">
+                                Demander un Devis Créatif
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61571483432231" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary font-monospace px-3 py-2 fw-semibold d-inline-flex align-items-center gap-1.5" style="border-radius: 6px; font-size: 13px; border-color: #1877F2; color: #1877F2;">
+                                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                <span>Facebook Ngrafix</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
-    <?php endif; ?>
 
-    <!-- Flagship Products/Solutions Spotlight -->
-    <section class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
-        <div class="container py-5 text-center">
-            <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Technologies Souveraines</span>
-            <h2 class="f-nasalization h1 fw-bold mb-5" style="color: #0f172a;">
-                Des Outils Conçus Pour Bâtir Notre Avenir
+    <section class="py-5" style="background: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+        <div class="container py-5 text-start">
+            
+            <div class="text-center mb-5">
+                <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Processus de Réalisation</span>
+                <h2 class="f-nasalization h1 fw-bold" style="color: #0f172a;">La Démarche d'Ingénierie BYT3LAB</h2>
+                <p class="mx-auto mt-2" style="max-width: 650px; color: #334155; line-height: 1.7;">
+                    Un cycle de production rigoureux pour garantir le respect des délais, la sécurité et la pérennité de vos systèmes.
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 h-100 bg-white border" style="border-color: #e2e8f0 !important;">
+                        <div class="f-nasalization h4 fw-bold mb-2" style="color: #0284c7;">01</div>
+                        <h4 class="h6 fw-bold mb-2 text-dark">Audit &amp; Cadrage</h4>
+                        <p class="small mb-0" style="color: #334155; line-height: 1.6;">
+                            Immersion dans vos processus métiers, rédaction des spécifications et validation des maquettes UI interactives.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 h-100 bg-white border" style="border-color: #e2e8f0 !important;">
+                        <div class="f-nasalization h4 fw-bold mb-2" style="color: #0284c7;">02</div>
+                        <h4 class="h6 fw-bold mb-2 text-dark">Sprints &amp; Démo</h4>
+                        <p class="small mb-0" style="color: #334155; line-height: 1.6;">
+                            Développement itératif par modules. Démonstrations bimensuelles pour recueillir vos retours en temps réel.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 h-100 bg-white border" style="border-color: #e2e8f0 !important;">
+                        <div class="f-nasalization h4 fw-bold mb-2" style="color: #0284c7;">03</div>
+                        <h4 class="h6 fw-bold mb-2 text-dark">Tests &amp; Sécurité</h4>
+                        <p class="small mb-0" style="color: #334155; line-height: 1.6;">
+                            Audits de sécurité, tests unitaires et de montée en charge pour garantir une stabilité maximale en production.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 h-100 bg-white border" style="border-color: #e2e8f0 !important;">
+                        <div class="f-nasalization h4 fw-bold mb-2" style="color: #0284c7;">04</div>
+                        <h4 class="h6 fw-bold mb-2 text-dark">Déploiement &amp; SLA</h4>
+                        <p class="small mb-0" style="color: #334155; line-height: 1.6;">
+                            Mise en production sécurisée sur votre infrastructure, formation de vos équipes et assistance technique continue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-5 text-center text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="container py-5 position-relative" style="z-index: 2;">
+            
+            <span class="badge px-3 py-1 rounded-pill font-monospace mb-3" style="background: rgba(2, 132, 199, 0.25); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); font-size: 11px;">
+                DÉMARRER UN PROJET
+            </span>
+
+            <h2 class="f-nasalization display-5 fw-bold mb-3" style="color: #ffffff;">
+                Construisons le Futur Technologique Ensemble
             </h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-5 text-start">
-                    <div class="p-5 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px -5px rgba(2, 132, 199, 0.12)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 20px -2px rgba(0,0,0,0.03)';">
-                        <div>
-                            <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5"/></svg>
-                            </div>
-                            <h3 class="f-nasalization mb-3 h4" style="color: #0f172a;">MELODI ERP</h3>
-                            <p class="mb-4" style="color: #475569;">
-                                Progiciel de gestion d'entreprise modulaire et auto-hébergé. Intègre des modules métiers sur-mesure : gestion de commerce, gestion d'établissement scolaire (SUKU), comptabilité, stocks et CRM.
-                            </p>
-                        </div>
-                        <a href="https://melodi.byt3lab.com" target="_blank" rel="noopener" class="text-decoration-none fw-bold mt-3 d-inline-flex align-items-center gap-1" style="color: #0284c7;">
-                            Découvrir Melodi ERP
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-5 text-start">
-                    <div class="p-5 h-100 rounded-4 d-flex flex-column justify-content-between" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.03); transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px -5px rgba(2, 132, 199, 0.12)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 20px -2px rgba(0,0,0,0.03)';">
-                        <div>
-                            <div class="mb-4 d-inline-block p-3 rounded-3" style="background: rgba(2, 132, 199, 0.08); color: #0284c7;">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                            </div>
-                            <h3 class="f-nasalization mb-3 h4" style="color: #0f172a;">SUKU</h3>
-                            <p class="mb-4" style="color: #475569;">
-                                Projetez votre établissement d'enseignement dans l'ère numérique. SUKU gère la scolarité, les inscriptions, les bulletins de notes et simplifie la communication parents-école.
-                            </p>
-                        </div>
-                        <a href="https://melodi.byt3lab.com/store/suku" target="_blank" rel="noopener" class="text-decoration-none fw-bold mt-3 d-inline-flex align-items-center gap-1" style="color: #0284c7;">
-                            Découvrir SUKU
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Glossary Section -->
-    <section class="py-5" style="background: #ffffff; border-top: 1px solid #e2e8f0;">
-        <div class="container py-5 text-start">
-            <div class="row mb-5 text-center">
-                <div class="col-12">
-                    <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Glossaire de nos Expertises</span>
-                    <h2 class="f-nasalization h1 fw-bold" style="color: #0f172a;">Nos Services de A à Z</h2>
-                    <p class="mx-auto mt-2" style="max-width: 600px; color: #64748b;">
-                        Un aperçu complet des services et expertises techniques que nous mettons à votre disposition.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <h3 class="fw-bold h5 mb-3 font-monospace" style="color: #0284c7 !important;">[A] Audit & Conseil</h3>
-                        <p class="small mb-0" style="color: #475569;">Analyse de vos processus métiers et de vos architectures techniques pour aligner votre IT avec vos objectifs stratégiques.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <h3 class="fw-bold h5 mb-3 font-monospace" style="color: #0284c7 !important;">[C] Cybersécurité</h3>
-                        <p class="small mb-0" style="color: #475569;">Tests de pénétration, isolation réseau avancée, chiffrement des données et mise en conformité réglementaire.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <h3 class="fw-bold h5 mb-3 font-monospace" style="color: #0284c7 !important;">[D] Développement Logiciel</h3>
-                        <p class="small mb-0" style="color: #475569;">Développement agile d'applications mobiles, plateformes web, progiciels ERP et services cloud sur-mesure.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <h3 class="fw-bold h5 mb-3 font-monospace" style="color: #0284c7 !important;">[F] Frameworks & Intégration</h3>
-                        <p class="small mb-0" style="color: #475569;">Intégration d'outils digitaux et progiciels métiers adaptés aux besoins spécifiques de votre entreprise.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <h3 class="fw-bold h5 mb-3 font-monospace" style="color: #0284c7 !important;">[I] DevOps & Infrastructure</h3>
-                        <p class="small mb-0" style="color: #475569;">Automatisation CI/CD, conteneurisation Docker/Kubernetes, configuration de serveurs et administration cloud.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="p-4 h-100 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                        <h3 class="fw-bold h5 mb-3 font-monospace" style="color: #0284c7 !important;">[M] Maintenance & Support</h3>
-                        <p class="small mb-0" style="color: #475569;">Suivi proactif, monitoring en temps réel, support technique disponible 24h/24 et 7j/7 et mises à jour continues.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <?php if (false): ?>
-    <!-- Testimonials Section (Hidden) -->
-    <section class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0;">
-        <div class="container py-5 text-start">
-            <div class="row mb-5 text-center">
-                <div class="col-12">
-                    <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Témoignages</span>
-                    <h2 class="f-nasalization h1 fw-bold" style="color: #0f172a;">Ils nous font confiance</h2>
-                    <p class="mx-auto mt-2" style="max-width: 600px; color: #64748b;">
-                        Découvrez les retours d'expérience de nos partenaires et clients qui utilisent nos solutions au quotidien.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6">
-                    <div class="p-5 rounded-4 h-100" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);">
-                        <div class="text-warning mb-3">★★★★★</div>
-                        <p class="fs-5 mb-4" style="color: #334155; font-style: italic;">
-                            "Grâce à l'intégration du module SUKU, la gestion administrative de notre complexe scolaire a été totalement transformée. Les notes, les absences et les paiements de scolarité sont maintenant fluides et centralisés. Les parents apprécient grandement le suivi en temps réel."
-                        </p>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="rounded-circle" style="width: 48px; height: 48px; background: linear-gradient(135deg, #0284c7, #38bdf8);"></div>
-                            <div>
-                                <h4 class="fw-bold h6 mb-0" style="color: #0f172a;">M. Tchakounté Paul</h4>
-                                <small style="color: #64748b;">Directeur d'Établissement - Douala</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-5 rounded-4 h-100" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);">
-                        <div class="text-warning mb-3">★★★★★</div>
-                        <p class="fs-5 mb-4" style="color: #334155; font-style: italic;">
-                            "Melodi ERP est devenu le cœur battant de notre logistique et facturation. La gestion multi-entrepôts est d'une simplicité et d'une précision incroyable. L'équipe Byt3lab a su adapter le logiciel à nos contraintes opérationnelles locales."
-                        </p>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="rounded-circle" style="width: 48px; height: 48px; background: linear-gradient(135deg, #0284c7, #38bdf8);"></div>
-                            <div>
-                                <h4 class="fw-bold h6 mb-0" style="color: #0f172a;">Mme. Kenfack Sophie</h4>
-                                <small style="color: #64748b;">Responsable Logistique, DistriAgro - Yaoundé</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners/Logos Section (Hidden) -->
-    <section class="py-5" style="background: #ffffff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
-        <div class="container py-4 text-center">
-            <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-3" style="color: #0284c7;">Nos Partenaires & Écosystème</span>
-            <div class="row g-4 align-items-center justify-content-center opacity-75">
-                <div class="col-6 col-sm-4 col-md-2">
-                    <span class="f-nasalization fw-bold small" style="color: #64748b;">AFRI_TECH</span>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2">
-                    <span class="f-nasalization fw-bold small" style="color: #64748b;">CAM_CLOUD</span>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2">
-                    <span class="f-nasalization fw-bold small" style="color: #64748b;">NEXUS_SYSTEMS</span>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2">
-                    <span class="f-nasalization fw-bold small" style="color: #64748b;">SUKU_NET</span>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2">
-                    <span class="f-nasalization fw-bold small" style="color: #64748b;">MELODI_SOCIETY</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <?php endif; ?>
-    
-    <!-- Global CTA to join the technological movement -->
-    <section class="py-5 text-center position-relative" style="background: radial-gradient(circle at bottom, rgba(2, 132, 199, 0.08), transparent 70%), #f8fafc;">
-        <div class="container py-5">
-            <h2 class="f-nasalization h1 fw-bold mb-4" style="color: #0f172a;">Construisons le Futur Technologique de l'Afrique</h2>
-            <p class="mx-auto mb-5 fs-5" style="max-width: 700px; color: #475569;">
-                Que vous soyez un chef d'entreprise désireux de moderniser ses outils, une institution à digitaliser ou un développeur voulant relever des défis passionnants : collaborons ensemble.
+            <p class="lead mx-auto mb-4 text-white-50" style="max-width: 680px; font-size: 17px; line-height: 1.7;">
+                Que vous souhaitiez déployer un progiciel prêt à l'emploi (Melodi ERP, SUKU) ou développer une architecture sur-mesure : nos ingénieurs sont prêts.
             </p>
-            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="a-button a-button--primary btn btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">Lancer une collaboration</a>
+
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary font-monospace py-2.5 px-4 fw-semibold" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 14px;">
+                    Lancer une collaboration &rarr;
+                </a>
+                <a href="https://wa.me/237696879475" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light font-monospace py-2.5 px-4 fw-semibold d-inline-flex align-items-center gap-2" style="border-radius: 8px; font-size: 14px;">
+                    <span>WhatsApp Ingénierie</span>
+                </a>
+            </div>
+
         </div>
     </section>
 

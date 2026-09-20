@@ -59,8 +59,58 @@ body.admin-bar .c-navbar {
     color: #ffffff !important;
 }
 
-.c-navbar__logo-link span {
+/* Shiny Brilliant White Logo */
+.c-navbar__brand-text--shiny {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 40%, #ffffff 65%, #e2e8f0 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: none !important;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55)) drop-shadow(0 0 30px rgba(56, 189, 248, 0.25)) !important;
+    transition: filter 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease !important;
+    display: inline-block;
+}
+
+.c-navbar__logo-link:hover .c-navbar__brand-text--shiny {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1)) drop-shadow(0 0 28px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 40px rgba(56, 189, 248, 0.5)) !important;
+    transform: scale(1.03);
+}
+
+/* Header Brand Slogan */
+.c-navbar__slogan {
+    font-size: 8.5px !important;
+    font-family: var(--font-family-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace) !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    color: #94a3b8 !important;
+    -webkit-text-fill-color: #94a3b8 !important;
+    background: none !important;
+    filter: none !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    display: block !important;
+    white-space: nowrap !important;
+    transition: color 0.2s ease, -webkit-text-fill-color 0.2s ease !important;
+}
+
+.c-navbar__logo-link:hover .c-navbar__slogan {
     color: #38bdf8 !important;
+    -webkit-text-fill-color: #38bdf8 !important;
+    filter: none !important;
+}
+
+@media screen and (max-width: 576px) {
+    .c-navbar__slogan {
+        font-size: 7.2px !important;
+        letter-spacing: 0.2px !important;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .c-navbar__slogan {
+        font-size: 6.4px !important;
+        letter-spacing: 0px !important;
+    }
 }
 
 /* Nav Link Base Style */

@@ -1,3 +1,9 @@
+<?php
+if (defined('BYT3LAB_HEADER_SENT')) {
+    return;
+}
+define('BYT3LAB_HEADER_SENT', true);
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
