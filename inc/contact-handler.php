@@ -24,7 +24,7 @@ function byt3lab_process_contact_submission($data) {
     }
 
     // 2. Vérification du nonce CSRF
-    $nonce = $data['nonce'] ?? ($data['_wpnonce'] ?? '');
+    $nonce = $data['byt3lab_nonce'] ?? ($data['nonce'] ?? ($data['_wpnonce'] ?? ''));
     if (!wp_verify_nonce($nonce, 'byt3lab_contact_nonce')) {
         return [
             'success' => false,
@@ -60,12 +60,12 @@ function byt3lab_process_contact_submission($data) {
         $form_type = 'contact';
     }
 
-    $name    = sanitize_text_field($data['name'] ?? '');
-    $org     = sanitize_text_field($data['org'] ?? '');
-    $email   = sanitize_email($data['email'] ?? '');
-    $phone   = sanitize_text_field($data['phone'] ?? '');
-    $subject = sanitize_text_field($data['subject'] ?? ($form_type === 'partner' ? 'Demande de partenariat' : 'Prise de contact'));
-    $message = sanitize_textarea_field($data['message'] ?? '');
+    $name    = sanitize_text_field($data['name'] ?? ($data['contact_name'] ?? ''));
+    $org     = sanitize_text_field($data['org'] ?? ($data['contact_org'] ?? ''));
+    $email   = sanitize_email($data['email'] ?? ($data['contact_email'] ?? ''));
+    $phone   = sanitize_text_field($data['phone'] ?? ($data['contact_phone'] ?? ''));
+    $subject = sanitize_text_field($data['subject'] ?? ($data['contact_subject'] ?? ($form_type === 'partner' ? 'Demande de partenariat' : 'Prise de contact')));
+    $message = sanitize_textarea_field($data['message'] ?? ($data['contact_message'] ?? ''));
 
     // Champs spécifiques au partenariat
     $partner_type = sanitize_text_field($data['partner_type'] ?? '');
