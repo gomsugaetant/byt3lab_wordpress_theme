@@ -56,3 +56,4 @@ function byt3lab_handle_redirects() {
         }
     }
 }
+

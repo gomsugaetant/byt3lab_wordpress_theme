@@ -158,3 +158,4 @@ function byt3lab_render_settings_page() {
     </div>
     <?php
 }
+

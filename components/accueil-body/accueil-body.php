@@ -254,6 +254,7 @@ if (!defined('ABSPATH')) {
             <div class="b-grid b-grid--3">
                 <?php if ($offers_query->have_posts()) : while ($offers_query->have_posts()) : $offers_query->the_post(); 
                     $off_id = get_the_ID();
+                    $off_status = get_post_meta($off_id, '_byt3lab_status', true) ?: 'active';
                     $badge = get_post_meta($off_id, '_byt3lab_solution_badge', true);
                     $tagline = get_post_meta($off_id, '_byt3lab_offer_tagline', true);
                     $accent = get_post_meta($off_id, '_byt3lab_offer_accent', true) ?: '#1D7FD8';
@@ -263,7 +264,10 @@ if (!defined('ABSPATH')) {
                 ?>
                     <article class="b-product-card" style="--card-accent: <?php echo esc_attr($accent); ?>;">
                         <div class="b-product-card__top">
-                            <span class="b-product-card__badge"><?php echo esc_html($badge); ?></span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                <span class="b-product-card__badge" style="margin-bottom: 0;"><?php echo esc_html($badge); ?></span>
+                                <?php echo byt3lab_status_badge($off_status); ?>
+                            </div>
                             <h3 class="b-product-card__title"><?php the_title(); ?></h3>
                             <?php if ($tagline) : ?>
                                 <p class="b-product-card__tagline"><?php echo esc_html($tagline); ?></p>

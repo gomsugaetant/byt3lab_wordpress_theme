@@ -105,7 +105,10 @@ if (!defined('ABSPATH')) {
                                 <span>Solution pour le secteur éducatif</span>
                             </a>
                             <a href="<?php echo esc_url(home_url('/services/bws/')); ?>" class="b-dropdown__item" role="menuitem">
-                                <strong>BWS Infrastructure</strong>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <strong>BWS Infrastructure</strong>
+                                    <?php echo byt3lab_status_badge('in_development'); ?>
+                                </div>
                                 <span>Hébergement &amp; cloud managé</span>
                             </a>
                         </div>
@@ -210,7 +213,7 @@ if (!defined('ABSPATH')) {
                     <ul class="b-drawer__sublist">
                         <li><a href="<?php echo esc_url(home_url('/produits/melodi-erp/')); ?>">MELODI ERP</a></li>
                         <li><a href="<?php echo esc_url(home_url('/produits/suku/')); ?>">SUKU (Éducation)</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/services/bws/')); ?>">BWS Infrastructure</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/services/bws/')); ?>">BWS Infrastructure <?php echo byt3lab_status_badge('in_development'); ?></a></li>
                     </ul>
                 </li>
                 <li><a href="<?php echo esc_url(home_url('/services/')); ?>" class="b-drawer__link">Services &amp; Ingénierie</a></li>

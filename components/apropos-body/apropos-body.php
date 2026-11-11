@@ -28,29 +28,28 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                 <div class="col-lg-10 col-xl-9">
                     <div class="mb-4">
                         <span class="apropos-hero__badge font-monospace text-uppercase">
-                            <span>⚡</span> Souveraineté &amp; Innovation Numérique
+                            <span>⚡</span> Technology &amp; Innovation Group
                         </span>
                     </div>
 
                     <h1 class="f-nasalization display-4 fw-bold apropos-hero__title mb-4">
-                        Bâtir la Première <span class="apropos-hero__title-gradient">Puissance Technologique</span> Africaine
+                        Concevoir des <span class="apropos-hero__title-gradient">solutions</span> qui donnent de l'avance.
                     </h1>
 
                     <p class="lead mx-auto mb-5 fs-5" style="max-width: 860px; color: #334155; line-height: 1.8;">
-                        <strong>BYT3LAB</strong> est un écosystème hybride articulé autour de deux forces majeures : l'<strong>Ingénierie Logicielle de pointe</strong> (progiciels de gestion, cloud souverain) et notre <strong>Pôle Agence de Communication (NGRAFIX)</strong>, conçu pour accompagner les organisations dans la maîtrise de leur identité visuelle, leur stratégie marketing et la création de visuels à fort impact.
+                        Byt3Lab est un groupe technologique et d'innovation qui associe des divisions spécialisées en logiciel, infrastructure, matériel, industrialisation et énergie à un studio créatif orienté marque pour aider les organisations à accélérer leur transformation.
                     </p>
 
-                    <!-- Quick Navigation Actions -->
                     <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
-                        <a href="#pole-communication" class="a-button a-button--primary btn btn-lg px-4 py-3 fw-bold text-uppercase d-inline-flex align-items-center gap-2" style="border-radius: 8px; background: #9333ea; border-color: #9333ea;">
-                            <span>🎨 Découvrir le Pôle NGRAFIX</span>
+                        <a href="#vision" class="a-button a-button--primary btn btn-lg px-4 py-3 fw-bold text-uppercase d-inline-flex align-items-center gap-2" style="border-radius: 8px; background: #0284c7; border-color: #0284c7;">
+                            <span>Découvrir notre vision</span>
                         </a>
-                        <a href="#equipe" class="btn btn-outline-primary btn-lg px-4 py-3 fw-bold text-uppercase d-inline-flex align-items-center gap-2" style="border-radius: 8px; border-color: rgba(2, 132, 199, 0.4); color: #0284c7;">
-                            <span>Notre Équipe</span>
+                        <a href="#ngrafix" class="btn btn-outline-primary btn-lg px-4 py-3 fw-bold text-uppercase d-inline-flex align-items-center gap-2" style="border-radius: 8px; border-color: rgba(147, 51, 234, 0.4); color: #9333ea;">
+                            <span>NGRAFIX</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
                         </a>
-                        <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="btn btn-outline-secondary btn-lg px-4 py-3 fw-bold text-uppercase" style="border-radius: 8px;">
-                            Nos Solutions Métiers
+                        <a href="<?php echo esc_url(home_url('/technologies/')); ?>" class="btn btn-outline-secondary btn-lg px-4 py-3 fw-bold text-uppercase" style="border-radius: 8px;">
+                            Nos divisions
                         </a>
                     </div>
                 </div>
@@ -58,22 +57,22 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
         </div>
     </section>
 
-    <section class="py-5">
+    <section id="vision" class="py-5">
         <div class="container py-5 text-start">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;" data-bs-toggle="tooltip" title="Notre Vision Stratégique">Manifeste &amp; Histoire</span>
+                    <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;" data-bs-toggle="tooltip" title="Notre Vision Stratégique">Vision &amp; histoire</span>
                     <h2 class="f-nasalization display-6 fw-bold mb-4" style="color: #0f172a;">
-                        Pourquoi BYT3LAB a été créé ?
+                        Une ambition de groupe, portée par la technologie
                     </h2>
                     <p class="mb-4" style="color: #334155; line-height: 1.8; font-size: 16px;">
-                        Pendant trop longtemps, les entreprises et institutions locales ont été tributaires de logiciels importés, coûteux en devises, inadaptés aux réalités fiscales locales, et enfermant leurs données stratégiques à l'étranger.
+                        Les organisations ont longtemps été dépendantes de solutions importées, peu adaptées aux contextes locaux, coûteuses à maintenir et parfois fragiles sur le plan de la souveraineté numérique.
                     </p>
                     <p class="mb-4" style="color: #334155; line-height: 1.8; font-size: 16px;">
-                        Parallèlement, de nombreuses organisations souffraient d'un déficit d'image : une valeur métier réelle mais invisible, faute d'une identité visuelle moderne et d'une stratégie de communication affirmée.
+                        Parallèlement, beaucoup d'entre elles disposent de réelles capacités opérationnelles sans toutefois maîtriser pleinement leur image, leur communication ou la lisibilité de leur positionnement.
                     </p>
                     <p class="mb-4" style="color: #334155; line-height: 1.8; font-size: 16px;">
-                        <strong>BYT3LAB</strong> est né pour combler cette double rupture : fusionner la puissance de l'<strong>ingénierie logicielle avancée</strong> avec la force d'impact d'une <strong>agence de communication stratégique (NGRAFIX)</strong>. Nous permettons aux organisations de fonctionner avec une autonomie technologique totale et de rayonner auprès de leurs clients.
+                        Byt3Lab a été fondé pour réunir ces deux enjeux : <strong>construire des systèmes technologiques robustes</strong> et <strong>donner aux entreprises les moyens d'exister clairement dans leur marché</strong>, avec une stratégie de marque et une exécution technique alignées.
                     </p>
                 </div>
 
@@ -82,8 +81,8 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                         <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom border-secondary border-opacity-25">
                             <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/media/byt3lab_sng.png'); ?>" alt="Byt3lab" style="height: 48px; width: auto;" />
                             <div>
-                                <h3 class="f-nasalization h4 mb-0 text-white c-navbar__brand-text--shiny">BYT3LAB </h3><br>
-                                <small class="font-monospace" style="color: #94a3b8;">Software Engineering &amp; Communication Agency</small>
+                                <h3 class="f-nasalization h4 mb-0 text-white c-navbar__brand-text--shiny">BYT3LAB</h3><br>
+                                <small class="font-monospace" style="color: #94a3b8;">Technology &amp; Innovation Group</small>
                             </div>
                         </div>
                         
@@ -91,22 +90,22 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                             <div class="d-flex align-items-start gap-3">
                                 <span class="badge rounded-circle p-2 mt-1" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">✓</span>
                                 <div>
-                                    <strong class="text-white d-block">Pôle 1 : Ingénierie Logicielle &amp; Cloud Souverain</strong>
-                                    <p class="small mb-0" style="color: #cbd5e1; line-height: 1.5;">Progiciels de gestion (Melodi ERP, SUKU), développements sur-mesure et serveurs souverains isolés pour une autonomie pérenne.</p>
+                                    <strong class="text-white d-block">Logiciel, Cloud et infrastructure</strong>
+                                    <p class="small mb-0" style="color: #cbd5e1; line-height: 1.5;">Solutions de gestion, applications métiers, architectures cloud et infrastructures fiables pour des organisations à forte exigence.</p>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start gap-3">
                                 <span class="badge rounded-circle p-2 mt-1" style="background: rgba(147, 51, 234, 0.25); color: #c084fc;">✓</span>
                                 <div>
-                                    <strong class="text-white d-block">Pôle 2 : Agence de Communication &amp; Branding (NGRAFIX)</strong>
-                                    <p class="small mb-0" style="color: #cbd5e1; line-height: 1.5;">Identité visuelle 360°, stratégie marketing de positionnement, réalisations graphiques publicitaires et UI/UX d'excellence.</p>
+                                    <strong class="text-white d-block">Studio créatif NGRAFIX</strong>
+                                    <p class="small mb-0" style="color: #cbd5e1; line-height: 1.5;">Branding, design, communication et expérience de marque pour amplifier la visibilité et la crédibilité des organisations.</p>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start gap-3">
                                 <span class="badge rounded-circle p-2 mt-1" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">✓</span>
                                 <div>
-                                    <strong class="text-white d-block">Un Guichet Unique à Haute Valeur Ajoutée</strong>
-                                    <p class="small mb-0" style="color: #cbd5e1; line-height: 1.5;">Plus besoin de dissocier vos prestataires techniques et créatifs : nous alignons parfaitement le moteur applicatif et l'image de marque.</p>
+                                    <strong class="text-white d-block">Un guichet unique</strong>
+                                    <p class="small mb-0" style="color: #cbd5e1; line-height: 1.5;">Des équipes alignées autour de la même vision : la technologie comme levier de croissance, d'efficacité et de souveraineté.</p>
                                 </div>
                             </div>
                         </div>
@@ -116,8 +115,8 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
         </div>
     </section>
 
-    <!-- 3. Section Pôle Communication Agency & NGRAFIX -->
-    <section id="pole-communication" class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; scroll-margin-top: 80px;">
+    <!-- 3. Section NGRAFIX -->
+    <section id="ngrafix" class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; scroll-margin-top: 80px;">
         <div class="container py-5 text-start">
             
             <div class="row align-items-center mb-5 g-4">
@@ -125,14 +124,14 @@ if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['by
                     <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(147, 51, 234, 0.08); border: 1px solid rgba(147, 51, 234, 0.25);">
                         <span style="font-size: 15px;">🎨</span>
                         <span class="font-monospace fw-semibold" style="color: #9333ea; font-size: 12px; letter-spacing: 0.8px;">
-                            COMMUNICATION AGENCY &amp; CRÉATIVITÉ • BRANCHE NGRAFIX
+                            STUDIO CRÉATIF • NGRAFIX
                         </span>
                     </div>
                     <h2 class="f-nasalization display-6 fw-bold mb-3" style="color: #0f172a;">
-                        Aider les Organisations à <span style="background: linear-gradient(135deg, #9333ea 0%, #0284c7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Mieux Communiquer</span> &amp; Impacter
+                        Donner de la <span style="background: linear-gradient(135deg, #9333ea 0%, #0284c7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">visibilité</span> à la valeur technique
                     </h2>
                     <p class="mb-0 fs-6" style="color: #334155; line-height: 1.8;">
-                        La technologie n'atteint son plein potentiel que lorsqu'elle est portée par une image de marque irréprochable et un discours stratégique percutant. À travers sa branche spécialisée <strong>NGRAFIX</strong>, BYT3LAB opère comme une véritable agence de communication intégrée, accompagnant les entreprises, PME et institutions pour maîtriser leur identité visuelle, orchestrer leur stratégie marketing et concevoir des supports visuels qui captent l'attention et génèrent des résultats.
+                        Une technologie de qualité prend toute sa valeur lorsqu’elle est portée par une identité claire, une expérience convaincante et une communication qui raconte précisément ce que l’on construit. NGRAFIX accompagne les organisations dans cette étape décisive, entre stratégie de marque, design et impact digital.
                     </p>
                 </div>
                 <div class="col-lg-4 text-lg-end d-flex flex-column flex-sm-row flex-lg-column align-items-lg-end justify-content-lg-center gap-2">

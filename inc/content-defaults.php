@@ -130,7 +130,7 @@ function byt3lab_default_divisions() {
             'technologies' => "Virtualisation et conteneurs\nServeurs Linux\nSauvegardes automatisées\nSupervision et alertes\nPipelines de déploiement",
             'services' => "Hébergement managé (BWS)\nGestion de serveurs\nDéploiement et maintenance applicative\nSauvegarde et sécurité",
             'industries' => "Services financiers\nCommerce & distribution\nÉducation\nInstitutions publiques\nServices professionnels",
-            'maturity' => 'Division opérationnelle à travers BWS. Elle s\'appuie aujourd\'hui sur des infrastructures et fournisseurs partenaires.',
+            'maturity' => 'Services en cours de structuration et de déploiement progressif à travers BWS, en partenariat avec des fournisseurs d\'infrastructures tiers.',
             'related' => ['bws'],
         ],
         [
@@ -196,10 +196,10 @@ function byt3lab_default_offers() {
             'features' => '',
             'problems' => '',
             'benefits' => '',
-            'url' => 'https://melodi.byt3lab.com/store/suku', 'button' => 'Découvrir SUKU',
+            'url' => 'https://suku.byt3lab.com', 'button' => 'Découvrir SUKU',
         ],
         [
-            'slug' => 'bws', 'title' => 'BWS — Byt3Lab Web Services', 'type' => 'service_activity', 'status' => 'active', 'division' => 'infrastructure-cloud',
+            'slug' => 'bws', 'title' => 'BWS — Byt3Lab Web Services', 'type' => 'service_activity', 'status' => 'in_development', 'division' => 'infrastructure-cloud',
             'badge' => 'Services d\'infrastructure', 'tagline' => 'Hébergement et infrastructure managés, opérés par Byt3Lab.', 'accent' => '#0B3D6B', 'order' => 3,
             'excerpt' => 'Hébergement managé, services cloud, gestion de serveurs, déploiement d\'applications, sauvegarde et sécurité.',
             'content' => 'BWS — Byt3Lab Web Services est l\'activité de services d\'infrastructure et d\'hébergement managé de Byt3Lab. Elle prend en charge l\'hébergement, le déploiement et l\'exploitation technique des applications de ses clients, en s\'appuyant sur des infrastructures et fournisseurs partenaires.',

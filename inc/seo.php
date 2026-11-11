@@ -109,3 +109,4 @@ add_filter('robots_txt', function ($output, $public) {
     }
     return "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: " . esc_url(home_url('/wp-sitemap.xml')) . "\n";
 }, 10, 2);
+
