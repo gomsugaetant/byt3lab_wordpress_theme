@@ -8,19 +8,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-add_action('admin_menu', 'byt3lab_register_settings_menu', 20);
+// Le sous-menu est enregistré de manière centralisée dans inc/admin-page.php
 add_action('admin_init', 'byt3lab_register_settings');
-
-function byt3lab_register_settings_menu() {
-    add_submenu_page(
-        'byt3lab-content-hub',
-        __('Réglages du Site', 'byt3lab_wordpress_theme'),
-        __('Réglages du Site', 'byt3lab_wordpress_theme'),
-        'manage_options',
-        'byt3lab-site-settings',
-        'byt3lab_render_settings_page'
-    );
-}
 
 function byt3lab_register_settings() {
     register_setting('byt3lab_settings_group', 'byt3lab_settings', [
