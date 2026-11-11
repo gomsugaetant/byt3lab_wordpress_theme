@@ -1,223 +1,628 @@
 <?php
-// BYT3LAB Builder - auto-include component assets for accueil-body
-if (!isset($GLOBALS['byt3lab_assets_printed'])) {
-    $GLOBALS['byt3lab_assets_printed'] = ['css' => [], 'js' => []];
-}
-$__byt3lab_comp_slug = 'accueil-body';
-$__byt3lab_css_path = get_stylesheet_directory() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.css';
-$__byt3lab_js_path = get_stylesheet_directory() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.js';
-$__byt3lab_css_uri = get_stylesheet_directory_uri() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.css';
-$__byt3lab_js_uri = get_stylesheet_directory_uri() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.js';
-if (file_exists($__byt3lab_css_path) && !in_array($__byt3lab_css_uri, $GLOBALS['byt3lab_assets_printed']['css'])) {
-    echo '<link rel="stylesheet" href="' . esc_url($__byt3lab_css_uri) . '" />' . "\n";
-    $GLOBALS['byt3lab_assets_printed']['css'][] = $__byt3lab_css_uri;
-}
-if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['byt3lab_assets_printed']['js'])) {
-    echo '<script src="' . esc_url($__byt3lab_js_uri) . '"></script>' . "\n";
-    $GLOBALS['byt3lab_assets_printed']['js'][] = $__byt3lab_js_uri;
+/**
+ * BYT3LAB Component - Accueil Body (Page d'accueil institutionnelle)
+ * Architecture des 11 sections narratives du groupe Byt3Lab.
+ */
+if (!defined('ABSPATH')) {
+    exit;
 }
 ?>
+<div class="b-home">
 
-<div class="component-accueil-body bg-white text-dark">
-    <!-- BYT3LAB-CONTENT-START -->
-    
-    <!-- 1. Hero Section: High-Tech Engineering & Cockpit Showcase -->
-    <section class="hero-tech-bg position-relative overflow-hidden py-5">
-        <div class="hero-grid-pattern"></div>
-        
-        <div class="container py-5 position-relative" style="z-index: 2;">
-            <div class="row align-items-center justify-content-center text-center mb-5">
-                <div class="col-lg-10 col-xl-9">
-                    <h1 class="f-nasalization display-3 fw-bold mb-4" style="color: #0f172a; line-height: 1.15;">
-                        Bâtir la <span style="background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Première Puissance</span> Technologique &amp; Souveraine
+    <!-- =====================================================================
+         SECTION 1 — HERO INSTITUTIONNEL
+         ===================================================================== -->
+    <section class="b-hero" id="hero">
+        <div class="b-hero__pattern" aria-hidden="true"></div>
+        <div class="b-container b-container--wide">
+            <div class="b-hero__inner">
+                
+                <div class="b-hero__content">
+                    <div class="b-hero__signature">
+                        <?php byt3lab_e('home.hero.signature'); ?>
+                    </div>
+                    <h1 class="b-hero__title">
+                        <?php byt3lab_e('home.hero.title'); ?>
                     </h1>
-
-                    <p class="lead mb-4 mx-auto" style="max-width: 820px; color: #475569; font-size: 18px; line-height: 1.7;">
-                        BYT3LAB conçoit des architectures logicielles de haute précision, des progiciels métiers modulaires et des infrastructures cloud sécurisées pour propulser l'autonomie numérique des organisations africaines.
+                    <p class="b-hero__subtitle">
+                        <?php byt3lab_e('home.hero.subtitle'); ?>
                     </p>
-
-                    <!-- Well-proportioned Call to Actions -->
-                    <div class="d-flex gap-3 justify-content-center flex-wrap mb-5">
-                        <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="btn btn-primary font-monospace py-2 px-4 fw-semibold d-inline-flex align-items-center gap-2" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 14px;">
-                            <span>Explorer nos Solutions</span>
-                            <span>&rarr;</span>
+                    <div class="b-hero__actions">
+                        <a href="<?php echo esc_url(home_url('/technologies/')); ?>" class="b-btn b-btn--lg b-btn--primary">
+                            <span>Explorer nos technologies</span>
+                            <?php echo byt3lab_icon('arrow-right', 18); ?>
                         </a>
-                        <a href="<?php echo esc_url(home_url('/services/')); ?>" class="btn btn-outline-secondary font-monospace py-2 px-4 fw-semibold" style="border-radius: 8px; font-size: 14px;">
-                            Nos Services
-                        </a>
-                        <a href="https://wa.me/237696879475" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success font-monospace py-2 px-3 fw-semibold d-inline-flex align-items-center gap-2" style="border-radius: 8px; font-size: 14px;">
-                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.23.9 2.43 1.03 2.6.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
-                            <span>WhatsApp Direct</span>
+                        <a href="<?php echo esc_url(home_url('/partenaires/')); ?>" class="b-btn b-btn--lg b-btn--outline-dark">
+                            <?php echo byt3lab_icon('handshake', 18); ?>
+                            <span>Devenir partenaire</span>
                         </a>
                     </div>
-
                 </div>
+
+                <!-- Composition visuelle isométrique des 5 couches technologiques -->
+                <div class="b-hero__visual" aria-hidden="true">
+                    <svg class="b-tech-layers-svg" viewBox="0 0 520 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="layer-grad-1" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#1D7FD8" stop-opacity="0.9"/>
+                                <stop offset="100%" stop-color="#0B3D6B" stop-opacity="0.95"/>
+                            </linearGradient>
+                            <linearGradient id="layer-grad-2" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8"/>
+                                <stop offset="100%" stop-color="#1D7FD8" stop-opacity="0.9"/>
+                            </linearGradient>
+                            <linearGradient id="layer-grad-3" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#4FD3F5" stop-opacity="0.75"/>
+                                <stop offset="100%" stop-color="#0284C7" stop-opacity="0.85"/>
+                            </linearGradient>
+                            <linearGradient id="layer-grad-4" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#10B981" stop-opacity="0.75"/>
+                                <stop offset="100%" stop-color="#047857" stop-opacity="0.85"/>
+                            </linearGradient>
+                            <linearGradient id="layer-grad-5" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.75"/>
+                                <stop offset="100%" stop-color="#B45309" stop-opacity="0.85"/>
+                            </linearGradient>
+                            <filter id="layer-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                                <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+                            </filter>
+                        </defs>
+
+                        <!-- Couche 5 : Énergie & Résilience (base) -->
+                        <g filter="url(#layer-shadow)">
+                            <path d="M 260 320 L 440 230 L 260 160 L 80 230 Z" fill="url(#layer-grad-5)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                            <path d="M 80 230 L 260 320 L 260 340 L 80 250 Z" fill="#92400E" opacity="0.9"/>
+                            <path d="M 440 230 L 260 320 L 260 340 L 440 250 Z" fill="#78350F" opacity="0.9"/>
+                            <text x="260" y="240" fill="#FFF" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" opacity="0.9">05 · TECHNOLOGIES ÉNERGÉTIQUES</text>
+                        </g>
+
+                        <!-- Couche 4 : Technologies industrielles & IoT -->
+                        <g filter="url(#layer-shadow)">
+                            <path d="M 260 260 L 440 170 L 260 100 L 80 170 Z" fill="url(#layer-grad-4)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                            <path d="M 80 170 L 260 260 L 260 275 L 80 185 Z" fill="#065F46" opacity="0.9"/>
+                            <path d="M 440 170 L 260 260 L 260 275 L 440 185 Z" fill="#064E3B" opacity="0.9"/>
+                            <text x="260" y="180" fill="#FFF" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" opacity="0.9">04 · TECHNOLOGIES INDUSTRIELLES</text>
+                        </g>
+
+                        <!-- Couche 3 : Matériel & Réseaux -->
+                        <g filter="url(#layer-shadow)">
+                            <path d="M 260 200 L 440 110 L 260 40 L 80 110 Z" fill="url(#layer-grad-3)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                            <path d="M 80 110 L 260 200 L 260 215 L 80 125 Z" fill="#0369A1" opacity="0.9"/>
+                            <path d="M 440 110 L 260 200 L 260 215 L 440 125 Z" fill="#075985" opacity="0.9"/>
+                            <text x="260" y="120" fill="#FFF" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" opacity="0.9">03 · MATÉRIEL &amp; RÉSEAUX</text>
+                        </g>
+
+                        <!-- Couche 2 : Infrastructure & Cloud (BWS) -->
+                        <g filter="url(#layer-shadow)">
+                            <path d="M 260 140 L 440 50 L 260 -20 L 80 50 Z" fill="url(#layer-grad-2)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                            <path d="M 80 50 L 260 140 L 260 155 L 80 65 Z" fill="#0284C7" opacity="0.9"/>
+                            <path d="M 440 50 L 260 140 L 260 155 L 440 65 Z" fill="#0369A1" opacity="0.9"/>
+                            <text x="260" y="60" fill="#FFF" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" opacity="0.9">02 · INFRASTRUCTURE &amp; CLOUD</text>
+                        </g>
+
+                        <!-- Couche 1 : Logiciel & Numérique (sommet) -->
+                        <g filter="url(#layer-shadow)">
+                            <path d="M 260 80 L 440 -10 L 260 -80 L 80 -10 Z" fill="url(#layer-grad-1)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                            <path d="M 80 -10 L 260 80 L 260 95 L 80 5 Z" fill="#0B3D6B" opacity="0.9"/>
+                            <path d="M 440 -10 L 260 80 L 260 95 L 440 5 Z" fill="#002A4E" opacity="0.9"/>
+                            <text x="260" y="0" fill="#FFF" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" opacity="0.9">01 · LOGICIEL &amp; NUMÉRIQUE</text>
+                        </g>
+                    </svg>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- 1.5 Dual Pillars: Software Engineering & Communication Agency -->
-    <section class="py-5" style="background: #ffffff; border-bottom: 1px solid #e2e8f0;">
-        <div class="container py-4 text-start">
-            
-            <div class="text-center mb-5 mx-auto" style="max-width: 800px;">
-                <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7; font-size: 12px;">DEUX PÔLES SYNERGIQUES</span>
-                <h2 class="f-nasalization h2 fw-bold mb-3" style="color: #0f172a;">
-                    L'Excellence du Code &amp; la Puissance de l'Image
-                </h2>
-                <p class="mb-0" style="color: #334155; line-height: 1.7;">
-                    BYT3LAB structure son savoir-faire autour de deux branches complémentaires pour donner à votre organisation les moyens de ses ambitions numériques et de son rayonnement.
-                </p>
+    <!-- =====================================================================
+         SECTION 2 — ABOUT BYT3LAB (Positionnement Groupe)
+         ===================================================================== -->
+    <section class="b-section" id="about">
+        <div class="b-container">
+            <div class="b-section-head b-section-head--center">
+                <span class="b-eyebrow"><?php byt3lab_e('home.about.eyebrow'); ?></span>
+                <h2 class="b-title"><?php byt3lab_e('home.about.title'); ?></h2>
+                <p class="b-lead"><?php byt3lab_e('home.about.text'); ?></p>
             </div>
 
-            <div class="row g-4 align-items-stretch">
-                <!-- Pôle 1: Byt3lab Tech -->
-                <div class="col-lg-6">
-                    <div class="p-4 p-md-5 rounded-4 h-100 border d-flex flex-column" style="background: #f8fafc; border-color: #e2e8f0 !important; border-top: 4px solid #0284c7 !important;">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="badge font-monospace px-3 py-1 rounded-pill" style="background: rgba(2, 132, 199, 0.1); color: #0284c7; font-size: 11px;">
-                                PÔLE 1 • SOFTWARE ENGINEERING
-                            </span>
-                            <span style="font-size: 22px;">💻</span>
-                        </div>
-                        <h3 class="f-nasalization h3 fw-bold mb-3" style="color: #0f172a;">Byt3lab</h3>
-                        <p class="mb-4" style="color: #334155; line-height: 1.7; font-size: 15px;">
-                            Ingénierie logicielle avancée et progiciels de gestion intégrés conçus pour l'indépendance opérationnelle de votre entreprise.
-                        </p>
-                        <ul class="list-unstyled d-flex flex-column gap-2 small font-monospace mb-4" style="color: #334155;">
-                            <li><span class="text-primary fw-bold">✓</span> Développement SaaS, Plateformes Web &amp; Applications Mobiles</li>
-                            <li><span class="text-primary fw-bold">✓</span> Infrastructures Cloud Souveraines, DevOps &amp; Cybersécurité</li>
-                        </ul>
-                        <div class="mt-auto pt-3 border-top d-flex gap-2 flex-wrap">
-                            <a href="<?php echo esc_url(home_url('/solutions/')); ?>" class="btn btn-sm btn-primary font-monospace px-3 py-2 fw-semibold" style="background: #0284c7; border: none; border-radius: 6px; font-size: 13px;">
-                                Découvrir nos Solutions &rarr;
-                            </a>
-                            <a href="<?php echo esc_url(home_url('/services/')); ?>" class="btn btn-sm btn-outline-secondary font-monospace px-3 py-2 fw-semibold" style="border-radius: 6px; font-size: 13px;">
-                                Services Ingénierie
-                            </a>
-                        </div>
-                    </div>
+            <div class="b-about-grid">
+                <div class="b-about-card">
+                    <span class="b-about-card__num">01</span>
+                    <h3 class="b-about-card__title">Écosystème structuré</h3>
+                    <p class="b-about-card__text">
+                        Byt3Lab dépasse le modèle d'agence classique pour opérer comme un ensemble coordonné de divisions technologiques, de produits propriétaires et d'une marque créative spécialisée.
+                    </p>
                 </div>
 
-                <!-- Pôle 2: Ngrafix Studio -->
-                <div class="col-lg-6">
-                    <div class="p-4 p-md-5 rounded-4 h-100 border d-flex flex-column" style="background: #f8fafc; border-color: #e2e8f0 !important; border-top: 4px solid #9333ea !important;">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="badge font-monospace px-3 py-1 rounded-pill" style="background: rgba(147, 51, 234, 0.1); color: #9333ea; font-size: 11px;">
-                                PÔLE 2 • COMMUNICATION AGENCY
-                            </span>
-                            <span style="font-size: 22px;">🎨</span>
-                        </div>
-                        <h3 class="f-nasalization h3 fw-bold mb-3" style="color: #0f172a;">Ngrafix</h3>
-                        <p class="mb-4" style="color: #334155; line-height: 1.7; font-size: 15px;">
-                            Notre agence de communication et de création visuelle dédiée à aider les organisations à mieux communiquer, convaincre et impacter.
-                        </p>
-                        <ul class="list-unstyled d-flex flex-column gap-2 small font-monospace mb-4" style="color: #334155;">
-                            <li><span style="color: #9333ea; font-weight: bold;">✓</span> Maîtrise de l'Identité Visuelle : Logos, Chartes 360° &amp; Branding</li>
-                            <li><span style="color: #9333ea; font-weight: bold;">✓</span> Stratégie Marketing, Positionnement &amp; Plans de Communication</li>
-                            <li><span style="color: #9333ea; font-weight: bold;">✓</span> Réalisation de Visuels : Réseaux sociaux, Print, Plaquettes &amp; UI/UX</li>
-                        </ul>
-                        <div class="mt-auto pt-3 border-top d-flex gap-2 flex-wrap">
-                            <a href="<?php echo esc_url(home_url('/a-propos/#pole-communication')); ?>" class="btn btn-sm btn-primary font-monospace px-3 py-2 fw-semibold" style="background: #9333ea; border: none; border-radius: 6px; font-size: 13px;">
-                                Découvrir le Pôle NGRAFIX &rarr;
-                            </a>
-                            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-sm btn-outline-secondary font-monospace px-3 py-2 fw-semibold" style="border-radius: 6px; font-size: 13px;">
-                                Demander un Devis Créatif
-                            </a>
-                            <a href="https://www.facebook.com/profile.php?id=61571483432231" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary font-monospace px-3 py-2 fw-semibold d-inline-flex align-items-center gap-1.5" style="border-radius: 6px; font-size: 13px; border-color: #1877F2; color: #1877F2;">
-                                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                                <span>Facebook Ngrafix</span>
-                            </a>
-                        </div>
-                    </div>
+                <div class="b-about-card">
+                    <span class="b-about-card__num">02</span>
+                    <h3 class="b-about-card__title">Excellence d'ingénierie</h3>
+                    <p class="b-about-card__text">
+                        De la ligne de code à l'infrastructure réseau, nos équipes conçoivent des solutions résilientes, sécurisées et adaptées aux réalités opérationnelles des entreprises en Afrique.
+                    </p>
+                </div>
+
+                <div class="b-about-card">
+                    <span class="b-about-card__num">03</span>
+                    <h3 class="b-about-card__title">Ambition panafricaine</h3>
+                    <p class="b-about-card__text">
+                        Enraciné au Cameroun, Byt3Lab construit des partenariats et déploie des technologies conçues pour accompagner la modernisation des industries et des infrastructures du continent.
+                    </p>
                 </div>
             </div>
 
-        </div>
-    </section>
-
-    <section class="py-5" style="background: #f8fafc; border-bottom: 1px solid #e2e8f0;">
-        <div class="container py-5 text-start">
-            
-            <div class="text-center mb-5">
-                <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;">Processus de Réalisation</span>
-                <h2 class="f-nasalization h1 fw-bold" style="color: #0f172a;">La Démarche d'Ingénierie BYT3LAB</h2>
-                <p class="mx-auto mt-2" style="max-width: 650px; color: #334155; line-height: 1.7;">
-                    Un cycle de production rigoureux pour garantir le respect des délais, la sécurité et la pérennité de vos systèmes.
-                </p>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-3">
-                    <div class="p-4 rounded-4 h-100 bg-white border" style="border-color: #e2e8f0 !important;">
-                        <div class="f-nasalization h4 fw-bold mb-2" style="color: #0284c7;">01</div>
-                        <h4 class="h6 fw-bold mb-2 text-dark">Audit &amp; Cadrage</h4>
-                        <p class="small mb-0" style="color: #334155; line-height: 1.6;">
-                            Immersion dans vos processus métiers, rédaction des spécifications et validation des maquettes UI interactives.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="p-4 rounded-4 h-100 bg-white border" style="border-color: #e2e8f0 !important;">
-                        <div class="f-nasalization h4 fw-bold mb-2" style="color: #0284c7;">02</div>
-                        <h4 class="h6 fw-bold mb-2 text-dark">Sprints &amp; Démo</h4>
-                        <p class="small mb-0" style="color: #334155; line-height: 1.6;">
-                            Développement itératif par modules. Démonstrations bimensuelles pour recueillir vos retours en temps réel.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="p-4 rounded-4 h-100 bg-white border" style="border-color: #e2e8f0 !important;">
-                        <div class="f-nasalization h4 fw-bold mb-2" style="color: #0284c7;">03</div>
-                        <h4 class="h6 fw-bold mb-2 text-dark">Tests &amp; Sécurité</h4>
-                        <p class="small mb-0" style="color: #334155; line-height: 1.6;">
-                            Audits de sécurité, tests unitaires et de montée en charge pour garantir une stabilité maximale en production.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="p-4 rounded-4 h-100 bg-white border" style="border-color: #e2e8f0 !important;">
-                        <div class="f-nasalization h4 fw-bold mb-2" style="color: #0284c7;">04</div>
-                        <h4 class="h6 fw-bold mb-2 text-dark">Déploiement &amp; SLA</h4>
-                        <p class="small mb-0" style="color: #334155; line-height: 1.6;">
-                            Mise en production sécurisée sur votre infrastructure, formation de vos équipes et assistance technique continue.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="py-5 text-center text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-top: 1px solid rgba(255,255,255,0.1);">
-        <div class="container py-5 position-relative" style="z-index: 2;">
-            
-            <span class="badge px-3 py-1 rounded-pill font-monospace mb-3" style="background: rgba(2, 132, 199, 0.25); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); font-size: 11px;">
-                DÉMARRER UN PROJET
-            </span>
-
-            <h2 class="f-nasalization display-5 fw-bold mb-3" style="color: #ffffff;">
-                Construisons le Futur Technologique Ensemble
-            </h2>
-
-            <p class="lead mx-auto mb-4 text-white-50" style="max-width: 680px; font-size: 17px; line-height: 1.7;">
-                Que vous souhaitiez déployer un progiciel prêt à l'emploi (Melodi ERP, SUKU) ou développer une architecture sur-mesure : nos ingénieurs sont prêts.
-            </p>
-
-            <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary font-monospace py-2.5 px-4 fw-semibold" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 14px;">
-                    Lancer une collaboration &rarr;
-                </a>
-                <a href="https://wa.me/237696879475" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light font-monospace py-2.5 px-4 fw-semibold d-inline-flex align-items-center gap-2" style="border-radius: 8px; font-size: 14px;">
-                    <span>WhatsApp Ingénierie</span>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="<?php echo esc_url(home_url('/a-propos/')); ?>" class="b-btn b-btn--secondary">
+                    <span>Découvrir l'histoire &amp; la vision de Byt3Lab</span>
+                    <?php echo byt3lab_icon('arrow-right', 16); ?>
                 </a>
             </div>
-
         </div>
     </section>
 
-    <!-- BYT3LAB-CONTENT-END -->
+    <!-- =====================================================================
+         SECTION 3 — OUR TECHNOLOGY DIVISIONS (Les 5 axes stratégiques)
+         ===================================================================== -->
+    <section class="b-section b-section--alt" id="divisions">
+        <div class="b-container">
+            <div class="b-section-head">
+                <span class="b-eyebrow"><?php byt3lab_e('home.divisions.eyebrow'); ?></span>
+                <h2 class="b-title"><?php byt3lab_e('home.divisions.title'); ?></h2>
+                <p class="b-lead"><?php byt3lab_e('home.divisions.intro'); ?></p>
+            </div>
+
+            <?php
+            $divisions_query = new WP_Query([
+                'post_type'      => 'byt3lab_division',
+                'posts_per_page' => 5,
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+            ]);
+            ?>
+
+            <div class="b-divisions-grid">
+                <?php if ($divisions_query->have_posts()) : while ($divisions_query->have_posts()) : $divisions_query->the_post(); 
+                    $div_id = get_the_ID();
+                    $status = get_post_meta($div_id, '_byt3lab_status', true) ?: 'active';
+                    $icon_id = get_post_meta($div_id, '_byt3lab_icon', true) ?: 'code';
+                    $expertise = byt3lab_meta_lines($div_id, '_byt3lab_division_expertise');
+                    $is_active_card = in_array($status, ['active']);
+                ?>
+                    <article class="b-card b-div-card <?php echo $is_active_card ? 'b-div-card--active' : 'b-div-card--sub'; ?>">
+                        <div class="b-card__header">
+                            <div class="b-card__icon-wrap">
+                                <?php echo byt3lab_icon($icon_id, 24); ?>
+                            </div>
+                            <?php echo byt3lab_status_badge($status); ?>
+                        </div>
+
+                        <h3 class="b-card__title">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h3>
+
+                        <p class="b-card__text">
+                            <?php echo esc_html(get_the_excerpt()); ?>
+                        </p>
+
+                        <?php if (!empty($expertise)) : ?>
+                            <div class="b-card__tags">
+                                <?php foreach (array_slice($expertise, 0, 4) as $tag) : ?>
+                                    <span class="b-tag"><?php echo esc_html($tag); ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="b-card__footer">
+                            <a href="<?php the_permalink(); ?>" class="b-btn b-btn--ghost">
+                                <span>Explorer la division</span>
+                                <?php echo byt3lab_icon('arrow-right', 16); ?>
+                            </a>
+                        </div>
+                    </article>
+                <?php endwhile; wp_reset_postdata(); endif; ?>
+            </div>
+
+            <div style="text-align: center; margin-top: 36px;">
+                <a href="<?php echo esc_url(home_url('/technologies/')); ?>" class="b-btn b-btn--primary">
+                    <span>Consulter le détail des 5 divisions technologiques</span>
+                    <?php echo byt3lab_icon('arrow-right', 16); ?>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4 — OUR PRODUCTS & SOLUTIONS (MELODI ERP, SUKU, BWS)
+         ===================================================================== -->
+    <section class="b-section" id="produits">
+        <div class="b-container">
+            <div class="b-section-head b-section-head--center">
+                <span class="b-eyebrow"><?php byt3lab_e('home.offers.eyebrow'); ?></span>
+                <h2 class="b-title"><?php byt3lab_e('home.offers.title'); ?></h2>
+                <p class="b-lead"><?php byt3lab_e('home.offers.intro'); ?></p>
+            </div>
+
+            <?php
+            $offers_query = new WP_Query([
+                'post_type'      => 'byt3lab_solution',
+                'posts_per_page' => 3,
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+            ]);
+            ?>
+
+            <div class="b-grid b-grid--3">
+                <?php if ($offers_query->have_posts()) : while ($offers_query->have_posts()) : $offers_query->the_post(); 
+                    $off_id = get_the_ID();
+                    $badge = get_post_meta($off_id, '_byt3lab_solution_badge', true);
+                    $tagline = get_post_meta($off_id, '_byt3lab_offer_tagline', true);
+                    $accent = get_post_meta($off_id, '_byt3lab_offer_accent', true) ?: '#1D7FD8';
+                    $features = byt3lab_meta_lines($off_id, '_byt3lab_solution_features');
+                    $url = get_post_meta($off_id, '_byt3lab_solution_url', true);
+                    $btn_text = get_post_meta($off_id, '_byt3lab_solution_button_text', true) ?: 'En savoir plus';
+                ?>
+                    <article class="b-product-card" style="--card-accent: <?php echo esc_attr($accent); ?>;">
+                        <div class="b-product-card__top">
+                            <span class="b-product-card__badge"><?php echo esc_html($badge); ?></span>
+                            <h3 class="b-product-card__title"><?php the_title(); ?></h3>
+                            <?php if ($tagline) : ?>
+                                <p class="b-product-card__tagline"><?php echo esc_html($tagline); ?></p>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="b-product-card__body">
+                            <p style="font-size: 14px; color: var(--c-gray-600); line-height: 1.6; margin-bottom: 20px;">
+                                <?php echo esc_html(get_the_excerpt()); ?>
+                            </p>
+
+                            <?php if (!empty($features)) : ?>
+                                <ul class="b-checklist">
+                                    <?php foreach (array_slice($features, 0, 4) as $feat) : ?>
+                                        <li>
+                                            <?php echo byt3lab_icon('check', 16); ?>
+                                            <span><?php echo esc_html($feat); ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+
+                            <div class="b-product-card__actions">
+                                <a href="<?php the_permalink(); ?>" class="b-btn b-btn--sm b-btn--secondary">
+                                    <span>Fiche détaillée</span>
+                                </a>
+                                <?php if ($url) : ?>
+                                    <a href="<?php echo esc_url($url); ?>" class="b-btn b-btn--sm b-btn--primary" target="_blank" rel="noopener noreferrer">
+                                        <span><?php echo esc_html($btn_text); ?></span>
+                                        <?php echo byt3lab_icon('arrow-up-right', 14); ?>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </article>
+                <?php endwhile; wp_reset_postdata(); endif; ?>
+            </div>
+
+            <div style="text-align: center; margin-top: 36px;">
+                <a href="<?php echo esc_url(home_url('/produits/')); ?>" class="b-btn b-btn--secondary">
+                    <span>Explorer l'ensemble des produits et solutions</span>
+                    <?php echo byt3lab_icon('arrow-right', 16); ?>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 5 — CREATIVE EXCELLENCE / NGRAFIX STUDIO
+         ===================================================================== -->
+    <section class="b-section b-section--tight" id="ngrafix">
+        <div class="b-container">
+            <div class="b-ngx-feature">
+                <div class="b-ngx-feature__inner">
+                    
+                    <div class="b-ngx-feature__content">
+                        <span class="b-eyebrow b-ngx-eyebrow"><?php byt3lab_e('home.ngrafix.eyebrow'); ?></span>
+                        <h2 class="b-title"><?php byt3lab_e('home.ngrafix.title'); ?></h2>
+                        <p style="font-size: 16px; line-height: 1.7; margin-bottom: 28px;">
+                            <?php byt3lab_e('home.ngrafix.text'); ?>
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="b-btn b-btn--lg" style="background: var(--c-ngx-orange); color: #fff; border-color: var(--c-ngx-orange);">
+                                <span>Découvrir le Studio NGRAFIX</span>
+                                <?php echo byt3lab_icon('arrow-right', 18); ?>
+                            </a>
+                            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="b-btn b-btn--lg b-btn--outline-dark">
+                                <span>Projet créatif ou de marque</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Grille des 4 pôles NGRAFIX -->
+                    <div class="b-ngx-grid">
+                        <div class="b-ngx-box">
+                            <div class="b-ngx-box__num">01 · BRAND IDENTITY</div>
+                            <div class="b-ngx-box__title">Identité de marque</div>
+                            <p class="b-ngx-box__desc">Logos, chartes 360°, naming et stratégie visuelle institutionnelle.</p>
+                        </div>
+
+                        <div class="b-ngx-box">
+                            <div class="b-ngx-box__num">02 · CREATIVE DESIGN</div>
+                            <div class="b-ngx-box__title">Design créatif</div>
+                            <p class="b-ngx-box__desc">UI/UX, supports marketing, packaging et design éditorial soigné.</p>
+                        </div>
+
+                        <div class="b-ngx-box">
+                            <div class="b-ngx-box__num">03 · DIGITAL COM</div>
+                            <div class="b-ngx-box__title">Communication digitale</div>
+                            <p class="b-ngx-box__desc">Campagnes, gestion des réseaux sociaux et stratégie de contenu.</p>
+                        </div>
+
+                        <div class="b-ngx-box">
+                            <div class="b-ngx-box__num">04 · MEDIA PRODUCTION</div>
+                            <div class="b-ngx-box__title">Production média</div>
+                            <p class="b-ngx-box__desc">Photographie professionnelle, motion design et production audiovisuelle.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 6 — TECHNOLOGY & INNOVATION (Construire ce qui vient)
+         ===================================================================== -->
+    <section class="b-section b-section--alt" id="innovation">
+        <div class="b-container">
+            <div class="b-section-head b-section-head--center">
+                <span class="b-eyebrow"><?php byt3lab_e('home.innovation.eyebrow'); ?></span>
+                <h2 class="b-title"><?php byt3lab_e('home.innovation.title'); ?></h2>
+                <p class="b-lead"><?php byt3lab_e('home.innovation.intro'); ?></p>
+            </div>
+
+            <?php
+            $inno_items = byt3lab_pairs(byt3lab_opt('home.innovation.items'));
+            ?>
+            <div class="b-grid b-grid--3">
+                <?php foreach ($inno_items as $item) : 
+                    $inno_title = $item[0] ?? '';
+                    $inno_desc  = $item[1] ?? '';
+                    $inno_icon  = $item[2] ?? 'brain';
+                ?>
+                    <div class="b-card" style="padding: 28px;">
+                        <div class="b-card__icon-wrap" style="margin-bottom: 16px;">
+                            <?php echo byt3lab_icon($inno_icon, 22); ?>
+                        </div>
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px;"><?php echo esc_html($inno_title); ?></h3>
+                        <p style="font-size: 13.5px; color: var(--c-gray-600); line-height: 1.6; margin: 0;">
+                            <?php echo esc_html($inno_desc); ?>
+                        </p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <div style="text-align: center; margin-top: 36px;">
+                <a href="<?php echo esc_url(home_url('/recherche-innovation/')); ?>" class="b-btn b-btn--secondary">
+                    <span>En savoir plus sur nos axes de R&amp;D</span>
+                    <?php echo byt3lab_icon('arrow-right', 16); ?>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 7 — INDUSTRIES WE SERVE (Secteurs d'activité)
+         ===================================================================== -->
+    <section class="b-section" id="industries">
+        <div class="b-container">
+            <div class="b-section-head b-section-head--center">
+                <span class="b-eyebrow"><?php byt3lab_e('home.industries.eyebrow'); ?></span>
+                <h2 class="b-title"><?php byt3lab_e('home.industries.title'); ?></h2>
+                <p class="b-lead">Des technologies conçues pour répondre aux défis spécifiques de vos filières.</p>
+            </div>
+
+            <?php
+            $industries_data = byt3lab_pairs(byt3lab_opt('home.industries.items'));
+            ?>
+            <div class="b-tabs">
+                <div class="b-tabs__nav" role="tablist" aria-label="Secteurs d'activité">
+                    <?php foreach ($industries_data as $idx => $ind) : 
+                        $tab_id = 'tab-ind-' . $idx;
+                        $panel_id = 'panel-ind-' . $idx;
+                        $ind_title = $ind[0] ?? '';
+                    ?>
+                        <button type="button" 
+                                class="b-tabs__btn" 
+                                role="tab" 
+                                id="<?php echo esc_attr($tab_id); ?>" 
+                                aria-controls="<?php echo esc_attr($panel_id); ?>" 
+                                aria-selected="<?php echo $idx === 0 ? 'true' : 'false'; ?>">
+                            <?php echo esc_html($ind_title); ?>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
+
+                <?php foreach ($industries_data as $idx => $ind) : 
+                    $panel_id = 'panel-ind-' . $idx;
+                    $tab_id = 'tab-ind-' . $idx;
+                    $ind_title = $ind[0] ?? '';
+                    $ind_prob  = $ind[1] ?? '';
+                    $ind_sol   = $ind[2] ?? '';
+                    $ind_icon  = $ind[3] ?? 'briefcase';
+                ?>
+                    <div class="b-tabs__panel <?php echo $idx === 0 ? 'is-active' : ''; ?>" 
+                         id="<?php echo esc_attr($panel_id); ?>" 
+                         role="tabpanel" 
+                         aria-labelledby="<?php echo esc_attr($tab_id); ?>">
+                        <div>
+                            <div class="b-tabs__col-title">Problématiques identifiées</div>
+                            <p style="font-size: 15px; color: var(--c-gray-700); line-height: 1.65;">
+                                <?php echo esc_html($ind_prob); ?>
+                            </p>
+                        </div>
+                        <div>
+                            <div class="b-tabs__col-title">Apport technologique BYT3LAB</div>
+                            <p style="font-size: 15px; color: var(--c-navy-900); font-weight: 500; line-height: 1.65;">
+                                <?php echo esc_html($ind_sol); ?>
+                            </p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 8 — PROJECTS & ACHIEVEMENTS (Réalisations réelles uniquement)
+         ===================================================================== -->
+    <?php if (byt3lab_opt('display.home_projects', '1') === '1') : ?>
+    <section class="b-section b-section--alt" id="realisations">
+        <div class="b-container">
+            <div class="b-section-head b-section-head--center">
+                <span class="b-eyebrow"><?php byt3lab_e('home.projects.eyebrow'); ?></span>
+                <h2 class="b-title"><?php byt3lab_e('home.projects.title'); ?></h2>
+                <p class="b-lead"><?php byt3lab_e('home.projects.intro'); ?></p>
+            </div>
+
+            <?php
+            $projects_query = new WP_Query([
+                'post_type'      => 'byt3lab_project',
+                'posts_per_page' => 3,
+                'post_status'    => 'publish',
+            ]);
+            ?>
+
+            <?php if ($projects_query->have_posts()) : ?>
+                <div class="b-grid b-grid--3">
+                    <?php while ($projects_query->have_posts()) : $projects_query->the_post(); 
+                        $p_id = get_the_ID();
+                        $category = get_post_meta($p_id, '_byt3lab_project_category', true);
+                        $client   = get_post_meta($p_id, '_byt3lab_project_client', true);
+                        $year     = get_post_meta($p_id, '_byt3lab_project_year', true);
+                    ?>
+                        <article class="b-card">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <div style="margin: -32px -32px 20px -32px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; overflow: hidden;">
+                                    <?php the_post_thumbnail('medium_large', ['style' => 'width:100%; height:180px; object-fit:cover;']); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--c-blue-500); margin-bottom: 6px;">
+                                <?php echo esc_html($category ?: 'Ingénierie'); ?> <?php if ($year) echo '· ' . esc_html($year); ?>
+                            </div>
+
+                            <h3 class="b-card__title"><?php the_title(); ?></h3>
+                            <p class="b-card__text"><?php echo esc_html(get_the_excerpt()); ?></p>
+
+                            <div class="b-card__footer">
+                                <a href="<?php the_permalink(); ?>" class="b-btn b-btn--ghost">
+                                    <span>Consulter l'étude &rarr;</span>
+                                </a>
+                            </div>
+                        </article>
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </div>
+            <?php else : ?>
+                <!-- État sobre et transparent : aucun projet fictif n'est inventé -->
+                <div class="b-empty-state">
+                    <div class="b-empty-state__icon">
+                        <?php echo byt3lab_icon('rocket', 40); ?>
+                    </div>
+                    <h3 class="b-empty-state__title">Études de cas en cours de documentation</h3>
+                    <p class="b-empty-state__text">
+                        <?php byt3lab_e('home.projects.empty'); ?>
+                    </p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="<?php echo esc_url(home_url('/produits/')); ?>" class="b-btn b-btn--sm b-btn--primary">
+                            <span>Voir nos produits logiciels</span>
+                        </a>
+                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="b-btn b-btn--sm b-btn--secondary">
+                            <span>Échanger sur vos projets</span>
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <!-- =====================================================================
+         SECTION 9 — PARTNERSHIPS (Construire l'avenir ensemble)
+         ===================================================================== -->
+    <section class="b-section" id="partenariats">
+        <div class="b-container">
+            <div class="b-section-head b-section-head--center">
+                <span class="b-eyebrow"><?php byt3lab_e('home.partners.eyebrow'); ?></span>
+                <h2 class="b-title"><?php byt3lab_e('home.partners.title'); ?></h2>
+                <p class="b-lead"><?php byt3lab_e('home.partners.text'); ?></p>
+            </div>
+
+            <?php
+            $partner_types = byt3lab_lines(byt3lab_opt('home.partners.types'));
+            ?>
+            <div class="b-grid b-grid--3" style="margin-bottom: 40px;">
+                <?php foreach ($partner_types as $ptype) : ?>
+                    <div class="b-card" style="padding: 24px; text-align: center;">
+                        <div class="b-card__icon-wrap" style="margin: 0 auto 12px auto;">
+                            <?php echo byt3lab_icon('handshake', 20); ?>
+                        </div>
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--c-navy-950); margin: 0;">
+                            <?php echo esc_html($ptype); ?>
+                        </h3>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Logos partenaires si publiés en base -->
+            <?php
+            $partners_query = new WP_Query([
+                'post_type'      => 'byt3lab_partner',
+                'posts_per_page' => 12,
+                'post_status'    => 'publish',
+            ]);
+            if ($partners_query->have_posts()) :
+            ?>
+                <div class="b-partners-logos" style="display: flex; gap: 32px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 36px; padding: 24px; background: var(--c-gray-50); border-radius: var(--radius-lg);">
+                    <?php while ($partners_query->have_posts()) : $partners_query->the_post(); ?>
+                        <div style="opacity: 0.75; filter: grayscale(1); transition: all var(--transition-fast);">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('thumbnail', ['style' => 'height: 40px; width: auto; object-fit: contain;']); ?>
+                            <?php else : ?>
+                                <span style="font-weight: 600; color: var(--c-gray-600);"><?php the_title(); ?></span>
+                            <?php endif; ?>
+                        </div>
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </div>
+            <?php endif; ?>
+
+            <div style="text-align: center;">
+                <a href="<?php echo esc_url(home_url('/partenaires/')); ?>" class="b-btn b-btn--lg b-btn--primary">
+                    <?php echo byt3lab_icon('handshake', 18); ?>
+                    <span>Découvrir notre programme &amp; proposer un partenariat</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 10 — FINAL CTA (Concevons ce qui vient)
+         ===================================================================== -->
+    <section class="b-section b-section--tight" id="cta">
+        <div class="b-container">
+            <div class="b-cta-band">
+                <h2 class="b-title"><?php byt3lab_e('home.cta.title'); ?></h2>
+                <p><?php byt3lab_e('home.cta.text'); ?></p>
+                <div class="b-cta-band__actions">
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="b-btn b-btn--lg b-btn--on-dark">
+                        <?php echo byt3lab_icon('mail', 18); ?>
+                        <span>Nous contacter</span>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/partenaires/#formulaire')); ?>" class="b-btn b-btn--lg b-btn--outline-dark">
+                        <?php echo byt3lab_icon('handshake', 18); ?>
+                        <span>Proposer une collaboration</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>

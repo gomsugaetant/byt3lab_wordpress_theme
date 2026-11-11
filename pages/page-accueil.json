@@ -1,15 +1,9 @@
 {
     "title": "accueil",
     "slug": "accueil",
-    "description": "",
-    "css_files": [
-        "assets\/css\/bootstrap.min_.css",
-        "assets\/css\/global.css"
-    ],
-    "js_files": [
-        "assets\/js\/bootstrap.min_.js",
-        "assets\/js\/main.js"
-    ],
+    "description": "Page d'accueil institutionnelle BYT3LAB — Technology & Innovation Group",
+    "css_files": [],
+    "js_files": [],
     "components": [
         "header",
         "accueil-body",

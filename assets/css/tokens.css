@@ -1,0 +1,134 @@
+/**
+ * BYT3LAB Design System - Tokens & Typographies
+ * Palette institutionnelle inspirée de l'excellence technologique (Siemens, Schneider, IBM, NVIDIA).
+ * Couleur primaire : #002A4E (Bleu profond Byt3Lab).
+ */
+
+/* 1. Typographies auto-hébergées en WOFF2 moderne */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/inter-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/inter-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/inter-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/space-grotesk-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/space-grotesk-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/space-grotesk-latin-700-normal.woff2') format('woff2');
+}
+
+/* 2. Variables & Tokens */
+:root {
+    /* Palette Institutionnelle Principale */
+    --c-navy-950: #00172B;   /* Fond hero sombre, footer, navbar */
+    --c-navy-900: #002A4E;   /* Couleur mère BYT3LAB */
+    --c-navy-800: #053761;
+    --c-navy-700: #0B3D6B;
+    --c-blue-600: #1565C0;
+    --c-blue-500: #1D7FD8;   /* Bleu technologique actif / CTA */
+    --c-blue-400: #38BDF8;   /* Bleu ciel haute lisibilité sur sombre */
+    --c-cyan-400: #4FD3F5;   /* Accent cyberexcellence issu du logo */
+    --c-green-accent: #3FEA3F;/* Accent vert issu du logo */
+
+    /* Neutres & Surfaces */
+    --c-white: #FFFFFF;
+    --c-gray-25: #FCFDFE;
+    --c-gray-50: #F8FAFC;
+    --c-gray-100: #F1F5F9;
+    --c-gray-200: #E2E8F0;
+    --c-gray-300: #CBD5E1;
+    --c-gray-400: #94A3B8;
+    --c-gray-500: #64748B;
+    --c-gray-600: #475569;
+    --c-gray-700: #334155;
+    --c-anthracite: #0F172A; /* Texte principal */
+
+    /* Statuts de maturité réelle */
+    --c-status-active-bg: rgba(30, 158, 106, 0.12);
+    --c-status-active-text: #0E7048;
+    --c-status-active-dot: #1E9E6A;
+
+    --c-status-dev-bg: rgba(199, 134, 10, 0.12);
+    --c-status-dev-text: #965B00;
+    --c-status-dev-dot: #C7860A;
+
+    --c-status-strat-bg: rgba(90, 110, 140, 0.12);
+    --c-status-strat-text: #37475F;
+    --c-status-strat-dot: #5A6E8C;
+
+    /* Palette NGRAFIX (scopée à la marque créative) */
+    --c-ngx-black: #0F0F0F;
+    --c-ngx-paper: #F6F4EF;
+    --c-ngx-orange: #F7861E;
+    --c-ngx-orange-dark: #D96A0A;
+
+    /* Typographies */
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* Échelle typographique fluide */
+    --fs-display: clamp(2.4rem, 5vw + 1rem, 4rem);
+    --fs-h1: clamp(2rem, 3.5vw + 0.5rem, 3.25rem);
+    --fs-h2: clamp(1.6rem, 2.5vw + 0.3rem, 2.35rem);
+    --fs-h3: clamp(1.25rem, 1.5vw + 0.2rem, 1.7rem);
+    --fs-h4: 1.25rem;
+    --fs-body-lg: 1.125rem;
+    --fs-body: 1rem;
+    --fs-body-sm: 0.875rem;
+    --fs-xs: 0.75rem;
+
+    /* Espacements de sections */
+    --section-gap: clamp(4rem, 7vw, 7rem);
+    --container-max: 1240px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* Ombres subtiles & élévation */
+    --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.05);
+    --shadow-card: 0 4px 14px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+    --shadow-hover: 0 16px 32px -4px rgba(0, 42, 78, 0.12), 0 4px 12px -2px rgba(0, 42, 78, 0.06);
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
