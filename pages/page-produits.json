@@ -1,0 +1,11 @@
+{
+    "title": "produits",
+    "slug": "produits",
+    "description": "Produits & Solutions logicielles du groupe BYT3LAB",
+    "css_files": [],
+    "js_files": [],
+    "components": [
+        "header",
+        "footer"
+    ]
+}

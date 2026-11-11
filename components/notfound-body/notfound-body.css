@@ -1,3 +1,108 @@
-.component-notfound-body {
-    /* styles here */
+.b-notfound {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--space-2xl) * 1.5) 0;
+    text-align: center;
+}
+
+.b-notfound__inner {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.b-notfound__code {
+    font-family: var(--font-mono);
+    font-size: clamp(5rem, 14vw, 10rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--color-cyan);
+    opacity: 0.9;
+    margin-bottom: var(--space-xs);
+    text-shadow: 0 0 40px rgba(79, 211, 245, 0.25);
+}
+
+.b-notfound__title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--color-white);
+    margin: var(--space-md) 0 var(--space-sm);
+    letter-spacing: -0.02em;
+}
+
+.b-notfound__text {
+    font-size: var(--text-lg);
+    color: var(--color-slate-light);
+    line-height: 1.6;
+    margin-bottom: var(--space-xl);
+}
+
+.b-notfound__actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2xl);
+}
+
+.b-notfound__sitemap {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.b-notfound__sitemap-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.b-notfound__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-sm);
+}
+
+.b-notfound__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.b-notfound__link:hover {
+    background: rgba(79, 211, 245, 0.08);
+    border-color: var(--color-cyan);
+    transform: translateY(-2px);
+}
+
+.b-notfound__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-cyan);
+    flex-shrink: 0;
+}
+
+.b-notfound__link strong {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-white);
+}
+
+.b-notfound__link small {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-slate-light);
 }

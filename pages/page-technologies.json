@@ -1,0 +1,11 @@
+{
+    "title": "technologies",
+    "slug": "technologies",
+    "description": "Pôle Technologies — Les 5 divisions technologiques du groupe BYT3LAB",
+    "css_files": [],
+    "js_files": [],
+    "components": [
+        "header",
+        "footer"
+    ]
+}

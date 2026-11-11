@@ -1,17 +1,21 @@
 <?php
 /*
 Template Name: ngrafix
-Description: Agence créative Ngrafix - Branding, Identité Visuelle & Médias
+Description: Studio Créatif NGRAFIX — Identité de marque, design & communication
 */
-get_header();
-?>
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-<main id="primary" class="site-main">
-
-<?php get_template_part('components/header/header'); ?>
-<?php get_template_part('components/ngrafik-body/ngrafik-body'); ?>
-<?php get_template_part('components/footer/footer'); ?>
-
-</main>
-
-<?php get_footer(); ?>
+$path = get_template_directory() . '/page-ngrafix.php';
+if (file_exists($path)) {
+    include $path;
+} else {
+    get_header();
+    get_template_part('components/header/header');
+    echo '<main id="primary" class="site-main"><div class="b-container b-section">';
+    if (have_posts()) : while (have_posts()) : the_post(); the_content(); endwhile; endif;
+    echo '</div></main>';
+    get_template_part('components/footer/footer');
+    get_footer();
+}

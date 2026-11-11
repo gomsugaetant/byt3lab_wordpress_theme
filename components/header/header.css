@@ -37,7 +37,7 @@
     gap: 24px;
 }
 
-/* Brand / Logo */
+/* ───── Brand / Logo ───── */
 .b-brand {
     display: flex;
     align-items: center;
@@ -82,7 +82,7 @@
     margin-top: 2px;
 }
 
-/* Desktop Navigation */
+/* ───── Desktop Navigation ───── */
 .b-nav__list {
     display: flex;
     align-items: center;
@@ -126,7 +126,8 @@
     transition: transform var(--transition-fast);
 }
 
-.b-nav__item:hover .b-nav__caret {
+.b-nav__item:hover .b-nav__caret,
+.b-nav__item.is-active .b-nav__caret {
     transform: rotate(180deg);
 }
 
@@ -145,7 +146,7 @@
     color: var(--c-ngx-orange);
 }
 
-/* Mega-Menu Technologies */
+/* ───── Mega-Menu Technologies ───── */
 .b-mega-menu {
     position: absolute;
     top: 100%;
@@ -194,6 +195,7 @@
     font-size: 12px;
     font-weight: 600;
     color: var(--c-blue-500);
+    text-decoration: none;
 }
 
 .b-mega-menu__grid {
@@ -255,7 +257,7 @@
     line-height: 1.35;
 }
 
-/* Dropdown standard (Produits, Groupe) */
+/* ───── Dropdown standard (Produits, Groupe) ───── */
 .b-dropdown {
     position: absolute;
     top: 100%;
@@ -306,7 +308,7 @@
     margin-top: 2px;
 }
 
-/* Actions Header */
+/* ───── Actions Header ───── */
 .b-header__actions {
     display: flex;
     align-items: center;
@@ -314,16 +316,17 @@
     flex-shrink: 0;
 }
 
-/* Burger Button */
+/* ───── Burger Button ───── */
 .b-burger {
     background: transparent;
     border: none;
     padding: 8px;
     cursor: pointer;
-    display: flex;
+    display: none;  /* Hidden by default, shown on mobile */
     flex-direction: column;
     gap: 5px;
     justify-content: center;
+    z-index: 1060;
 }
 
 .b-burger__line {
@@ -334,7 +337,7 @@
     transition: all var(--transition-fast);
 }
 
-/* Mobile Drawer */
+/* ───── Mobile Drawer ───── */
 .b-drawer {
     position: fixed;
     top: 0;
@@ -347,9 +350,10 @@
     z-index: 1050;
     transform: translateX(100%);
     transition: transform var(--transition-smooth);
-    display: flex;
+    display: none;  /* Hidden by default on desktop */
     flex-direction: column;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 24px;
 }
 
@@ -364,6 +368,7 @@
     padding-bottom: 20px;
     border-bottom: 1px solid var(--c-gray-200);
     margin-bottom: 20px;
+    flex-shrink: 0;
 }
 
 .b-drawer__close {
@@ -372,6 +377,17 @@
     padding: 6px;
     cursor: pointer;
     color: var(--c-gray-500);
+    transition: color var(--transition-fast);
+}
+
+.b-drawer__close:hover {
+    color: var(--c-navy-950);
+}
+
+.b-drawer__nav {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .b-drawer__list, .b-drawer__sublist {
@@ -427,6 +443,11 @@
     justify-content: space-between;
     gap: 8px;
     padding: 4px 0;
+    transition: color var(--transition-fast);
+}
+
+.b-drawer__sublist a:hover {
+    color: var(--c-blue-500);
 }
 
 .b-drawer__actions {
@@ -436,8 +457,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex-shrink: 0;
 }
 
+/* ───── Background Overlay ───── */
 .b-overlay {
     position: fixed;
     inset: 0;
@@ -446,23 +469,78 @@
     z-index: 1040;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: all var(--transition-base);
+    display: none; /* Hidden on desktop */
 }
 
 .b-overlay.is-open {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
-/* Visibilité utilitaire */
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤ 991px)
+   ═══════════════════════════════════════════════ */
 @media (max-width: 991px) {
-    .d-none-mobile {
+    /* Hide desktop nav & CTA buttons on mobile */
+    .b-nav,
+    .b-header__actions {
+        display: none !important;
+    }
+
+    /* Show burger on mobile */
+    .b-burger {
+        display: flex;
+    }
+
+    /* Enable drawer and overlay on mobile */
+    .b-drawer {
+        display: flex;
+    }
+
+    .b-overlay {
+        display: block;
+    }
+
+    /* Brand adjustments for mobile */
+    .b-brand__tagline {
+        display: none;
+    }
+
+    .b-brand__mark {
+        width: 32px;
+        height: 32px;
+    }
+
+    .b-brand__name {
+        font-size: 18px;
+    }
+
+    /* Mega-menu/dropdown — prevent from appearing on mobile */
+    .b-mega-menu,
+    .b-dropdown {
         display: none !important;
     }
 }
 
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — DESKTOP  (≥ 992px)
+   ═══════════════════════════════════════════════ */
 @media (min-width: 992px) {
-    .d-lg-none {
+    /* Burger always hidden on desktop */
+    .b-burger {
+        display: none !important;
+    }
+
+    /* Drawer always hidden on desktop */
+    .b-drawer {
+        display: none !important;
+    }
+
+    /* Overlay always hidden on desktop */
+    .b-overlay {
         display: none !important;
     }
 }

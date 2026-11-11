@@ -24,35 +24,103 @@ document.addEventListener('DOMContentLoaded', function () {
     const overlay = document.getElementById('b-nav-overlay');
 
     if (burger && drawer) {
-        const toggleMenu = (open) => {
-            const isOpen = open !== undefined ? open : !drawer.classList.contains('is-open');
-            drawer.classList.toggle('is-open', isOpen);
-            if (overlay) overlay.classList.toggle('is-open', isOpen);
-            burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            document.body.style.overflow = isOpen ? 'hidden' : '';
+        const openMenu = () => {
+            drawer.classList.add('is-open');
+            if (overlay) overlay.classList.add('is-open');
+            burger.setAttribute('aria-expanded', 'true');
+            drawer.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         };
 
-        burger.addEventListener('click', () => toggleMenu());
-        if (overlay) overlay.addEventListener('click', () => toggleMenu(false));
+        const closeMenu = () => {
+            drawer.classList.remove('is-open');
+            if (overlay) overlay.classList.remove('is-open');
+            burger.setAttribute('aria-expanded', 'false');
+            drawer.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
 
+        const toggleMenu = () => {
+            if (drawer.classList.contains('is-open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        };
+
+        burger.addEventListener('click', toggleMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        // Close on Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
-                toggleMenu(false);
+                closeMenu();
                 burger.focus();
             }
         });
+
+        // Close drawer links on click (navigate and close)
+        drawer.querySelectorAll('a[href]').forEach((link) => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+
+        // Auto-close drawer if window is resized above mobile breakpoint
+        const mql = window.matchMedia('(min-width: 992px)');
+        const handleResize = (e) => {
+            if (e.matches && drawer.classList.contains('is-open')) {
+                closeMenu();
+            }
+        };
+        if (mql.addEventListener) {
+            mql.addEventListener('change', handleResize);
+        } else if (mql.addListener) {
+            mql.addListener(handleResize);
+        }
     }
 
-    // 3. Menus déroulants desktop accessibles
-    const dropdownTriggers = document.querySelectorAll('.b-nav__item--has-drop > .b-nav__link');
-    dropdownTriggers.forEach((trigger) => {
+    // 3. Menus déroulants desktop accessibles (hover + click)
+    const dropdownItems = document.querySelectorAll('.b-nav__item--has-drop');
+    dropdownItems.forEach((item) => {
+        const trigger = item.querySelector('.b-nav__link');
+        if (!trigger) return;
+
+        // Click toggle for desktop dropdown
         trigger.addEventListener('click', (e) => {
-            // Sur mobile ou clic, toggle le dropdown
-            const parent = trigger.parentElement;
+            const isDesktop = window.matchMedia('(min-width: 992px)').matches;
+            if (!isDesktop) return; // On mobile, let link navigate normally
+
             const expanded = trigger.getAttribute('aria-expanded') === 'true';
+
+            // Close all other open dropdowns first
+            dropdownItems.forEach((other) => {
+                if (other !== item) {
+                    const otherTrigger = other.querySelector('.b-nav__link');
+                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+                    other.classList.remove('is-active');
+                }
+            });
+
             trigger.setAttribute('aria-expanded', !expanded);
-            parent.classList.toggle('is-active', !expanded);
+            item.classList.toggle('is-active', !expanded);
+
+            // If expanding, prevent navigation
+            if (!expanded) {
+                e.preventDefault();
+            }
         });
+    });
+
+    // Close dropdowns on click outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.b-nav__item--has-drop')) {
+            dropdownItems.forEach((item) => {
+                const trigger = item.querySelector('.b-nav__link');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+                item.classList.remove('is-active');
+            });
+        }
     });
 
     // 4. Système d'onglets (ex: Secteurs d'activité)
@@ -152,4 +220,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-

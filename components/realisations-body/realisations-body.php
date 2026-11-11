@@ -1,335 +1,141 @@
 <?php
-// BYT3LAB Builder - auto-include component assets for realisations-body
-if (!isset($GLOBALS['byt3lab_assets_printed'])) {
-    $GLOBALS['byt3lab_assets_printed'] = ['css' => [], 'js' => []];
+/**
+ * Component: realisations-body
+ * Projets Réalisés & Déploiements BYT3LAB
+ */
+if (!defined('ABSPATH')) {
+    exit;
 }
-$__byt3lab_comp_slug = 'realisations-body';
-$__byt3lab_css_path = get_stylesheet_directory() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.css';
-$__byt3lab_js_path = get_stylesheet_directory() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.js';
-$__byt3lab_css_uri = get_stylesheet_directory_uri() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.css';
-$__byt3lab_js_uri = get_stylesheet_directory_uri() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.js';
-if (file_exists($__byt3lab_css_path) && !in_array($__byt3lab_css_uri, $GLOBALS['byt3lab_assets_printed']['css'])) {
-    echo '<link rel="stylesheet" href="' . esc_url($__byt3lab_css_uri) . '" />' . "\n";
-    $GLOBALS['byt3lab_assets_printed']['css'][] = $__byt3lab_css_uri;
-}
-if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['byt3lab_assets_printed']['js'])) {
-    echo '<script src="' . esc_url($__byt3lab_js_uri) . '"></script>' . "\n";
-    $GLOBALS['byt3lab_assets_printed']['js'][] = $__byt3lab_js_uri;
-}
+
+$projects_query = new WP_Query([
+    'post_type'      => 'byt3lab_project',
+    'posts_per_page' => -1,
+    'post_status'    => 'publish',
+    'orderby'        => ['menu_order' => 'ASC', 'date' => 'DESC'],
+]);
 ?>
 
-<div class="component-realisations-body bg-white text-dark">
-    <!-- BYT3LAB-CONTENT-START -->
-    
-    <!-- Hero / Title Header -->
-    <section class="py-5 text-center position-relative overflow-hidden" style="background: radial-gradient(circle at bottom left, rgba(2, 132, 199, 0.08), transparent 60%), #ffffff; border-bottom: 1px solid #e2e8f0;">
-        <div class="container py-5 position-relative" style="z-index: 2;">
-            <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-2" style="color: #0284c7;" data-bs-toggle="tooltip" title="Références & Succès Clients">Nos Références</span>
-            <h1 class="f-nasalization display-4 fw-bold mb-3" style="color: #0f172a;">Projets Réalisés</h1>
-            <p class="lead mx-auto" style="max-width: 700px; color: #475569;">
-                Découvrez comment nous avons accompagné nos partenaires dans le développement de leurs produits technologiques et la sécurisation de leurs infrastructures.
+<div class="component-realisations-body">
+    <!-- Hero Header -->
+    <section class="b-section b-section--navy">
+        <div class="b-container">
+            <span class="b-badge b-badge--dark">PROJETS &amp; DÉPLOIEMENTS</span>
+            <h1 class="b-section__title" style="margin-top: var(--space-xs);">
+                L'ingénierie éprouvée sur le terrain.
+            </h1>
+            <p class="b-section__subtitle">
+                Études de cas, intégrations de plateformes métiers et architectures cloud déployées au service des organisations et entreprises partenaires.
             </p>
         </div>
     </section>
 
-    <!-- Portfolio Grid -->
-    <section class="py-5" style="background: #f8fafc;">
-        <div class="container py-5">
-            <div class="row g-4 text-start">
-                
-                <?php
-                // Requête dynamique sur les CPT byt3lab_project
-                $projects_query = new WP_Query([
-                    'post_type'      => 'byt3lab_project',
-                    'posts_per_page' => 12,
-                    'orderby'        => ['menu_order' => 'ASC', 'date' => 'DESC'],
-                ]);
+    <!-- Projects Grid or Institutional Empty State -->
+    <section class="b-section b-section--light">
+        <div class="b-container">
+            <?php if ($projects_query->have_posts()) : ?>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-xl);">
+                    <?php while ($projects_query->have_posts()) : $projects_query->the_post();
+                        $category    = get_post_meta(get_the_ID(), '_byt3lab_project_category', true) ?: 'INGÉNIERIE';
+                        $stack       = get_post_meta(get_the_ID(), '_byt3lab_project_stack', true);
+                        $impact      = get_post_meta(get_the_ID(), '_byt3lab_project_impact', true);
+                        $img_url     = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : '';
+                        $stack_items = !empty($stack) ? array_map('trim', explode('/', $stack)) : [];
+                    ?>
+                        <article class="b-card" style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;">
+                            <?php if (!empty($img_url)) : ?>
+                                <div style="height: 220px; overflow: hidden; background: var(--color-slate-lightest);">
+                                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover;" />
+                                </div>
+                            <?php endif; ?>
 
-                $available_categories = [];
-                if ($projects_query->have_posts()) {
-                    foreach ($projects_query->posts as $p) {
-                        $c = get_post_meta($p->ID, '_byt3lab_project_category', true);
-                        if (!empty($c)) {
-                            $available_categories[trim($c)] = trim($c);
-                        }
-                    }
-                }
-                if (empty($available_categories)) {
-                    $available_categories = [
-                        'EDTECH'        => 'EDTECH',
-                        'FINTECH'       => 'FINTECH',
-                        'CYBERSÉCURITÉ' => 'CYBERSÉCURITÉ',
-                        'LOGICIEL ERP'  => 'LOGICIEL ERP',
-                    ];
-                }
-                ?>
+                            <div style="padding: var(--space-xl); flex-grow: 1; display: flex; flex-direction: column;">
+                                <div style="display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-bottom: var(--space-xs);">
+                                    <span class="b-badge b-badge--dark"><?php echo esc_html($category); ?></span>
+                                    <?php foreach ($stack_items as $tech) : if (!empty($tech)) : ?>
+                                        <span class="b-badge b-badge--light"><?php echo esc_html($tech); ?></span>
+                                    <?php endif; endforeach; ?>
+                                </div>
 
-                <!-- Interactive Domain / Category Filters Header -->
-                <div class="col-12 mb-4">
-                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
-                        <div>
-                            <span class="text-uppercase tracking-wider fw-bold font-monospace d-block mb-1" style="color: #0284c7; font-size: 12px;">PORTFOLIO &amp; ÉTUDES DE CAS</span>
-                            <h2 class="f-nasalization h2 fw-bold mb-0" style="color: #0f172a;">Filtrer par Domaine d'Intervention</h2>
-                        </div>
+                                <h3 style="font-size: var(--text-xl); color: var(--color-navy); margin: var(--space-xs) 0 var(--space-sm);">
+                                    <a href="<?php the_permalink(); ?>" style="color: var(--color-navy); text-decoration: none;">
+                                        <?php the_title(); ?>
+                                    </a>
+                                </h3>
 
-                        <!-- Filter Buttons -->
-                        <div class="d-flex flex-wrap gap-2 realisations-filter-group">
-                            <button type="button" class="project-filter-btn active" data-filter="all">Tous les Projets</button>
-                            <?php foreach ($available_categories as $cat_key => $cat_label) : ?>
-                                <button type="button" class="project-filter-btn" data-filter="<?php echo esc_attr(strtolower(trim($cat_key))); ?>">
-                                    <?php echo esc_html($cat_label); ?>
-                                </button>
-                            <?php endforeach; ?>
-                        </div>
+                                <div style="font-size: var(--text-sm); line-height: 1.6; color: var(--color-slate-medium); margin-bottom: var(--space-md); flex-grow: 1;">
+                                    <?php the_excerpt(); ?>
+                                </div>
+
+                                <?php if (!empty($impact)) : ?>
+                                    <div style="padding: var(--space-sm); background: var(--color-slate-lightest); border-left: 3px solid var(--color-cyan); border-radius: var(--radius-sm); font-size: var(--text-xs); color: var(--color-slate-dark); margin-bottom: var(--space-md);">
+                                        <strong>Impact :</strong> <?php echo esc_html($impact); ?>
+                                    </div>
+                                <?php endif; ?>
+
+                                <a href="<?php the_permalink(); ?>" class="b-btn b-btn--outline" style="align-self: flex-start;">
+                                    Détails du projet &rarr;
+                                </a>
+                            </div>
+                        </article>
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </div>
+            <?php else : ?>
+                <div class="b-empty-state" style="max-width: 820px; margin: 0 auto; background: #ffffff; padding: clamp(2.5rem, 5vw, 4rem); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                    <div class="b-empty-state__icon">📁</div>
+                    <span class="b-badge b-badge--dark" style="margin-bottom: var(--space-xs);">GOUVERNANCE &amp; TRANSPARENCE</span>
+                    <h2 class="b-empty-state__title" style="color: var(--color-navy); font-size: clamp(1.75rem, 3vw, 2.25rem); margin: var(--space-xs) 0 var(--space-sm);">
+                        Études de cas &amp; Déploiements en cours de documentation
+                    </h2>
+                    <p class="b-empty-state__text" style="color: var(--color-slate-medium); font-size: var(--text-md); line-height: 1.7; margin-bottom: var(--space-xl);">
+                        Dans le cadre de la nouvelle gouvernance du groupe BYT3LAB et du repositionnement autour de nos 5 divisions technologiques, nos retours d'expérience et synthèses d'ingénierie font l'objet d'un processus de validation technique et de conformité avant publication publique.
+                        <br><br>
+                        Pour toute demande de références qualifiées ou d'échanges d'architecture approfondis dans le cadre d'un appel d'offres ou d'un projet d'entreprise, nos directions de divisions sont à votre disposition.
+                    </p>
+
+                    <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="b-btn b-btn--primary">
+                            Solliciter un échange technique &rarr;
+                        </a>
+                        <a href="<?php echo esc_url(home_url('/technologies/')); ?>" class="b-btn b-btn--outline">
+                            Explorer les 5 divisions technologiques
+                        </a>
+                        <a href="<?php echo esc_url(home_url('/partenaires/')); ?>" class="b-btn b-btn--outline">
+                            Espace Partenaires
+                        </a>
                     </div>
                 </div>
-
-                <?php
-                if ($projects_query->have_posts()) :
-                    while ($projects_query->have_posts()) : $projects_query->the_post();
-                        $category = get_post_meta(get_the_ID(), '_byt3lab_project_category', true) ?: 'TECHNOLOGIE';
-                        $stack    = get_post_meta(get_the_ID(), '_byt3lab_project_stack', true) ?: 'Cloud & Software';
-                        $impact   = get_post_meta(get_the_ID(), '_byt3lab_project_impact', true);
-                        $url      = get_post_meta(get_the_ID(), '_byt3lab_project_url', true);
-                        $img_url  = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800';
-                        $stack_items = array_map('trim', explode('/', $stack));
-                ?>
-                    <div class="col-md-6 col-lg-6 project-item-col" data-category="<?php echo esc_attr(strtolower(trim($category))); ?>" style="transition: all 0.3s ease;">
-                        <div class="card card-premium h-100 overflow-hidden">
-                            <div class="position-relative overflow-hidden" style="height: 280px;">
-                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>" class="w-100 h-100 object-fit-cover transition-transform" />
-                                <div class="position-absolute top-0 start-0 m-3">
-                                    <span class="badge text-white px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.95); backdrop-filter: blur(8px);" data-bs-toggle="tooltip" title="Domaine d'intervention : <?php echo esc_attr($category); ?>">
-                                        <?php echo esc_html($category); ?>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-between">
-                                <div>
-                                    <!-- Tech stack pills -->
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <?php foreach ($stack_items as $item) : if (!empty($item)) : ?>
-                                            <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Technologie utilisée : <?php echo esc_attr($item); ?>">
-                                                <?php echo esc_html($item); ?>
-                                            </span>
-                                        <?php endif; endforeach; ?>
-                                    </div>
-                                    <h2 class="f-nasalization h3 fw-bold mb-3">
-                                        <a href="<?php the_permalink(); ?>" class="text-decoration-none" style="color: #0f172a; transition: color 0.2s ease;">
-                                            <?php the_title(); ?>
-                                        </a>
-                                    </h2>
-                                    <div class="mb-4" style="color: #334155; font-size: 15px; line-height: 1.6;">
-                                        <?php the_content(); ?>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <?php if (!empty($impact)) : ?>
-                                        <div class="p-3 rounded-3 mb-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                                            <h4 class="fw-bold h6 mb-1 d-flex align-items-center gap-1" style="color: #0284c7;">
-                                                <span>⚡</span> Impact clé :
-                                            </h4>
-                                            <p class="small mb-0" style="color: #334155;"><?php echo esc_html($impact); ?></p>
-                                        </div>
-                                    <?php endif; ?>
-
-                                    <div class="d-flex gap-2 flex-column flex-sm-row mt-2">
-                                        <a href="<?php the_permalink(); ?>" class="btn btn-primary flex-grow-1 py-2 fw-bold font-monospace text-center" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 13px;">
-                                            Voir les détails &rarr;
-                                        </a>
-                                        <?php if (!empty($url)) : ?>
-                                            <a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary py-2 px-3 fw-bold font-monospace text-center" style="border-radius: 8px; font-size: 13px;" data-bs-toggle="tooltip" title="Ouvrir le projet en direct">
-                                                Lien direct ↗
-                                            </a>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php
-                    endwhile;
-                    wp_reset_postdata();
-                else :
-                    // Fallback de haute qualité si aucun CPT n'a encore été créé dans l'administration
-                ?>
-                    <!-- Project 1 (Fallback) -->
-                    <div class="col-md-6 col-lg-6 project-item-col" data-category="edtech" style="transition: all 0.3s ease;">
-                        <div class="card card-premium h-100 overflow-hidden">
-                            <div class="position-relative overflow-hidden" style="height: 280px;">
-                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800" alt="SUKU Platform" class="w-100 h-100 object-fit-cover" />
-                                <div class="position-absolute top-0 start-0 m-3">
-                                    <span class="badge text-white px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.95);" data-bs-toggle="tooltip" title="Domaine : Technologie Éducative">EDTECH</span>
-                                </div>
-                            </div>
-                            <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Framework Backend">Laravel</span>
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Framework Frontend Réactif">VueJS</span>
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Conteneurisation Cloud">Docker</span>
-                                    </div>
-                                    <h2 class="f-nasalization h3 fw-bold mb-3">
-                                        <a href="<?php echo esc_url(home_url('/realisations/suku/')); ?>" class="text-decoration-none" style="color: #0f172a;">Écosystème Scolaire SUKU</a>
-                                    </h2>
-                                    <p class="mb-4" style="color: #334155; font-size: 15px; line-height: 1.6;">
-                                        Déploiement d'une plateforme SaaS centralisée pour plus de 20 établissements scolaires en Afrique Centrale. Le système gère les dossiers scolaires de 15,000+ étudiants, les évaluations, la facturation automatique de la scolarité et les notifications SMS/WhatsApp automatisées aux parents.
-                                    </p>
-                                </div>
-                                <div>
-                                    <div class="p-3 rounded-3 mb-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                                        <h4 class="fw-bold h6 mb-1 d-flex align-items-center gap-1" style="color: #0284c7;">
-                                            <span>⚡</span> Impact clé :
-                                        </h4>
-                                        <p class="small mb-0" style="color: #334155;">Réduction de 45% des retards de paiement scolaires et suppression totale du traitement papier des notes de classe.</p>
-                                    </div>
-                                    <div class="d-flex gap-2 flex-column flex-sm-row mt-2">
-                                        <a href="<?php echo esc_url(home_url('/realisations/suku/')); ?>" class="btn btn-primary flex-grow-1 py-2 fw-bold font-monospace text-center" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 13px;">
-                                            Voir les détails &rarr;
-                                        </a>
-                                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-outline-secondary py-2 px-3 fw-bold font-monospace text-center" style="border-radius: 8px; font-size: 13px;">
-                                            Projet similaire ↗
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 (Fallback) -->
-                    <div class="col-md-6 col-lg-6 project-item-col" data-category="fintech" style="transition: all 0.3s ease;">
-                        <div class="card card-premium h-100 overflow-hidden">
-                            <div class="position-relative overflow-hidden" style="height: 280px;">
-                                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800" alt="Njangui Platform" class="w-100 h-100 object-fit-cover" />
-                                <div class="position-absolute top-0 start-0 m-3">
-                                    <span class="badge text-white px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.95);" data-bs-toggle="tooltip" title="Domaine : Finance & Paiements Mobiles">FINTECH</span>
-                                </div>
-                            </div>
-                            <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Application Cross-Platform">Flutter</span>
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Microservices API">Node.js</span>
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Base NoSQL Haute Disponibilité">MongoDB</span>
-                                    </div>
-                                    <h2 class="f-nasalization h3 fw-bold mb-3">
-                                        <a href="<?php echo esc_url(home_url('/realisations/njangui/')); ?>" class="text-decoration-none" style="color: #0f172a;">Plateforme Mobile Njangui</a>
-                                    </h2>
-                                    <p class="mb-4" style="color: #334155; font-size: 15px; line-height: 1.6;">
-                                        Digitalisation sécurisée des tontines traditionnelles locales. L'application mobile permet aux membres de cotiser en toute sécurité via Mobile Money (Orange Money & MTN MoMo), de voter sur l'octroi d'emprunts et de suivre la trésorerie des associations avec une transparence totale.
-                                    </p>
-                                </div>
-                                <div>
-                                    <div class="p-3 rounded-3 mb-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                                        <h4 class="fw-bold h6 mb-1 d-flex align-items-center gap-1" style="color: #0284c7;">
-                                            <span>⚡</span> Impact clé :
-                                        </h4>
-                                        <p class="small mb-0" style="color: #334155;">Plus de $500,000 de flux financiers sécurisés et numérisés en 12 mois sans aucune faille de sécurité.</p>
-                                    </div>
-                                    <div class="d-flex gap-2 flex-column flex-sm-row mt-2">
-                                        <a href="<?php echo esc_url(home_url('/realisations/njangui/')); ?>" class="btn btn-primary flex-grow-1 py-2 fw-bold font-monospace text-center" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 13px;">
-                                            Voir les détails &rarr;
-                                        </a>
-                                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-outline-secondary py-2 px-3 fw-bold font-monospace text-center" style="border-radius: 8px; font-size: 13px;">
-                                            Projet similaire ↗
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 (Fallback) -->
-                    <div class="col-md-6 col-lg-6 project-item-col" data-category="cybersécurité" style="transition: all 0.3s ease;">
-                        <div class="card card-premium h-100 overflow-hidden">
-                            <div class="position-relative overflow-hidden" style="height: 280px;">
-                                <img src="https://images.unsplash.com/photo-1700132806638-2dc744996a4d?q=80&w=800" alt="Cybersecurity" class="w-100 h-100 object-fit-cover" />
-                                <div class="position-absolute top-0 start-0 m-3">
-                                    <span class="badge text-white px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.95);" data-bs-toggle="tooltip" title="Domaine : Sécurité & Audit de Vulnérabilités">CYBERSÉCURITÉ</span>
-                                </div>
-                            </div>
-                            <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Web Application Firewall">WAF</span>
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Isolation Réseau Privée">VPC Isolation</span>
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Infrastructure Cloud Sécurisée">AWS</span>
-                                    </div>
-                                    <h2 class="f-nasalization h3 fw-bold mb-3">
-                                        <a href="<?php echo esc_url(home_url('/realisations/audit-microfinance/')); ?>" class="text-decoration-none" style="color: #0f172a;">Audit & Refonte IT Microfinance</a>
-                                    </h2>
-                                    <p class="mb-4" style="color: #334155; font-size: 15px; line-height: 1.6;">
-                                        Audit d'architecture et renforcement de la sécurité cloud pour un acteur majeur de la microfinance. Nous avons implémenté une isolation réseau totale via des VPC privés, configuré un pare-feu applicatif web (WAF) pour stopper les attaques par injection et mis en place une traçabilité d'audit.
-                                    </p>
-                                </div>
-                                <div>
-                                    <div class="p-3 rounded-3 mb-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                                        <h4 class="fw-bold h6 mb-1 d-flex align-items-center gap-1" style="color: #0284c7;">
-                                            <span>⚡</span> Impact clé :
-                                        </h4>
-                                        <p class="small mb-0" style="color: #334155;">Mise en conformité totale aux exigences bancaires réglementaires locales et résilience totale face aux scans malveillants.</p>
-                                    </div>
-                                    <div class="d-flex gap-2 flex-column flex-sm-row mt-2">
-                                        <a href="<?php echo esc_url(home_url('/realisations/audit-microfinance/')); ?>" class="btn btn-primary flex-grow-1 py-2 fw-bold font-monospace text-center" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 13px;">
-                                            Voir les détails &rarr;
-                                        </a>
-                                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-outline-secondary py-2 px-3 fw-bold font-monospace text-center" style="border-radius: 8px; font-size: 13px;">
-                                            Projet similaire ↗
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 (Fallback) -->
-                    <div class="col-md-6 col-lg-6 project-item-col" data-category="logiciel erp" style="transition: all 0.3s ease;">
-                        <div class="card card-premium h-100 overflow-hidden">
-                            <div class="position-relative overflow-hidden" style="height: 280px;">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" alt="ERP Integration" class="w-100 h-100 object-fit-cover" />
-                                <div class="position-absolute top-0 start-0 m-3">
-                                    <span class="badge text-white px-3 py-2 rounded-pill font-monospace" style="background: rgba(2, 132, 199, 0.95);" data-bs-toggle="tooltip" title="Domaine : Progiciel Intégré de Gestion">LOGICIEL ERP</span>
-                                </div>
-                            </div>
-                            <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Langage Backend Robuste">Python</span>
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Base de données Relationnelle">PostgreSQL</span>
-                                        <span class="badge-tech-pill" data-bs-toggle="tooltip" title="Interface Utilisateur Réactive">React</span>
-                                    </div>
-                                    <h2 class="f-nasalization h3 fw-bold mb-3">
-                                        <a href="<?php echo esc_url(home_url('/realisations/melodi-erp-realisation/')); ?>" class="text-decoration-none" style="color: #0f172a;">Intégration Melodi ERP</a>
-                                    </h2>
-                                    <p class="mb-4" style="color: #334155; font-size: 15px; line-height: 1.6;">
-                                        Déploiement et personnalisation de notre progiciel Melodi ERP pour un grand groupe de distribution agroalimentaire. Intégration de la facturation temps réel, synchronisation automatique des stocks de 5 entrepôts physiques et connexion aux terminaux de vente (POS).
-                                    </p>
-                                </div>
-                                <div>
-                                    <div class="p-3 rounded-3 mb-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                                        <h4 class="fw-bold h6 mb-1 d-flex align-items-center gap-1" style="color: #0284c7;">
-                                            <span>⚡</span> Impact clé :
-                                        </h4>
-                                        <p class="small mb-0" style="color: #334155;">Réduction de 30% des écarts d'inventaire et amélioration de 50% de la vitesse de préparation de commandes logistiques.</p>
-                                    </div>
-                                    <div class="d-flex gap-2 flex-column flex-sm-row mt-2">
-                                        <a href="<?php echo esc_url(home_url('/realisations/melodi-erp-realisation/')); ?>" class="btn btn-primary flex-grow-1 py-2 fw-bold font-monospace text-center" style="background: #0284c7; border-color: #0284c7; border-radius: 8px; font-size: 13px;">
-                                            Voir les détails &rarr;
-                                        </a>
-                                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-outline-secondary py-2 px-3 fw-bold font-monospace text-center" style="border-radius: 8px; font-size: 13px;">
-                                            Projet similaire ↗
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-            </div>
+            <?php endif; ?>
         </div>
     </section>
 
-    <!-- BYT3LAB-CONTENT-END -->
+    <!-- Engagements CTA -->
+    <section class="b-section b-section--dark">
+        <div class="b-container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-xl); align-items: center;">
+                <div>
+                    <span class="b-badge b-badge--dark">APPROCHE MÉTHODOLOGIQUE</span>
+                    <h2 style="color: var(--color-white); font-size: var(--text-2xl); margin: var(--space-xs) 0 var(--space-sm);">
+                        Chaque déploiement suit des normes d'ingénierie strictes
+                    </h2>
+                    <p style="color: var(--color-slate-light); font-size: var(--text-sm); line-height: 1.7; margin: 0;">
+                        De la phase de cadrage des besoins à l'exploitation en production, BYT3LAB applique des principes rigoureux : modularité, sécurité by-design, documentation exhaustive et transfert de compétences aux équipes locales.
+                    </p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); color: var(--color-white); font-size: var(--text-sm);">
+                        <span style="color: var(--color-cyan); font-weight: bold;">01</span>
+                        <span>Cadrage fonctionnel, architectural &amp; cartographie des flux</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); color: var(--color-white); font-size: var(--text-sm);">
+                        <span style="color: var(--color-cyan); font-weight: bold;">02</span>
+                        <span>Développement itératif, CI/CD et revues de conformité</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); color: var(--color-white); font-size: var(--text-sm);">
+                        <span style="color: var(--color-cyan); font-weight: bold;">03</span>
+                        <span>Déploiement managé, monitoring continu &amp; support réactif</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

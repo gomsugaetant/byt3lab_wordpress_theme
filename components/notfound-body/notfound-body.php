@@ -1,43 +1,80 @@
 <?php
-// BYT3LAB Builder - auto-include component assets for notfound-body
-if (!isset($GLOBALS['byt3lab_assets_printed'])) {
-    $GLOBALS['byt3lab_assets_printed'] = ['css' => [], 'js' => []];
-}
-$__byt3lab_comp_slug = 'notfound-body';
-$__byt3lab_css_path = get_stylesheet_directory() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.css';
-$__byt3lab_js_path = get_stylesheet_directory() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.js';
-$__byt3lab_css_uri = get_stylesheet_directory_uri() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.css';
-$__byt3lab_js_uri = get_stylesheet_directory_uri() . '/components/' . $__byt3lab_comp_slug . '/' . $__byt3lab_comp_slug . '.js';
-if (file_exists($__byt3lab_css_path) && !in_array($__byt3lab_css_uri, $GLOBALS['byt3lab_assets_printed']['css'])) {
-    echo '<link rel="stylesheet" href="' . esc_url($__byt3lab_css_uri) . '" />' . "\n";
-    $GLOBALS['byt3lab_assets_printed']['css'][] = $__byt3lab_css_uri;
-}
-if (file_exists($__byt3lab_js_path) && !in_array($__byt3lab_js_uri, $GLOBALS['byt3lab_assets_printed']['js'])) {
-    echo '<script src="' . esc_url($__byt3lab_js_uri) . '"></script>' . "\n";
-    $GLOBALS['byt3lab_assets_printed']['js'][] = $__byt3lab_js_uri;
+/**
+ * Component: notfound-body
+ * 404 Institutional Error View
+ */
+if (!defined('ABSPATH')) {
+    exit;
 }
 ?>
 
-<div class="component-notfound-body bg-white text-dark d-flex align-items-center justify-content-center" style="min-height: 75vh; background: radial-gradient(circle at center, rgba(2, 132, 199, 0.08), transparent 70%), #ffffff;">
-    <!-- BYT3LAB-CONTENT-START -->
-    <div class="container py-5 text-center">
-        <div class="mx-auto" style="max-width: 600px;">
-            <!-- Big premium error number -->
-            <div class="f-nasalization display-1 fw-bold mb-3" style="font-size: 8rem; color: #0284c7; background: linear-gradient(to right, #0284c7, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                404
-            </div>
-            
-            <h1 class="f-nasalization h2 fw-bold mb-4" style="color: #0f172a;">Erreur système : page introuvable</h1>
-            
-            <p class="fs-5 mb-5" style="color: #475569;">
-                Désolé, la page que vous recherchez n'existe pas ou a été déplacée. Vous pouvez retourner directement à l'accueil.
+<section class="b-section b-section--navy b-notfound">
+    <div class="b-container">
+        <div class="b-notfound__inner">
+            <div class="b-notfound__code">404</div>
+            <span class="b-badge b-badge--dark">CODE D'ÉTAT : 404 // RESSOURCE INTROUVABLE</span>
+            <h1 class="b-notfound__title">Point de terminaison ou document non localisé</h1>
+            <p class="b-notfound__text">
+                La ressource demandée n'existe pas ou a été repositionnée dans le cadre de la nouvelle architecture institutionnelle du groupe BYT3LAB.
             </p>
 
-            <!-- Home button -->
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="a-button a-button--primary btn btn-lg py-3 px-5 fw-bold text-uppercase" style="border-radius: 8px;">
-                Retourner à l'accueil
-            </a>
+            <div class="b-notfound__actions">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="b-btn b-btn--primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Retour à l'accueil
+                </a>
+                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="b-btn b-btn--outline">
+                    Signaler une anomalie
+                </a>
+            </div>
+
+            <div class="b-notfound__sitemap">
+                <div class="b-notfound__sitemap-title">Accès direct aux divisions &amp; espaces stratégiques :</div>
+                <div class="b-notfound__grid">
+                    <a href="<?php echo esc_url(home_url('/technologies/')); ?>" class="b-notfound__link">
+                        <span class="b-notfound__dot"></span>
+                        <div>
+                            <strong>Pôle Technologies</strong>
+                            <small>Les 5 divisions du groupe</small>
+                        </div>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/produits/')); ?>" class="b-notfound__link">
+                        <span class="b-notfound__dot"></span>
+                        <div>
+                            <strong>Produits &amp; Logiciels</strong>
+                            <small>MELODI ERP, SUKU, BWS</small>
+                        </div>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/services/')); ?>" class="b-notfound__link">
+                        <span class="b-notfound__dot"></span>
+                        <div>
+                            <strong>Services Commerciaux</strong>
+                            <small>Ingénierie, Cloud &amp; Intégration</small>
+                        </div>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/ngrafix/')); ?>" class="b-notfound__link">
+                        <span class="b-notfound__dot"></span>
+                        <div>
+                            <strong>NGRAFIX Creative Studio</strong>
+                            <small>Brand Identity &amp; Expérience de marque</small>
+                        </div>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/recherche-innovation/')); ?>" class="b-notfound__link">
+                        <span class="b-notfound__dot"></span>
+                        <div>
+                            <strong>Recherche &amp; Innovation</strong>
+                            <small>IA appliquée &amp; Systèmes connectés</small>
+                        </div>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/partenaires/')); ?>" class="b-notfound__link">
+                        <span class="b-notfound__dot"></span>
+                        <div>
+                            <strong>Espace Partenaires</strong>
+                            <small>Opportunités d'intégration &amp; Alliance</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- BYT3LAB-CONTENT-END -->
-</div>
+</section>

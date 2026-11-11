@@ -1,11 +1,19 @@
 <?php
-if (!defined('ABSPATH')) { exit; }
+/**
+ * 404 Error Template - BYT3LAB Technology Group
+ */
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 status_header(404);
 get_header();
-$path = get_template_directory() . '/pages/page-notfound.php';
-if (file_exists($path)) { include $path; } else {
-    echo '<main id="primary" class="site-main">';
-    echo '<h1>404 - Page non trouvée</h1>';
-    echo '</main>';
-}
-get_footer();
+?>
+
+<main id="primary" class="site-main">
+    <?php get_template_part('components/header/header'); ?>
+    <?php get_template_part('components/notfound-body/notfound-body'); ?>
+    <?php get_template_part('components/footer/footer'); ?>
+</main>
+
+<?php get_footer(); ?>

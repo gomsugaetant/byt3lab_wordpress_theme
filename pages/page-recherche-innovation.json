@@ -1,0 +1,11 @@
+{
+    "title": "recherche-innovation",
+    "slug": "recherche-innovation",
+    "description": "Recherche & Innovation — Orientations R&D du groupe BYT3LAB",
+    "css_files": [],
+    "js_files": [],
+    "components": [
+        "header",
+        "footer"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "title": "partenaires",
+    "slug": "partenaires",
+    "description": "Espace Partenaires Institutionnels BYT3LAB",
+    "css_files": [],
+    "js_files": [],
+    "components": [
+        "header",
+        "footer"
+    ]
+}

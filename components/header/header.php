@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
             </a>
 
             <!-- Navigation Desktop -->
-            <nav class="b-nav d-none-mobile" aria-label="<?php esc_attr_e('Navigation principale', 'byt3lab_wordpress_theme'); ?>">
+            <nav class="b-nav" aria-label="<?php esc_attr_e('Navigation principale', 'byt3lab_wordpress_theme'); ?>">
                 <ul class="b-nav__list">
                     <li class="b-nav__item">
                         <a href="<?php echo esc_url(home_url('/')); ?>" class="b-nav__link <?php echo (is_front_page() || is_home()) ? 'is-current' : ''; ?>">
@@ -163,7 +163,7 @@ if (!defined('ABSPATH')) {
             </nav>
 
             <!-- Actions Header Desktop -->
-            <div class="b-header__actions d-none-mobile">
+            <div class="b-header__actions">
                 <a href="<?php echo esc_url(home_url('/partenaires/#formulaire')); ?>" class="b-btn b-btn--sm b-btn--primary">
                     <?php echo byt3lab_icon('handshake', 16); ?>
                     <span>Devenir Partenaire</span>
@@ -174,7 +174,7 @@ if (!defined('ABSPATH')) {
             </div>
 
             <!-- Bouton Burger Mobile -->
-            <button type="button" class="b-burger d-lg-none" id="b-burger-btn" aria-label="<?php esc_attr_e('Ouvrir la navigation', 'byt3lab_wordpress_theme'); ?>" aria-expanded="false" aria-controls="b-mobile-drawer">
+            <button type="button" class="b-burger" id="b-burger-btn" aria-label="<?php esc_attr_e('Ouvrir la navigation', 'byt3lab_wordpress_theme'); ?>" aria-expanded="false" aria-controls="b-mobile-drawer">
                 <span class="b-burger__line"></span>
                 <span class="b-burger__line"></span>
                 <span class="b-burger__line"></span>

@@ -36,6 +36,20 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('byt3lab-tokens', get_stylesheet_directory_uri() . '/assets/css/tokens.css', ['byt3lab_wordpress_theme-style'], '2.0.0');
     wp_enqueue_style('byt3lab-system', get_stylesheet_directory_uri() . '/assets/css/system.css', ['byt3lab-tokens'], '2.0.0');
 
+    // Composants globaux : header & footer (présents sur toutes les pages)
+    $global_components = ['header', 'footer'];
+    foreach ($global_components as $gc) {
+        $gc_css = get_stylesheet_directory() . '/components/' . $gc . '/' . $gc . '.css';
+        if (file_exists($gc_css)) {
+            wp_enqueue_style(
+                'byt3lab-comp-' . $gc,
+                get_stylesheet_directory_uri() . '/components/' . $gc . '/' . $gc . '.css',
+                ['byt3lab-system'],
+                '2.0.0'
+            );
+        }
+    }
+
     // Scripts globaux du site
     wp_enqueue_script('byt3lab-site', get_stylesheet_directory_uri() . '/assets/js/site.js', [], '2.0.0', true);
 
