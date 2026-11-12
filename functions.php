@@ -80,12 +80,25 @@ add_action('wp_enqueue_scripts', function () {
         $slug = 'technologies';
     } elseif (is_singular('byt3lab_solution')) {
         $slug = 'produits';
+    } elseif (is_singular('byt3lab_job')) {
+        $slug = 'carriere';
+    } elseif (is_singular('byt3lab_team')) {
+        $slug = 'equipe';
+    } elseif (is_singular('byt3lab_service')) {
+        $slug = 'services';
+    } elseif (is_singular('byt3lab_project')) {
+        $slug = 'realisations';
     } elseif (is_single()) {
         $slug = 'blog';
     } elseif (is_404()) {
         $slug = 'notfound';
-    } elseif (!empty($post->post_name)) {
-        $slug = $post->post_name;
+    } else {
+        $queried = get_queried_object();
+        if ($queried instanceof WP_Post && !empty($queried->post_name)) {
+            $slug = $queried->post_name;
+        } elseif (!empty($post->post_name)) {
+            $slug = $post->post_name;
+        }
     }
 
     if (empty($slug)) {

@@ -131,5 +131,27 @@
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Alias de compatibilité et d'espacements fluides */
+    --color-navy: var(--c-navy-950);
+    --color-cyan: var(--c-cyan-400);
+    --color-blue: var(--c-blue-500);
+    --color-green: var(--c-green-accent);
+    --color-border: var(--c-gray-200);
+    --color-slate-dark: var(--c-anthracite);
+    --color-slate-medium: var(--c-gray-600);
+    --color-slate-light: var(--c-gray-400);
+    --color-slate-lightest: var(--c-gray-100);
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --space-2xl: 64px;
+    --text-xs: var(--fs-xs);
+    --text-sm: var(--fs-body-sm);
+    --text-md: var(--fs-body);
+    --text-lg: var(--fs-h4);
+    --text-xl: var(--fs-h3);
 }
 

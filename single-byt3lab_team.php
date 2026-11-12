@@ -9,6 +9,7 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
+get_template_part('components/header/header');
 
 $role         = get_post_meta(get_the_ID(), '_byt3lab_team_role', true) ?: 'Ingénieur';
 $dept         = get_post_meta(get_the_ID(), '_byt3lab_team_department', true) ?: 'Direction';
@@ -19,103 +20,132 @@ $custom_photo = get_post_meta(get_the_ID(), '_byt3lab_team_photo', true);
 $avatar_url   = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : (!empty($custom_photo) ? $custom_photo : '');
 ?>
 
-<main id="primary" class="site-main">
-    <?php get_template_part('components/header/header'); ?>
+<main id="primary" class="site-main b-team-single-page">
 
-    <section class="b-section b-section--navy" style="padding: calc(var(--space-2xl) * 1.2) 0 var(--space-xl);">
+    <!-- Hero Membre Équipe -->
+    <section class="b-hero">
+        <div class="b-hero__pattern" aria-hidden="true"></div>
         <div class="b-container">
-            <div style="margin-bottom: var(--space-md);">
-                <a href="<?php echo esc_url(home_url('/equipe/')); ?>" style="color: var(--color-cyan); font-family: var(--font-mono); font-size: var(--text-xs); text-decoration: none; display: inline-flex; align-items: center; gap: var(--space-xs);">
-                    &larr; Retour à l'équipe
-                </a>
-            </div>
+            <div style="max-width: 820px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                    <a href="<?php echo esc_url(home_url('/equipe/')); ?>" class="b-eyebrow b-eyebrow--white" style="margin-bottom: 0;">
+                        &larr; Organisation &amp; Équipe
+                    </a>
+                </div>
 
-            <div style="display: flex; gap: var(--space-xs); align-items: center; margin-bottom: var(--space-xs);">
-                <span class="b-badge b-badge--dark"><?php echo esc_html($dept); ?></span>
-            </div>
+                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px;">
+                    <span class="b-badge b-badge--dark"><?php echo esc_html($dept); ?></span>
+                </div>
 
-            <h1 style="color: var(--color-white); font-size: clamp(2rem, 4vw, 3rem); margin: var(--space-xs) 0 var(--space-xs); letter-spacing: -0.02em;">
-                <?php the_title(); ?>
-            </h1>
+                <h1 class="b-hero__title" style="margin-bottom: 8px;">
+                    <?php the_title(); ?>
+                </h1>
 
-            <div style="font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-cyan);">
-                <?php echo esc_html($role); ?>
+                <p class="b-hero__subtitle" style="color: var(--c-cyan-400); font-family: var(--font-heading); font-size: 1.25rem;">
+                    <?php echo esc_html($role); ?>
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="b-section b-section--light" style="padding: var(--space-2xl) 0;">
+    <!-- Détails du Profil -->
+    <section class="b-section">
         <div class="b-container">
-            <div style="display: grid; grid-template-columns: 300px 1fr; gap: var(--space-2xl); align-items: start;">
-                
-                <!-- Sidebar Photo & Links -->
-                <div class="b-card" style="background: #ffffff; padding: var(--space-xl); border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-align: center;">
-                    <?php if (!empty($avatar_url)) : ?>
-                        <img src="<?php echo esc_url($avatar_url); ?>" alt="<?php the_title_attribute(); ?>" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin: 0 auto var(--space-md); border: 3px solid var(--color-blue);" />
-                    <?php else : ?>
-                        <div style="width: 120px; height: 120px; border-radius: 50%; background: var(--color-slate-lightest); color: var(--color-navy); display: flex; align-items: center; justify-content: center; font-size: 3rem; margin: 0 auto var(--space-md);">
-                            👤
-                        </div>
-                    <?php endif; ?>
-
-                    <span class="b-badge b-badge--dark" style="margin-bottom: var(--space-xs);"><?php echo esc_html($dept); ?></span>
-                    <h3 style="font-size: var(--text-lg); color: var(--color-navy); margin: 0 0 4px;"><?php the_title(); ?></h3>
-                    <div style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-slate-medium); margin-bottom: var(--space-md);"><?php echo esc_html($role); ?></div>
-
-                    <?php if (!empty($linkedin) || !empty($github)) : ?>
-                        <div style="display: flex; justify-content: center; gap: var(--space-sm); border-top: 1px solid var(--color-border); padding-top: var(--space-md);">
-                            <?php if (!empty($linkedin)) : ?>
-                                <a href="<?php echo esc_url($linkedin); ?>" target="_blank" rel="noopener noreferrer" class="b-btn b-btn--outline" style="font-size: var(--text-xs); padding: var(--space-xs) var(--space-sm);">
-                                    LinkedIn ↗
-                                </a>
-                            <?php endif; ?>
-                            <?php if (!empty($github)) : ?>
-                                <a href="<?php echo esc_url($github); ?>" target="_blank" rel="noopener noreferrer" class="b-btn b-btn--outline" style="font-size: var(--text-xs); padding: var(--space-xs) var(--space-sm);">
-                                    GitHub ↗
-                                </a>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Main Biography -->
-                <div class="b-card" style="background: #ffffff; padding: var(--space-2xl); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
-                    <h2 style="font-size: var(--text-xl); color: var(--color-navy); margin-top: 0; margin-bottom: var(--space-md);">
-                        Parcours &amp; Responsabilités au sein du Groupe
-                    </h2>
-
-                    <?php if (!empty($bio_short)) : ?>
-                        <p style="font-size: var(--text-lg); color: var(--color-blue); font-weight: 500; line-height: 1.6; margin-bottom: var(--space-lg);">
-                            <?php echo esc_html($bio_short); ?>
-                        </p>
-                    <?php endif; ?>
-
-                    <div style="font-size: var(--text-md); line-height: 1.8; color: var(--color-slate-dark);">
-                        <?php 
-                        $content = get_the_content();
-                        if (!empty(trim($content))) {
-                            the_content();
-                        } else {
-                            echo '<p>Collaborateur engagé au sein des initiatives technologiques et des programmes de déploiement du groupe BYT3LAB.</p>';
+            <div style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;">
+                <style>
+                    @media (min-width: 900px) {
+                        .b-team-single-layout {
+                            display: grid !important;
+                            grid-template-columns: 320px minmax(0, 1fr) !important;
+                            gap: 48px !important;
                         }
-                        ?>
+                    }
+                </style>
+                <div class="b-team-single-layout" style="display: flex; flex-direction: column; gap: 32px;">
+                    
+                    <!-- Sidebar Profil -->
+                    <div class="b-card" style="padding: 36px 28px; text-align: center;">
+                        <?php if (!empty($avatar_url)) : ?>
+                            <img src="<?php echo esc_url($avatar_url); ?>" alt="<?php the_title_attribute(); ?>" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; border: 3px solid var(--c-blue-500); box-shadow: var(--shadow-card);" />
+                        <?php else : ?>
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: var(--c-gray-100); color: var(--c-navy-900); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 2px dashed var(--c-gray-300);">
+                                <?php echo byt3lab_icon('target', 48); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <span class="b-badge b-badge--light" style="margin-bottom: 8px;"><?php echo esc_html($dept); ?></span>
+                        <h2 style="font-size: 1.35rem; color: var(--c-navy-950); margin: 0 0 4px;"><?php the_title(); ?></h2>
+                        <div style="font-size: 14px; color: var(--c-blue-500); font-weight: 600; margin-bottom: 20px;"><?php echo esc_html($role); ?></div>
+
+                        <?php if (!empty($linkedin) || !empty($github)) : ?>
+                            <div style="display: flex; justify-content: center; gap: 12px; border-top: 1px solid var(--c-gray-200); padding-top: 20px;">
+                                <?php if (!empty($linkedin)) : ?>
+                                    <a href="<?php echo esc_url($linkedin); ?>" target="_blank" rel="noopener noreferrer" class="b-btn b-btn--sm b-btn--secondary">
+                                        <?php echo byt3lab_icon('linkedin', 15); ?>
+                                        <span>LinkedIn</span>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if (!empty($github)) : ?>
+                                    <a href="<?php echo esc_url($github); ?>" target="_blank" rel="noopener noreferrer" class="b-btn b-btn--sm b-btn--secondary">
+                                        <?php echo byt3lab_icon('code', 15); ?>
+                                        <span>GitHub</span>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
 
-                    <div style="margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); display: flex; gap: var(--space-md); flex-wrap: wrap;">
-                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="b-btn b-btn--primary">
-                            Prendre contact avec l'équipe
-                        </a>
-                        <a href="<?php echo esc_url(home_url('/equipe/')); ?>" class="b-btn b-btn--outline">
-                            &larr; Tous les membres
-                        </a>
+                    <!-- Biographie & Responsabilités -->
+                    <div class="b-card" style="padding: 40px;">
+                        <span class="b-eyebrow">Parcours &amp; Responsabilités</span>
+                        <h2 class="b-title" style="font-size: 1.6rem; margin-bottom: 24px;">
+                            Contribution au sein du Groupe BYT3LAB
+                        </h2>
+
+                        <?php if (!empty($bio_short)) : ?>
+                            <p style="font-size: 1.125rem; color: var(--c-blue-500); font-weight: 500; line-height: 1.7; margin-bottom: 24px; padding-left: 16px; border-left: 3px solid var(--c-blue-500);">
+                                <?php echo esc_html($bio_short); ?>
+                            </p>
+                        <?php endif; ?>
+
+                        <div style="font-size: 16px; line-height: 1.8; color: var(--c-gray-700);">
+                            <?php 
+                            $content = get_the_content();
+                            if (!empty(trim($content))) {
+                                the_content();
+                            } else {
+                                echo '<p>Collaborateur engagé au sein des initiatives technologiques et des programmes de déploiement du groupe BYT3LAB.</p>';
+                            }
+                            ?>
+                        </div>
                     </div>
+
                 </div>
-
             </div>
         </div>
     </section>
 
-    <?php get_template_part('components/footer/footer'); ?>
+    <!-- CTA Final -->
+    <section class="b-section b-section--tight">
+        <div class="b-container">
+            <div class="b-cta-band">
+                <h2 class="b-title">Rejoignez nos équipes d'ingénieurs</h2>
+                <p>Byt3Lab recrute des profils engagés pour construire les technologies de demain en Afrique.</p>
+                <div class="b-cta-band__actions">
+                    <a href="<?php echo esc_url(home_url('/carriere/')); ?>" class="b-btn b-btn--lg b-btn--on-dark">
+                        <span>Voir les postes ouverts</span>
+                        <?php echo byt3lab_icon('arrow-right', 18); ?>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/equipe/')); ?>" class="b-btn b-btn--lg b-btn--outline-dark">
+                        <span>Organisation du groupe</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
-<?php get_footer(); ?>
+<?php
+get_template_part('components/footer/footer');
+get_footer();

@@ -1,15 +1,9 @@
 {
     "title": "carriere",
     "slug": "carriere",
-    "description": "carriere",
-    "css_files": [
-        "assets\/css\/bootstrap.min_.css",
-        "assets\/css\/global.css"
-    ],
-    "js_files": [
-        "assets\/js\/bootstrap.min_.js",
-        "assets\/js\/main.js"
-    ],
+    "description": "Recrutement & Carrières — Opportunités au sein du groupe BYT3LAB",
+    "css_files": [],
+    "js_files": [],
     "components": [
         "header",
         "carriere-body",

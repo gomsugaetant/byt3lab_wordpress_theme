@@ -9,6 +9,7 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
+get_template_part('components/header/header');
 
 $current_id   = get_the_ID();
 $title        = get_the_title();
@@ -55,189 +56,288 @@ $other_jobs = new WP_Query([
     'posts_per_page' => 3,
     'orderby'        => 'rand',
 ]);
+
+$whatsapp_msg = 'Bonjour l\'équipe RH BYT3LAB, je souhaite échanger au sujet de l\'offre : ' . $title;
+$whatsapp_url = 'https://wa.me/237696879475?text=' . rawurlencode($whatsapp_msg);
 ?>
 
-<main id="primary" class="site-main">
-    <?php get_template_part('components/header/header'); ?>
+<main id="primary" class="site-main b-job-page">
 
-    <!-- Hero Header -->
-    <section class="b-section b-section--navy" style="padding: calc(var(--space-2xl) * 1.2) 0 var(--space-xl);">
+    <!-- Hero Offre d'Emploi -->
+    <section class="b-hero">
+        <div class="b-hero__pattern" aria-hidden="true"></div>
         <div class="b-container">
-            <div style="margin-bottom: var(--space-md);">
-                <a href="<?php echo esc_url(home_url('/carriere/')); ?>" style="color: var(--color-cyan); font-family: var(--font-mono); font-size: var(--text-xs); text-decoration: none; display: inline-flex; align-items: center; gap: var(--space-xs);">
-                    &larr; Retour à l'ensemble des opportunités
-                </a>
-            </div>
+            <div style="max-width: 860px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <a href="<?php echo esc_url(home_url('/carriere/')); ?>" class="b-eyebrow b-eyebrow--white" style="margin-bottom: 0;">
+                        &larr; Toutes les Opportunités
+                    </a>
+                    <?php echo byt3lab_status_badge('active'); ?>
+                </div>
 
-            <div style="display: flex; flex-wrap: wrap; gap: var(--space-xs); align-items: center; margin-bottom: var(--space-sm);">
-                <span class="b-badge b-badge--dark"><?php echo esc_html($dept); ?></span>
-                <span class="b-badge b-badge--light"><?php echo esc_html($contract); ?></span>
-                <span class="b-status b-status--active">
-                    <span class="b-status__dot"></span>
-                    Poste ouvert
-                </span>
-            </div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                    <span class="b-badge b-badge--dark"><?php echo esc_html($dept); ?></span>
+                    <span class="b-badge b-badge--cyan"><?php echo esc_html($contract); ?></span>
+                </div>
 
-            <h1 style="color: var(--color-white); font-size: clamp(2rem, 4vw, 3rem); margin: var(--space-xs) 0 var(--space-md); letter-spacing: -0.02em;">
-                <?php the_title(); ?>
-            </h1>
+                <h1 class="b-hero__title" style="font-size: clamp(2rem, 4vw, 3.25rem); margin-bottom: 20px;">
+                    <?php the_title(); ?>
+                </h1>
 
-            <div style="display: flex; flex-wrap: wrap; gap: var(--space-lg); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-slate-light);">
-                <span>📍 Lieu : <strong style="color: #fff;"><?php echo esc_html($location); ?></strong></span>
-                <span>🎯 Expérience : <strong style="color: #fff;"><?php echo esc_html($experience); ?></strong></span>
-                <span>📅 Échéance : <strong style="color: #fff;"><?php echo esc_html($deadline); ?></strong></span>
+                <!-- Fiche rapide métadonnées dans le Hero -->
+                <div style="display: flex; flex-wrap: wrap; gap: 20px 32px; font-size: 14px; color: var(--c-gray-300); margin-bottom: 32px; padding: 16px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-md);">
+                    <div style="display: inline-flex; align-items: center; gap: 8px;">
+                        <?php echo byt3lab_icon('map-pin', 16); ?>
+                        <span>Lieu : <strong style="color: #fff;"><?php echo esc_html($location); ?></strong></span>
+                    </div>
+                    <div style="display: inline-flex; align-items: center; gap: 8px;">
+                        <?php echo byt3lab_icon('target', 16); ?>
+                        <span>Expérience : <strong style="color: #fff;"><?php echo esc_html($experience); ?></strong></span>
+                    </div>
+                    <div style="display: inline-flex; align-items: center; gap: 8px;">
+                        <?php echo byt3lab_icon('layers', 16); ?>
+                        <span>Échéance : <strong style="color: #fff;"><?php echo esc_html($deadline); ?></strong></span>
+                    </div>
+                </div>
+
+                <div class="b-hero__actions">
+                    <a href="#postuler" class="b-btn b-btn--lg b-btn--primary">
+                        <span>Postuler à ce poste</span>
+                        <?php echo byt3lab_icon('arrow-right', 18); ?>
+                    </a>
+                    <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="b-btn b-btn--lg b-btn--outline-dark">
+                        <?php echo byt3lab_icon('whatsapp', 18); ?>
+                        <span>Échanger avec les RH</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content Layout -->
-    <section class="b-section b-section--light" style="padding: var(--space-2xl) 0;">
+    <!-- Détails du Poste & Candidature -->
+    <section class="b-section">
         <div class="b-container">
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-2xl);">
-                
-                <!-- Left Column -->
-                <div>
-                    <!-- Job Description -->
-                    <div class="b-card" style="background: #ffffff; padding: var(--space-xl); border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-bottom: var(--space-xl);">
-                        <h2 style="font-size: var(--text-xl); color: var(--color-navy); margin-top: 0; margin-bottom: var(--space-md);">
-                            Description du poste &amp; Contexte
-                        </h2>
-                        <div style="font-size: var(--text-md); line-height: 1.8; color: var(--color-slate-dark);">
-                            <?php 
-                            $content = get_the_content();
-                            if (!empty(trim($content))) {
-                                the_content();
-                            } else {
-                                echo '<p>Rejoignez les équipes d\'ingénierie du groupe BYT3LAB pour concevoir, intégrer et exploiter des technologies fiables au service des entreprises et infrastructures de demain.</p>';
-                            }
-                            ?>
-                        </div>
-                    </div>
-
-                    <!-- Missions -->
-                    <?php if (!empty($missions_list)) : ?>
-                        <div class="b-card" style="background: #ffffff; padding: var(--space-xl); border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-bottom: var(--space-xl);">
-                            <h3 style="font-size: var(--text-lg); color: var(--color-navy); margin-top: 0; margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-xs);">
-                                <span>🚀</span> Missions &amp; Responsabilités Clés
-                            </h3>
-                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm);">
-                                <?php foreach ($missions_list as $mission) : ?>
-                                    <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-sm); line-height: 1.6; color: var(--color-slate-dark);">
-                                        <span style="color: var(--color-blue); font-weight: bold;">&rarr;</span>
-                                        <span><?php echo esc_html($mission); ?></span>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?>
-
-                    <!-- Requirements -->
-                    <?php if (!empty($reqs_list)) : ?>
-                        <div class="b-card" style="background: #ffffff; padding: var(--space-xl); border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-bottom: var(--space-xl);">
-                            <h3 style="font-size: var(--text-lg); color: var(--color-navy); margin-top: 0; margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-xs);">
-                                <span>🎯</span> Profil Recherché &amp; Compétences
-                            </h3>
-                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm);">
-                                <?php foreach ($reqs_list as $req) : ?>
-                                    <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-sm); line-height: 1.6; color: var(--color-slate-dark);">
-                                        <span style="color: var(--color-green); font-weight: bold;">✓</span>
-                                        <span><?php echo esc_html($req); ?></span>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?>
-
-                    <!-- Values -->
-                    <div class="b-card" style="background: #ffffff; padding: var(--space-xl); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
-                        <h3 style="font-size: var(--text-lg); color: var(--color-navy); margin-top: 0; margin-bottom: var(--space-md);">
-                            Pourquoi rejoindre le groupe BYT3LAB ?
-                        </h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-md);">
-                            <div style="padding: var(--space-md); background: var(--color-slate-lightest); border-radius: var(--radius-md);">
-                                <strong style="color: var(--color-navy); display: block; margin-bottom: 4px;">Équipement d'ingénierie</strong>
-                                <small style="color: var(--color-slate-medium);">Postes de travail performants, accès aux meilleures plateformes cloud et licences professionnelles.</small>
-                            </div>
-                            <div style="padding: var(--space-md); background: var(--color-slate-lightest); border-radius: var(--radius-md);">
-                                <strong style="color: var(--color-navy); display: block; margin-bottom: 4px;">Rigueur &amp; Méthodologie</strong>
-                                <small style="color: var(--color-slate-medium);">Revue de code systématique, CI/CD, documentation rigoureuse et culture d'excellence.</small>
-                            </div>
-                            <div style="padding: var(--space-md); background: var(--color-slate-lightest); border-radius: var(--radius-md);">
-                                <strong style="color: var(--color-navy); display: block; margin-bottom: 4px;">Impact &amp; Ambition</strong>
-                                <small style="color: var(--color-slate-medium);">Participez à la construction d'infrastructures et de progiciels stratégiques pour le continent africain.</small>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;">
+                <style>
+                    @media (min-width: 992px) {
+                        .b-job-layout {
+                            display: grid !important;
+                            grid-template-columns: minmax(0, 1fr) 360px !important;
+                            gap: 48px !important;
+                        }
+                    }
+                </style>
+                <div class="b-job-layout" style="display: flex; flex-direction: column; gap: 32px;">
+                    
+                    <!-- Colonne Gauche : Contenu du Poste -->
+                    <div style="display: flex; flex-direction: column; gap: 32px;">
+                        
+                        <!-- 1. Description & Contexte -->
+                        <div class="b-card" style="padding: 36px;">
+                            <span class="b-eyebrow">Contexte &amp; Enjeux</span>
+                            <h2 class="b-title" style="font-size: 1.55rem; margin-bottom: 20px;">
+                                Description du Poste
+                            </h2>
+                            <div style="font-size: 16px; color: var(--c-gray-700); line-height: 1.8;">
+                                <?php 
+                                $content = get_the_content();
+                                if (!empty(trim($content))) {
+                                    the_content();
+                                } else {
+                                    echo '<p>Rejoignez les équipes d\'ingénierie du groupe BYT3LAB pour concevoir, intégrer et exploiter des technologies fiables au service des entreprises et infrastructures de demain.</p>';
+                                }
+                                ?>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Right Column: Sticky Sidebar -->
-                <div>
-                    <div style="position: sticky; top: 100px;">
-                        <div class="b-card" style="background: #ffffff; padding: var(--space-xl); border: 2px solid var(--color-blue); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-                            <span class="b-badge b-badge--dark" style="margin-bottom: var(--space-sm);">POSTULER AU POSTE</span>
-                            <h3 style="font-size: var(--text-lg); color: var(--color-navy); margin: 0 0 var(--space-xs);">
-                                Transmettre votre candidature
-                            </h3>
-                            <p style="font-size: var(--text-xs); color: var(--color-slate-medium); line-height: 1.6; margin-bottom: var(--space-md);">
-                                Transmettez-nous votre curriculum vitae et une synthèse de vos réalisations techniques.
-                            </p>
-
-                            <div style="display: flex; flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-lg);">
-                                <a href="<?php echo esc_url($apply_link); ?>" class="b-btn b-btn--primary" style="justify-content: center; width: 100%;">
-                                    Envoyer mon dossier &rarr;
-                                </a>
-                                <a href="https://wa.me/237696879475?text=<?php echo rawurlencode('Bonjour l\'équipe BYT3LAB, je souhaite des précisions sur le poste : ' . $title); ?>" target="_blank" rel="noopener noreferrer" class="b-btn b-btn--outline" style="justify-content: center; width: 100%; border-color: var(--color-green); color: var(--color-green);">
-                                    Contact RH via WhatsApp
-                                </a>
+                        <!-- 2. Missions & Responsabilités Clés -->
+                        <?php if (!empty($missions_list)) : ?>
+                            <div class="b-card" style="padding: 36px;">
+                                <span class="b-eyebrow">Missions Opérationnelles</span>
+                                <h2 class="b-title" style="font-size: 1.55rem; margin-bottom: 20px;">
+                                    Responsabilités Clés
+                                </h2>
+                                <ul class="b-checklist" style="display: flex; flex-direction: column; gap: 14px;">
+                                    <?php foreach ($missions_list as $mission) : ?>
+                                        <li style="font-size: 15px; line-height: 1.6; color: var(--c-gray-700);">
+                                            <?php echo byt3lab_icon('check', 18); ?>
+                                            <span><?php echo esc_html($mission); ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
                             </div>
+                        <?php endif; ?>
 
-                            <div style="border-top: 1px solid var(--color-border); padding-top: var(--space-md); font-family: var(--font-mono); font-size: var(--text-xs); display: flex; flex-direction: column; gap: var(--space-xs); color: var(--color-slate-medium);">
-                                <div>Division : <strong style="color: var(--color-navy);"><?php echo esc_html($dept); ?></strong></div>
-                                <div>Type de contrat : <strong style="color: var(--color-navy);"><?php echo esc_html($contract); ?></strong></div>
-                                <div>Lieu : <strong style="color: var(--color-navy);"><?php echo esc_html($location); ?></strong></div>
-                                <div>Rémunération : <strong style="color: var(--color-navy);"><?php echo esc_html($salary); ?></strong></div>
+                        <!-- 3. Profil Recherché & Compétences -->
+                        <?php if (!empty($reqs_list)) : ?>
+                            <div class="b-card" style="padding: 36px;">
+                                <span class="b-eyebrow">Compétences Requises</span>
+                                <h2 class="b-title" style="font-size: 1.55rem; margin-bottom: 20px;">
+                                    Profil Recherché
+                                </h2>
+                                <ul class="b-checklist" style="display: flex; flex-direction: column; gap: 14px;">
+                                    <?php foreach ($reqs_list as $req) : ?>
+                                        <li style="font-size: 15px; line-height: 1.6; color: var(--c-gray-700);">
+                                            <?php echo byt3lab_icon('target', 18); ?>
+                                            <span><?php echo esc_html($req); ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        <?php endif; ?>
 
-            </div>
-
-            <!-- Other jobs -->
-            <?php if ($other_jobs->have_posts()) : ?>
-                <div style="margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--color-border);">
-                    <h3 style="font-size: var(--text-xl); color: var(--color-navy); margin-bottom: var(--space-lg);">
-                        Autres opportunités au sein du groupe
-                    </h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md);">
-                        <?php while ($other_jobs->have_posts()) : $other_jobs->the_post(); 
-                            $o_dept     = get_post_meta(get_the_ID(), '_byt3lab_job_department', true) ?: 'Software & Digital';
-                            $o_contract = get_post_meta(get_the_ID(), '_byt3lab_job_contract', true) ?: 'CDI';
-                            $o_loc      = get_post_meta(get_the_ID(), '_byt3lab_job_location', true) ?: 'Douala / Yaoundé';
-                        ?>
-                            <div class="b-card" style="background: #ffffff; padding: var(--space-md); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
-                                <span class="b-badge b-badge--dark" style="margin-bottom: var(--space-xs);"><?php echo esc_html($o_dept); ?></span>
-                                <h4 style="font-size: var(--text-md); margin: var(--space-xs) 0;">
-                                    <a href="<?php the_permalink(); ?>" style="color: var(--color-navy); text-decoration: none;">
-                                        <?php the_title(); ?>
-                                    </a>
-                                </h4>
-                                <div style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-slate-medium); margin-bottom: var(--space-sm);">
-                                    <?php echo esc_html($o_contract); ?> &bull; <?php echo esc_html($o_loc); ?>
+                        <!-- 4. Pourquoi Rejoindre BYT3LAB ? -->
+                        <div class="b-card" style="padding: 36px;">
+                            <span class="b-eyebrow">Environnement de Travail</span>
+                            <h2 class="b-title" style="font-size: 1.55rem; margin-bottom: 20px;">
+                                Ce que Nous Vous Offrons
+                            </h2>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                                <div style="padding: 20px; background: var(--c-gray-50); border: 1px solid var(--c-gray-200); border-radius: var(--radius-md);">
+                                    <div style="color: var(--c-blue-500); margin-bottom: 8px;">
+                                        <?php echo byt3lab_icon('server', 22); ?>
+                                    </div>
+                                    <strong style="color: var(--c-navy-950); display: block; margin-bottom: 6px; font-size: 15px;">Équipements &amp; Outils</strong>
+                                    <p style="color: var(--c-gray-600); font-size: 13.5px; line-height: 1.5; margin: 0;">Postes performants, accès cloud haut débit et licences professionnelles.</p>
                                 </div>
-                                <a href="<?php the_permalink(); ?>" style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-blue); text-decoration: none; font-weight: bold;">
-                                    Consulter le poste &rarr;
-                                </a>
+                                <div style="padding: 20px; background: var(--c-gray-50); border: 1px solid var(--c-gray-200); border-radius: var(--radius-md);">
+                                    <div style="color: var(--c-blue-500); margin-bottom: 8px;">
+                                        <?php echo byt3lab_icon('workflow', 22); ?>
+                                    </div>
+                                    <strong style="color: var(--c-navy-950); display: block; margin-bottom: 6px; font-size: 15px;">Rigueur &amp; Méthode</strong>
+                                    <p style="color: var(--c-gray-600); font-size: 13.5px; line-height: 1.5; margin: 0;">Revues de code systématiques, CI/CD, documentation et tests.</p>
+                                </div>
+                                <div style="padding: 20px; background: var(--c-gray-50); border: 1px solid var(--c-gray-200); border-radius: var(--radius-md);">
+                                    <div style="color: var(--c-blue-500); margin-bottom: 8px;">
+                                        <?php echo byt3lab_icon('compass', 22); ?>
+                                    </div>
+                                    <strong style="color: var(--c-navy-950); display: block; margin-bottom: 6px; font-size: 15px;">Impact Africain</strong>
+                                    <p style="color: var(--c-gray-600); font-size: 13.5px; line-height: 1.5; margin: 0;">Progiciels et infrastructures critiques déployés pour des organisations réelles.</p>
+                                </div>
                             </div>
-                        <?php endwhile; wp_reset_postdata(); ?>
-                    </div>
-                </div>
-            <?php endif; ?>
+                        </div>
 
+                    </div>
+
+                    <!-- Colonne Droite : Sticky Sidebar de Candidature -->
+                    <div>
+                        <div style="position: sticky; top: 96px;">
+                            <div class="b-card" id="postuler" style="padding: 32px; border: 2px solid var(--c-blue-500); box-shadow: var(--shadow-card);">
+                                <span class="b-badge b-badge--dark" style="margin-bottom: 12px; align-self: flex-start;">Postuler</span>
+                                <h3 style="font-size: 1.35rem; color: var(--c-navy-950); margin: 0 0 8px;">
+                                    Rejoindre cette division
+                                </h3>
+                                <p style="font-size: 13.5px; color: var(--c-gray-600); line-height: 1.6; margin-bottom: 24px;">
+                                    Transmettez-nous votre curriculum vitae et les liens vers vos réalisations techniques (projets GitHub, code, démos).
+                                </p>
+
+                                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                                    <a href="<?php echo esc_url($apply_link); ?>" class="b-btn b-btn--primary" style="justify-content: center; width: 100%;">
+                                        <?php echo byt3lab_icon('mail', 18); ?>
+                                        <span>Postuler par e-mail</span>
+                                    </a>
+                                    <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="b-btn b-btn--secondary" style="justify-content: center; width: 100%;">
+                                        <?php echo byt3lab_icon('whatsapp', 18); ?>
+                                        <span>Contact RH via WhatsApp</span>
+                                    </a>
+                                </div>
+
+                                <div style="border-top: 1px solid var(--c-gray-200); padding-top: 20px; font-size: 13px; display: flex; flex-direction: column; gap: 10px; color: var(--c-gray-600);">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Pôle :</span>
+                                        <strong style="color: var(--c-navy-950);"><?php echo esc_html($dept); ?></strong>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Contrat :</span>
+                                        <strong style="color: var(--c-navy-950);"><?php echo esc_html($contract); ?></strong>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Lieu :</span>
+                                        <strong style="color: var(--c-navy-950);"><?php echo esc_html($location); ?></strong>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Rémunération :</span>
+                                        <strong style="color: var(--c-navy-950); text-align: right;"><?php echo esc_html($salary); ?></strong>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Réponse RH :</span>
+                                        <strong style="color: var(--c-status-active-text);">Sous 48h ouvrées</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </section>
 
-    <?php get_template_part('components/footer/footer'); ?>
+    <!-- Autres Opportunités -->
+    <?php if ($other_jobs->have_posts()) : ?>
+        <section class="b-section b-section--alt">
+            <div class="b-container">
+                <div class="b-section-head b-section-head--center">
+                    <span class="b-eyebrow">Autres Postes</span>
+                    <h2 class="b-title">Autres Opportunités au Sein du Groupe</h2>
+                    <p class="b-lead">Nos divisions recrutent également sur d'autres expertises complémentaires.</p>
+                </div>
+
+                <div class="b-grid b-grid--3">
+                    <?php while ($other_jobs->have_posts()) : $other_jobs->the_post(); 
+                        $o_dept     = get_post_meta(get_the_ID(), '_byt3lab_job_department', true) ?: 'Software & Digital';
+                        $o_contract = get_post_meta(get_the_ID(), '_byt3lab_job_contract', true) ?: 'CDI';
+                        $o_loc      = get_post_meta(get_the_ID(), '_byt3lab_job_location', true) ?: 'Douala / Yaoundé';
+                    ?>
+                        <article class="b-job-card">
+                            <div class="b-job-card__head">
+                                <span class="b-badge b-badge--dark"><?php echo esc_html($o_dept); ?></span>
+                                <span class="b-badge b-badge--light"><?php echo esc_html($o_contract); ?></span>
+                            </div>
+                            <h3 class="b-job-card__title">
+                                <a href="<?php the_permalink(); ?>" style="color: inherit; text-decoration: none;">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h3>
+                            <div class="b-job-card__meta">
+                                <span class="b-job-card__meta-item">
+                                    <?php echo byt3lab_icon('map-pin', 14); ?>
+                                    <span><?php echo esc_html($o_loc); ?></span>
+                                </span>
+                                <span style="margin-left: auto;">
+                                    <a href="<?php the_permalink(); ?>" class="b-btn b-btn--sm b-btn--primary">
+                                        <span>Voir le poste &rarr;</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </article>
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+
+    <!-- CTA Final -->
+    <section class="b-section b-section--tight">
+        <div class="b-container">
+            <div class="b-cta-band">
+                <h2 class="b-title">Vous souhaitez explorer d'autres perspectives ?</h2>
+                <p>Découvrez notre vision de l'ingénierie technologique et la structure de nos divisions.</p>
+                <div class="b-cta-band__actions">
+                    <a href="<?php echo esc_url(home_url('/carriere/')); ?>" class="b-btn b-btn--lg b-btn--on-dark">
+                        <span>Toutes les opportunités</span>
+                        <?php echo byt3lab_icon('arrow-right', 18); ?>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/a-propos/')); ?>" class="b-btn b-btn--lg b-btn--outline-dark">
+                        <span>Découvrir le groupe BYT3LAB</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
-<?php get_footer(); ?>
+<?php
+get_template_part('components/footer/footer');
+get_footer();

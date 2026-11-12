@@ -1,20 +1,7 @@
 <?php
-/*
-Template Name: carriere
-Description: carriere
-*/
-// Assets (CSS/JS) for this page are enqueued by functions.php via wp_enqueue_scripts.
-// Edit pages/carriere.json to add/remove/reorder assets and components.
-get_header();
-?>
+/**
+ * Template Name: carriere
+ * Description: Carrières et recrutement chez BYT3LAB
+ */
 
-<main id="primary" class="site-main">
-
-<?php get_template_part('components/header/header'); ?>
-<?php get_template_part('components/carriere-body/carriere-body'); ?>
-<?php get_template_part('components/footer/footer'); ?>
-
-
-</main>
-
-<?php get_footer(); ?>
+require get_stylesheet_directory() . '/page-carriere.php';
